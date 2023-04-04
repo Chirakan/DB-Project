@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style_main.css" />
+    <link rel="stylesheet" href="detail.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="allEventComponent">
+      <nav>
+        <div class="logo">
+            <a href="">
+                <div class="circle"></div>
+            </a>
+        </div>
+
+        <div class="user" @click="openmenu = !openmenu"><i class="fa-solid fa-user fa-2x"
+                style="color: #2f0297;"></i></div>
+        <div class="sub-menu-wrap" v-show="openmenu == true">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <a href="" v-if="statuslog == true">
+                        <h3><i class="fa-solid fa-user fa"></i>&nbsp;&nbsp;&nbsp;&nbsp; {{user}}</h3>
+                    </a>
+                </div>
+                <hr v-if="statuslog == true">
+                <a href="" class="sub-menu-link" v-if="statuslog == true">
+                    <p v-on:click=" statuslog = !statuslog">Logout</p>
+                </a>
+                <a href="login.html" class="sub-menu-link" v-if="statuslog == false">
+                    <p>Login</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+      <div class="carousel" v-for="events in allevents" v-if="events.carousel === 'true'">
+        <iframe class='ccc' width='100%' height='80%' src='https://www.youtube.com/embed/6Ia6PLUZbCg?autoplay=1&mute=1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe>
+          <div class="framepic_carousel">
+            <img class="poster_carousel" :src="events.poster" />
+          </div>
+          <div>
+            <div class="detailc">
+                    <div class="namec">
+                        <h3>{{events.name}}</h3>
+                    
+                    </div>
+                    <div class="datec">
+                        <p>{{events.date}}</p>
+                    </div>
+                    <div class="locationc">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>{{events.hall}}</h4>
+                    </div>
+                    <p>{{events.description}}</p></div>
+                </div>
+      </div>
+      <div class="cate">
+        <div>
+          <h3
+            class="allBtn"
+            v-bind:class="[page == 'all' ? 'allcancomselecting' : '']"
+            v-on:click="page = 'all'"
+          >
+            ทุกการแสดง
+          </h3>
+        </div>
+        <h3
+          class="canbuyBtn"
+          v-bind:class="[page == 'now' ? 'allcancomselecting' : '']"
+          v-on:click="page = 'now' "
+        >
+          ซื้อบัตร
+        </h3>
+        <h3
+          class="comingBtn"
+          v-bind:class="[page == 'soon' ? 'allcancomselecting' : '']"
+          v-on:click="page = 'soon'"
+        >
+          เร็วๆนี้
+        </h3>
+      </div>
+
+      <hr />
+      <div class="all_concert all_e" v-show="page == 'all'">
+        <div v-for="events in allevents">
+          <div class="card">
+            <div class="framepic">
+              <img class="poster" :src="events.poster" />
+            </div>
+            <div class="detail">
+              <div class="name">
+                <h3>{{events.name}}</h3>
+              </div>
+              <div class="date">
+                <p>{{events.date}}</p>
+              </div>
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>{{events.hall}}</h4>
+              </div>
+            </div>
+            <div class="button_canbuy">
+              <h3>ซื้อบัตร</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="all_concert canbuy" v-show="page == 'now'">
+        <div v-for="events in allevents" v-if="events.status === 'now'">
+          <div class="card">
+            <div class="framepic">
+              <img class="poster" :src="events.poster" />
+            </div>
+            <div class="detail">
+              <div class="name">
+                <h3>{{events.name}}</h3>
+              </div>
+              <div class="date">
+                <p>{{events.date}}</p>
+              </div>
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>{{events.hall}}</h4>
+              </div>
+            </div>
+            <div class="button_canbuy">
+              <h3>ซื้อบัตร</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="all_concert coming" v-show="page == 'soon'">
+        <div v-for="events in allevents" v-if="events.status === 'soon'">
+          <div class="card">
+            <div class="framepic">
+              <img class="poster" :src="events.poster" />
+            </div>
+            <div class="detail">
+              <div class="name">
+                <h3>{{events.name}}</h3>
+              </div>
+              <div class="date">
+                <p>{{events.date}}</p>
+              </div>
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>{{events.hall}}</h4>
+              </div>
+            </div>
+            <div class="button_canbuy">
+              <h3>ซื้อบัตร</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./main.js"></script>
+    
+  </body>
+</html>

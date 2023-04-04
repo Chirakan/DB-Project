@@ -1,0 +1,121 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/Database/css/zone-1.css">
+    <link rel="stylesheet" href="/Database/css/nav.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav>
+            <div class="logo">
+                <a href="">
+                    <div class="circle"></div>
+                </a>
+            </div>
+
+            <div class="user" @click="openmenu = !openmenu"><i class="fa-solid fa-user fa-2x"
+                    style="color: #2f0297;"></i></div>
+            <div class="sub-menu-wrap" v-show="openmenu == true">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <a href="" v-if="statuslog == true">
+                            <h3><i class="fa-solid fa-user fa"></i>&nbsp;&nbsp;&nbsp;&nbsp; {{user}}</h3>
+                        </a>
+                    </div>
+                    <hr v-if="statuslog == true">
+                    <a href="" class="sub-menu-link" v-if="statuslog == true">
+                        <p v-on:click=" statuslog = !statuslog">Logout</p>
+                    </a>
+                    <a href="login.html" class="sub-menu-link" v-if="statuslog == false">
+                        <p>Login</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div id="contrainer">
+            <div id="zone-box">
+                <div class="stage">STAGE</div>
+                <div id="zone-stand">
+                    <a href=""><div class="K1">K1 [standing]</div></a>
+                    <a href=""><div class="K2">K2 [standing]</div></a>
+                </div>
+                <div id="zone-seat-all">
+                    <a href="">
+                        <div id="zone-seat" class="zone-A">
+                            <div class="A"></div>
+                            <div class="A">ZONE A</div>
+                            <div class="A"></div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div id="zone-seat" class="zone-B">
+                            <div class="B"></div>
+                            <div class="B">ZONE B</div>
+                            <div class="B"></div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div id="zone-seat" class="zone-C">
+                            <div class="C"></div>
+                            <div class="C">ZONE C</div>
+                            <div class="C"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div id="rate">
+                <h3>{{name}}</h3>
+                <div class="line"></div>
+                <div id="price">
+                    <div class="stand"></div>
+                    <div class="price-stand">6,000 THB</div>
+                    <div class="seat-A"></div>
+                    <div class="price-A">4,500 THB</div>
+                    <div class="seat-B"></div>
+                    <div class="price-B">2,500 THB</div>
+                    <div class="seat-C"></div>
+                    <div class="price-C">1,500 THB</div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="textfooter">
+                <h2>King Mongkut's Institute of Technology Ladkrabang</h2>
+                <h3>School of Infomation Technology</h3>
+                <h4>DATABASE SYSTEM CONCEPT</h4>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            image: 'image.png',
+            statuslog: true,
+            user: 'Manee',
+            openmenu: false,
+            seat: 999,
+            code_seat: '00000000000',
+            name: 'NAME CONCERT'
+        },
+        methods: {
+        }
+    })
+</script>
+
+</html>

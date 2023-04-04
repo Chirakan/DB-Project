@@ -1,0 +1,130 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel=" preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <title>
+        details
+    </title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="contrainer">
+            <nav>
+                <div class="logo">
+                    <a href="">
+                        <div class="circle"></div>
+                    </a>
+                </div>
+
+                <div class="user" @click="openmenu = !openmenu"><i class="fa-solid fa-user fa-2x"
+                        style="color: #2f0297;"></i></div>
+                <div class="sub-menu-wrap" v-show="openmenu == true">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <a href="" v-if="statuslog == true">
+                                <h3><i class="fa-solid fa-user fa"></i>&nbsp;&nbsp;&nbsp;&nbsp; {{user}}</h3>
+                            </a>
+                        </div>
+                        <hr v-if="statuslog == true">
+                        <a href="../html/main.html" class="sub-menu-link" v-show="statuslog == true"
+                            v-on:click=" statuslog = !statuslog">
+                            <p>Logout</p>
+                        </a>
+                        <a href="../html/login.html" class="sub-menu-link" v-show="statuslog == false"
+                            v-on:click=" statuslog = !statuslog">
+                            <p>Login</p>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <header>
+                <div class="bg">
+                    <img :src="image" alt="" class="background">
+                </div>
+                <div class="box" id="box">
+                    <img class="poster" :src="image" alt="">
+                    <div class="box-detail">
+                        <div class="detail-text">
+                            <h2>นกแก้วกินองุ่น</h2>
+                            <h3><i class="fa-solid fa-location-dot"></i> ในใจ</h3>
+                            <p>description</p>
+                        </div>
+                        <div class="detail-button">
+                            <p class="textseat">ที่นั่งเหลือ : {{seat}} ที่นั่ง</p>
+                            <select name="date-time" id="date" class="select">
+                                <option value="">เวลา 00.00</option>
+                                <option value="">วันจันทร์ ที่ 32 กุม เวลา 10.00</option>
+                                <option value="">วันจันทร์ ที่ 32 กุม เวลา 10.00</option>
+                                <option value="">วันจันทร์ ที่ 32 กุม เวลา 10.00</option>
+                            </select>
+                            <button class="buy-ticket">ซื้อบัตร</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="body">
+                    <div class="box-date" id="box-date">
+                        <p class="textdate">วันจันทร์ ที่ 32 กุม</p>
+                        <p class="btn"> 10.00</p>
+                        <p class="btn-sold"> 10.00</p>
+                        <p class="btn"> 10.00</p>
+                        <p class="textdate">วันจันทร์ ที่ 32 กุม</p>
+                        <p class="btn"> 10.00</p>
+                        <p class="btn"> 10.00</p>
+                        <p class="btn"> 10.00</p>
+                        <p class="textdate">วันจันทร์ ที่ 32 กุม</p>
+                        <p class="btn"> 10.00</p>
+                        <p class="btn-sold"> 10.00</p>
+                        <p class="btn"> 10.00</p>
+                    </div>
+                </div>
+            </header>
+
+            <footer>
+                <div class="textfooter">
+                    <h2>King Mongkut's Institute of Technology Ladkrabang</h2>
+                    <h3>School of Infomation Technology</h3>
+                    <h4>DATABASE SYSTEM CONCEPT</h4>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            image: '../image.png',
+            statuslog: false,
+            user: 'Manee',
+            openmenu: false,
+            seat: 999,
+            images: {
+
+            }
+        },
+        methods: {
+        }
+    })
+</script>
+
+</html>

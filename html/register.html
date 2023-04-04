@@ -1,0 +1,119 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- css -->
+    <link rel="stylesheet" href="/css/register.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel=" preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Register</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <dir class="form">
+                <div class="text">
+                    <h1> Register</h1>
+                </div>
+                <form action="login.html">
+                    <div class="inp">
+                        <i class="fa-solid fa-user" style="color: #2f0297;"></i>
+                        <input type="text" name="username" class="box" placeholder="Username" required
+                            v-model="username">
+                        <p class="textp" v-show="status_user == false">username ต้องอยู่ระหว่าง 1 - 12 ตัวอักษร</p>
+                    </div>
+                    <div class="inp">
+                        <i class="fa-solid fa-lock" style="color: #2f0297;"></i>
+                        <input type="password" name="password" class="box" placeholder="Password" required
+                            v-model="password">
+                        <p class="textp" v-show="status_pass == false">password ต้องมีไม่ต่ำกว่า 9 ตัวอักษร</p>
+                    </div>
+                    <div class="inp">
+                        <i class="fa-solid fa-envelope" style="color: #2f0297;"></i>
+                        <input type="email" name="email" class="box" placeholder="Email" required
+                        v-model="email">
+                    </div>
+                    <div class="inp">
+                        <i class="fa-solid fa-phone" style="color: #2f0297;"></i>
+                        <input type="tel" name="phone" class="box" placeholder="Phone Number" required
+                        v-model="phone">
+                    </div>
+                    <button class="btn" v-on:click="summit()">Register</button>
+                </form>
+                <!-- user <= 12 
+                password >= 9 -->
+            </dir>
+        </div>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            username: '',
+            password: '',
+            status_user: true,
+            status_pass: true,
+            email: '',
+            phone: ''
+        },
+        methods: {
+            summit() {
+                if (this.username != '' && this.password != '' && this.email != '' && this.phone != '' && this.status_user === true && this.status_pass === true){
+                    parent.location = 'login.html';
+                }
+            }
+        },
+        watch: {
+            username(newvalue) {
+                if (newvalue.length > 12) {
+                    return this.status_user = false
+                } else {
+                    this.username = newvalue
+                    if (this.username.length < 1) {
+                        return this.status_user = false
+                    } else {
+                        return this.status_user = true
+                    }
+                }
+            },
+            password(newvalue) {
+                if (newvalue.length < 9) {
+                    return this.status_pass = false
+                } else {
+                    this.password = newvalue
+                    if (this.password.length < 1) {
+                        return this.status_pass = false
+                    } else {
+                        return this.status_pass = true
+                    }
+                }
+            },
+            email(newvalue) {
+                if (newvalue.length != 0) {
+                    return this.email = newvalue
+                }
+            },
+            phone(newvalue) {
+                if (newvalue.length != 0) {
+                    return this.phone = newvalue
+                }
+            },
+        }
+    })
+</script>
+
+</html>

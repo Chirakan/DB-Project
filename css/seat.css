@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    background-color: #000000;
+    display: grid;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+}
+
+#seat-box{
+    width: 700px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.seat {
+    position: relative;
+    overflow: hidden;
+
+}
+
+.checkbox__input {
+    position: absolute;
+    display: none;
+}
+
+.checkbox__inner {
+    display: inline-block;
+    background-color: #ef65cc;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    
+}
+
+.checkbox__input:checked + .checkbox__inner {
+    background-color:  #42129E;
+    background-size: 50px 50px;
+}
+
+
+#rate{
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+#rate h3{
+    margin: 30px 0px 10px 30px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.line{
+    width: 250px;
+    height: 2px;
+    margin: 0px 0px 20px 30px;
+    background-color: #000;
+}
+
+.detail{
+    margin: 30px 0px 10px 30px;
+    font-family: 'Kanit', sans-serif;
+    display: grid;
+    height: 200px;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(6, 1);
+    row-gap: 5px;
+}
+.detail-info{
+    text-align: right;
+    margin-right: 25px;
+}
+.btn{
+    display: grid;
+    margin-top: 50px;
+    height: 50px;
+    grid-template-rows: repeat(2, 1);
+    row-gap: 10px;
+    justify-content: center;
+    
+}
+
+.confirm, .other-zone{
+    font-family: 'Kanit', sans-serif;
+    width: 200px;
+    cursor: pointer;
+}
+
+.confirm{
+    background: linear-gradient(to left, #42129E, #aa46be);
+    height: 30px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+.other-zone{
+    background: none;
+    border: none;
+    color: #B1B1B1;
+}
