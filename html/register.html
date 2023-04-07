@@ -28,7 +28,7 @@
                 <div class="text">
                     <h1> Register</h1>
                 </div>
-                <form action="login.html">
+                <div class="inform">
                     <div class="inp">
                         <i class="fa-solid fa-user" style="color: #2f0297;"></i>
                         <input type="text" name="username" class="box" placeholder="Username" required
@@ -52,7 +52,7 @@
                         v-model="phone">
                     </div>
                     <button class="btn" v-on:click="summit()">Register</button>
-                </form>
+                </div>
                 <!-- user <= 12 
                 password >= 9 -->
             </dir>
@@ -72,13 +72,15 @@
         },
         methods: {
             summit() {
+                // เช็คว่าคีย์ครบและตรงเงื่อนไขไหม
                 if (this.username != '' && this.password != '' && this.email != '' && this.phone != '' && this.status_user === true && this.status_pass === true){
-                    parent.location = 'login.html';
+                    window.location.href = 'login.html';
                 }
             }
         },
         watch: {
             username(newvalue) {
+                //เช็คว่าพิมพ์ user เกิน 12 ตัว ไหม ถ้าเกิน status ขึ้น false
                 if (newvalue.length > 12) {
                     return this.status_user = false
                 } else {
@@ -91,6 +93,7 @@
                 }
             },
             password(newvalue) {
+                //เช็คว่าพิมพ์ pass ถึง 9 ตัว ไหม ถ้าไม่ status ขึ้น false
                 if (newvalue.length < 9) {
                     return this.status_pass = false
                 } else {
@@ -101,17 +104,7 @@
                         return this.status_pass = true
                     }
                 }
-            },
-            email(newvalue) {
-                if (newvalue.length != 0) {
-                    return this.email = newvalue
-                }
-            },
-            phone(newvalue) {
-                if (newvalue.length != 0) {
-                    return this.phone = newvalue
-                }
-            },
+            }
         }
     })
 </script>
