@@ -25,14 +25,14 @@
     <div id="app">
         <div class="container">
             <div class="left">
-                <img :src="image" alt="">
+                <img src="../img/image.png" alt="">
             </div>
             <div class="right">
                 <div class="circle"></div>
                 <div class="text">
                     <h1> Login</h1>
                 </div>
-                <form action="main.html">
+                <div class="form">
                     <div class="inp">
                         <i class="fa-solid fa-user" style="color: #2f0297;"></i>
                         <input type="text" name="username" class="box" placeholder="Enter Username" v-model="username"
@@ -45,7 +45,7 @@
                     </div>
                     <button class="btn" v-on:click="summit()">Login</button>
                     <span class="regs"><a href="register.html"> Register</a></span>
-                </form>
+                </div>
 
             </div>
         </div>
@@ -55,31 +55,32 @@
     const app = new Vue({
         el: '#app',
         data: {
-            image: '../image.png',
             username: '',
             password: '',
+            //ข้อมูลตย.เช็ค
+            info: [
+                {
+                    user: "manee",
+                    pass: "1234"
+                }
+            ]
         },
         methods: {
             summit() {
-                if (this.username != '' && this.password != ''){
-                    parent.location = 'main.html';
+                //เช็คว่า user กับ pass ที่กรอกมาตรงกับข้อมูลที่ตรงไหม
+                if (this.username == this.info[0].user && this.password == this.info[0].pass) {
+                    console.log(this.username)
+                    //บอกว่าให้เปลี่ยนไปหน้า main
+                    window.location.href = 'main.html';
+                    //ถ้าไม่กรอก
+                } else if (this.username == '' && this.password == '') {
+                    alert('กรุณาใส่ข้อมูล')
+                }else{
+                    //ถ้า user ผิด
+                    alert('username หรือ password ผิด')
                 }
             }
         },
-        watch: {
-            username(newvalue) {
-                if (newvalue.length != 0) {
-                    console.log(newvalue)
-                    return this.username = newvalue
-                }
-                console.log(this.username)
-            },
-            password(newvalue) {
-                if (newvalue.length != 0) {
-                    return this.password = newvalue
-                }
-            }
-        }
     })
 </script>
 
