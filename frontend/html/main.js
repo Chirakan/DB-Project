@@ -1,3 +1,6 @@
+
+
+
 var allEventComponent = new Vue({
   el: "#allEventComponent",
   data: {
@@ -9,6 +12,7 @@ var allEventComponent = new Vue({
     openmenu: false,
 
     page: "all",
+    sta_edit: "edited",
     allevents: [
       {
         id: "01",
@@ -119,6 +123,18 @@ var allEventComponent = new Vue({
       
       {
         id: "03"
+      },
+      {
+        id: "01"
+      },
+      {
+        id: "03"
+      },
+      {
+        id: "04"
+      },
+      {
+        id: "05"
       },
 
     ],

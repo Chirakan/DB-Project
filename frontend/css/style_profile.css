@@ -1,17 +1,21 @@
-html{
+/* html{
     padding: 0;
-}
+} */
 
 body{
-    background-color: #ECEEF3;
+    background-color: #1b1b1f;
     margin: 0;
+    color: white;
 }
+
 
 h4,h3,p{
     margin: 0;
     font-family: 'Inter', sans-serif;
     font-family: 'Kanit', sans-serif;
+    font-size: medium;
 }
+
 i{
     font-size: 20px;
 }
@@ -25,7 +29,7 @@ i{
     margin-top: 50px;
     display: grid;
     grid-template-columns: 25% 73%;
-    gap:2%;
+    gap:5%;
 }
 
 .profile_pic{
@@ -37,48 +41,34 @@ i{
 .profile_img{
     border-radius: 1000px;
     width: 100%;
-    box-shadow: 0px 5px 15px rgba(12, 65, 255, 0.1);
+    box-shadow: 0px 5px 15px rgba(255, 12, 12, 0.1);
     
 }
 
-.content{
+.history{
     width: 100%;
     height: auto;
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    margin-top: 20px;
-    box-shadow: 0px 5px 15px rgba(12, 65, 255, 0.1);
+    background: rgba(104, 104, 104, 0.418);
+    box-shadow: 0px 5px 15px rgba(255, 12, 12, 0.1);
+    height: 10.5vw;
+    display: grid;
+    grid-template-columns: 32% 70%;
+    overflow: hidden;
+    gap: 10px;
+    
+    
+    
 }
 .all_his{
     display: grid;
     grid-template-columns: 49% 49%;
-    gap: 1%;
-}
-.history{
-    display: grid;
-    grid-template-columns: 30% 70%;
-    gap: 3%;
-    width: 100%;
-    height: 15vw;
+    gap: 5px;
 }
 
-h3, p{
-    font-family: 'Inter', sans-serif;
-    margin: 10px;
-    font-size: small;
-    
-}
+
 
 .history_detail{
     width: 90%;
-    
-    
-}
-
-.once_his{
-    display: flex;
-    gap: 2px;
 }
 
 .once_his_event{
@@ -94,4 +84,87 @@ h3, p{
 
 .once_his_poster{
     width: 100%;
+}
+
+.zoneseat{
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 2%;
+}
+
+.namehall{
+    width: 100%;
+    height: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.content_2{
+    overflow: scroll;
+    overflow-x: hidden;
+    
+}
+.content_2_his{
+    height: 30vw;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-bottom: 30px;
+    
+    
+}
+
+.btn_editing{
+    border:none;
+    border:solid 1px rgb(255, 255, 255);
+    background-color: transparent;
+    color: white;
+    width: 100%;
+    height: 2vw;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.btn_edited{
+    border:none;
+    background-color: brown;
+    color: white;
+    width: 100%;
+    height: 2vw;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.btn_edited:hover{
+    background-color: rgb(110, 27, 27);
+    border:solid 1px rgb(255, 255, 255);
+}
+
+input{
+    width: 100%;
+    height: 1.8vw;
+    background-color:  #0f0f11;
+    border: white;
+    border-radius: 20px;
+    margin-top: 10px;
+    
+}
+
+.btn_editfin{
+    border:none;
+    background-color: rgb(47, 170, 67);
+    color: white;
+    width: 100%;
+    height: 2vw;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.btn_editfin:hover{
+    border:solid 1px rgb(255, 255, 255);
+    background-color: rgb(37, 134, 53);
+    color: white;
+    width: 100%;
+    height: 2vw;
+    border-radius: 20px;
+    margin-top: 20px;
 }

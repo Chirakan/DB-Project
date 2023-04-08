@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style_profile.css" />
+    <link rel="stylesheet" href="../css/style_profile.css" />
     <link rel="stylesheet" href="detail.css" />
     <title>Document</title>
     <link
@@ -37,49 +37,67 @@
           <div class="user_phone">
             <h3>{{phone}}</h3>
           </div>
+          <button class="btn_edited" v-show="sta_edit == 'edited'" v-on:click="sta_edit = 'editing'">Edit Profile</button>
+          <button class="btn_editing" v-show="sta_edit == 'editing'">Edit Profile</button>
+          <input type="text" placeholder="Name" v-show="sta_edit == 'editing'">
+          <input type="text" placeholder="Phone" v-show="sta_edit == 'editing'">
+          <button class="btn_editfin" v-show="sta_edit == 'editing'" v-on:click="sta_edit = 'edited'">Apply</button>
         </div>
         <div class="content_2">
-          <h3>History</h3>
-          <div class="all_his">
-          <div v-for="history in historys">
-            <div v-for="events in allevents" v-if="events.id === history.id">
-              
-              <div class="history content">
-                <img class="once_his_poster" :src="events.poster" />
-                <div class="history_detail">
-                  <div class="once_his once_his_event">
-                    <div class="once_his event_name">
-                      <h3>Event :</h3>
-                      <p>{{events.name}}</p>
+          <h3>YourMeet</h3>
+          <div class="content_2_his">
+            
+            <div class="all_his">
+              <div v-for="history in historys">
+                <div
+                  v-for="events in allevents"
+                  v-if="events.id === history.id"
+                >
+                  <div class="history">
+                    <img class="once_his_poster" :src="events.poster" />
+                    <div class="history_detail">
+                      <div class="namehall">
+                        <div class="once_his event_name">
+                          <!-- <h3>Event :</h3> -->
+                          <h3>{{events.name}}</h3>
+                        </div>
+
+                        <div class="once_his once_his_hall">
+                          <!-- <h3>Hall :</h3> -->
+                          <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            {{events.hall}}
+                          </p>
+                        </div>
+                      </div>
+
+                      <hr />
+                      <div class="once_his once_his_date_hall">
+                        <h3>Date/Time :</h3>
+                        <p>{{events.date}}</p>
+                      </div>
+                      <div class="zoneseat">
+                        <div class="once_his once_his_zone">
+                          <h3>Zone :</h3>
+                          <p>นกแก้วกินองุ่น</p>
+                        </div>
+                        <div class="once_his once_his_seat">
+                          <h3>Seat(s) :</h3>
+                          <p>นกแก้วกินองุ่น</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="once_his event_total">
-                      <h3>Total :</h3>
-                      <p>{{events.price}}</p>
-                    </div>
-                  </div>
-                  <div class="once_his once_his_hall">
-                    <h3>Hall :</h3>
-                    <p>{{events.hall}}</p>
-                  </div>
-                  <div class="once_his once_his_date_hall">
-                    <h3>Date/Time :</h3>
-                    <p>{{events.date}}</p>
-                  </div>
-                  <div class="once_his once_his_zone">
-                    <h3>Zone :</h3>
-                    <p>นกแก้วกินองุ่น</p>
-                  </div>
-                  <div class="once_his once_his_seat">
-                    <h3>Seat(s) :</h3>
-                    <p>นกแก้วกินองุ่น</p>
+                    <!-- <div class="once_his event_total">
+                    <h3>Total :</h3>
+                    <p>{{events.price}}</p>
+                  </div> -->
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-    
+          <hr>
+          <h3>Calendar</h3>
         </div>
       </div>
     </div>
