@@ -13,6 +13,9 @@ var allEventComponent = new Vue({
 
     page: "all",
     sta_edit: "edited",
+    pop_login: "hide",
+    login: "used",
+    user_status:'anonymous',
     allevents: [
       {
         id: "01",
