@@ -5,7 +5,13 @@
     display: flex;
     gap: 20px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+.menu a{
+    color: hsl(0, 59%, 41%);
+}
+span {
+    color: #eee;
 }
 
 .circle {
