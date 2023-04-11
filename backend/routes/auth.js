@@ -2,7 +2,7 @@ const express = require("express"),
   router = express.Router();
 const db = require("../config/db");
 
-router.get("/user", async function (req, res) {
+router.get("/allUser", async function (req, res) {
   db.query(`SELECT * FROM User`, (error, results) => {
     if (error) {
       throw error;
@@ -25,26 +25,23 @@ router.post("/register", async function (req, res) {
 
   const { address, country, province } = req.body.address;
 
-  let userId;
-
   const createUser = `INSERT INTO User (firstName, lastName, username, email, password, gender, birthday, phoneNumber) VALUES ("${firstName}", "${lastName}", "${username}", "${email}", "${password}", "${gender}", "${birthday}", "${phoneNumber}")`;
 
-  const createAddress = `INSERT INTO Address (address, country, province, user_id) VALUES ("${address}", "${country}", "${province}", "${userId}")`;
-
-  db.query(createUser, (error, results) => {
+  db.query(createUser, (error, results, fields) => {
     if (error) {
       console.log(error);
     } else {
-      const res = results.json();
-      userId = res[0].user.id;
-    }
-  });
+      const createAddress = `INSERT INTO Address (address, country, province, user_id) VALUES ("${address}", "${country}", "${province}", ${results.insertId})`;
 
-  db.query(createAddress, (error, results) => {
-    if (error) {
-      console.log(error);
-    } else {
-      res.json(results);
+      const userId = results.insertId;
+
+      db.query(createAddress, (error, results) => {
+        if (error) {
+          console.log(error);
+        } else {
+          res.send(`Created user ${firstName} with id ${userId}`);
+        }
+      });
     }
   });
 });
