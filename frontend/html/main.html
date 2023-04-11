@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style_main.css" />
     <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/nav_main.css">
     <title>Document</title>
     <link
       rel="stylesheet"
@@ -25,37 +26,14 @@
   <body>
     <div id="allEventComponent">
       <nav>
-        <div class="logo">
-          <a href="">
-            <div class="circle"></div>
-          </a>
-        </div>
+        <div class="whatsthisnavbarhavenaa">
+          <div class="circle">
 
-        <div class="user" @click="openmenu = !openmenu">
-          <i class="fa-solid fa-user fa-2x" style="color: #2f0297"></i>
-        </div>
-        <div class="sub-menu-wrap" v-show="openmenu == true">
-          <div class="sub-menu">
-            <div class="user-info">
-              <a href="" v-if="statuslog == true">
-                <h3>
-                  <i class="fa-solid fa-user fa"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-                  {{user}}
-                </h3>
-              </a>
-            </div>
-            <hr v-if="statuslog == true" />
-            <a href="" class="sub-menu-link" v-if="statuslog == true">
-              <p v-on:click=" statuslog = !statuslog">Logout</p>
-            </a>
-            <a
-              href="login.html"
-              class="sub-menu-link"
-              v-if="statuslog == false"
-            >
-              <p>Login</p>
-            </a>
           </div>
+          <div class="void"></div>
+          <div class="nav_proflie">A</div>
+          <button class="btn_login">เข้าสู่ระบบ</button>
+          
         </div>
       </nav>
       <div
