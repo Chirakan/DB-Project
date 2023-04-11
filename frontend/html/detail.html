@@ -56,48 +56,155 @@
                 </div>
             </nav>
 
-            <header>
-                <div class="bg">
-                    <img :src="image" alt="" class="background">
+            <div class="event-billboard">
+                <div class="bg clear">
+                    <img :src="poster" alt="" class="background">
                 </div>
-                <div class="box" id="box">
-                    <img class="poster" :src="image" alt="">
-                    <div class="box-detail">
-                        <div class="detail-text">
-                            <h2>นกแก้วกินองุ่น</h2>
-                            <h3><i class="fa-solid fa-location-dot"></i> ในใจ</h3>
-                            <p>description</p>
+                <div class="content container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md col-img">
+                            <div class="box-img">
+                                <img :src="poster" alt="" class="poster"/>
+                            </div>
                         </div>
-                        <div class="detail-button">
-                            <p class="textseat">ที่นั่งเหลือ : {{seat}} ที่นั่ง</p>
-                            <select name="date-time" id="date" class="select">
-                                <option value="">เวลา 00.00</option>
-                                <option value="">วันจันทร์ ที่ 32 กุม เวลา 10.00</option>
-                                <option value="">วันจันทร์ ที่ 32 กุม เวลา 10.00</option>
-                                <option value="">วันจันทร์ ที่ 32 กุม เวลา 10.00</option>
-                            </select>
-                            <button class="buy-ticket">ซื้อบัตร</button>
-                        </div>
-                    </div>
-                </div>
+                        <div class="col-12 col-md">
+                            <div class="box-txt">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h1 class="title">{{name}}</h1>
+                                    </div>
+                                </div>
+                                <div class="row row-detail">
+                                    <div class="col-12 col-md">
+                                        <ul class="event-detail-list">
+                                            <li class="item">
+                                                <i class="fa-solid fa-calendar-days"></i> <small>วันที่แสดง</small>
+                                                <p class="txt">
 
-                <div class="body">
-                    <div class="box-date" id="box-date">
-                        <p class="textdate">วันจันทร์ ที่ 32 กุม</p>
-                        <p class="btn"> 10.00</p>
-                        <p class="btn-sold"> 10.00</p>
-                        <p class="btn"> 10.00</p>
-                        <p class="textdate">วันจันทร์ ที่ 32 กุม</p>
-                        <p class="btn"> 10.00</p>
-                        <p class="btn"> 10.00</p>
-                        <p class="btn"> 10.00</p>
-                        <p class="textdate">วันจันทร์ ที่ 32 กุม</p>
-                        <p class="btn"> 10.00</p>
-                        <p class="btn-sold"> 10.00</p>
-                        <p class="btn"> 10.00</p>
+                                                    <span>{{date}}</span>
+                                                </p>
+                                            </li>
+                                            <li class="item">
+                                                <i class="fa-solid fa-location-dot"></i> <small>สถานที่แสดง</small>
+                                                <p class="txt">
+                                                    <span>{{hall}}</span>
+
+                                                </p>
+                                            </li>
+                                            <li class="item">
+                                                <i class="fa-solid fa-clock"></i> <small>ประตูเปิด</small>
+                                                <p class="txt">
+                                                    <span>-</span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-overlay">
+                                        <ul class="event-detail-list">
+                                            <li class="item">
+                                                <i class="fa-solid fa-calendar-days"></i> <small>วัน Pre Sale</small>
+                                                <p class="txt">
+                                                    <span>วันอาทิตย์ที่ 2 เมษายน 2566, 10:00 น.</span>
+                                                </p>
+                                            </li>
+                                            <li class="item">
+                                                <i class="fa-solid fa-coins"></i> <small>ราคาบัตร</small>
+                                                <p class="txt">
+                                                    <span>{{price}}</span>
+                                                </p>
+                                            </li>
+                                            <li class="item">
+                                                <i class="fa-solid fa-ticket"></i> <small>Ticket Status</small>
+                                                <p class="txt">
+                                                    <span class="">
+                                                        <span class="ticket-status">{{status}}</span></span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </header>
+            </div>
+            <div class="box_container">
+                <div class="row_2">
+                    <div class="col-12 col-lg-8">
+                        <article class="event-detail">
+                            <section class="section" id="section-event-round">
+                                <h2 class="head">รอบการแสดง </h2>
+                                <div class="body">
+                                    <!-- EVENT ROUND -->
+                                    <div class="event-detail-item">
+                                        <div class="box-event-list">
+                                            <div class="head">
+                                                <div class="row_2">
+                                                    <div class="col-label col-6"><small>วันที่แสดง</small></div>
+                                                    <div class="col-btn col-6"><small>เวลา</small></div>
+                                                </div>
+                                            </div>
+                                            <div class="body">
+                                                <div class="row_2">
+                                                    <div class="col-label">
+                                                        <div class="date">วันอาทิตย์ที่ 4 มิถุนายน 2566</div>
+                                                    </div>
+                                                    <div class="col-btn" v-show="status === 'now'">
+                                                        <span class="btn-item">
+                                                            <a class="btn" href="zone-1.html" style="background-color: #b40000; cursor: pointer;">
+                                                                <span class="item-show">19:00</span>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-btn" v-show="status === 'out' || status === 'soon'">
+                                                        <span class="btn-item" >
+                                                            <a class="btn" href="" style="background-color: #9e9e9e; cursor: not-allowed;">
+                                                                <span class="item-show">19:00</span>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="row_2">
+                                                    <div class="col-label">
+                                                        <div class="date">วันอาทิตย์ที่ 4 มิถุนายน 2566</div>
+                                                    </div>
+                                                    <div class="col-btn" v-show="status === 'now'">
+                                                        <span class="btn-item">
+                                                            <a class="btn" href="zone-1.html" style="background-color: #b40000; cursor: pointer;">
+                                                                <span class="item-show">19:00</span>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-btn" v-show="status === 'out' || status === 'soon'">
+                                                        <span class="btn-item">
+                                                            <a class="btn" href="" style="background-color: #9e9e9e; cursor: not-allowed;">
+                                                                <span class="item-show">19:00</span>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- / EVENT ROUND  -->
+                                </div>
+                            </section>
+        
+                            <section class="section detail">
+                                <h2 class="head">รายละเอียด</h2>
+                                <div class="body">
+                                    <div style="text-align: center;">
+                                        <div>
+                                            <span class="text_detail" style="font-size:18px;"><strong>{{description}}</strong></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+        
+                        </article>
+                    </div>
+                </div>
+            </div>
 
             <footer>
                 <div class="textfooter">
@@ -113,14 +220,20 @@
     const app = new Vue({
         el: '#app',
         data: {
-            image: '../image.png',
             statuslog: false,
             user: 'Manee',
             openmenu: false,
-            seat: 999,
-            images: {
-
-            }
+            name: "BOWKYLION LANTA CONCERT",
+            price: "2000",
+            date: "18 Fabuary 2023",
+            hall: "ธันเดอร์โดม เมืองทองธานี",
+            status: "now",
+            poster: "../img/poster_01.jpg",
+            description:
+                "“ คนใหม่เขาดูแลอยู่ ” ซิงเกิลที่ 2 จากอิ้งค์ วรันธร ที่สะท้อนความรู้สึกของคนที่ถึงเวลาต้องมูฟออนแล้วโดยเพลงนี้ อิ้งค์ ได้ไอเดียมาจากการที่เพลงช้าของอัลบั้มที่แล้ว มักจะพูดถึงการมูฟออนเป็นวงกลม เหมือนจะลืมแต่ไม่ลืม อยากเริ่มต้นใหม่แต่ก็อยากเริ่มกับคนเดิม แต่เมื่อมาถึงความรู้สึกตอนนี้ ก็อยากจะพูดในมุมมองที่เติบโตและเข้าใจมากขึ้นว่าถึงเวลาต้องปล่อยมือและก้าวออกมา ปล่อยให้คนใหม่เขาดูแลได้แล้ว",
+            carousel: "false",
+            carousellink:
+                "https://www.youtube.com/embed/6Ia6PLUZbCg?autoplay=1&mute=1",
         },
         methods: {
         }
