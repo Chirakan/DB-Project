@@ -1,11 +1,14 @@
-var express = require("express"),
+const express = require("express"),
   router = express.Router();
+const db = require("../config/db");
 
-router.get("/register", function (req, res) {
-  const { username, firstName, lastName, password, email, phoneNumber } =
-    req.body;
-
-  const sqlQuery = `INSERT INTO User ()`;
+router.get("/user", async function (req, res) {
+  db.query(`SELECT * FROM User`, (error, results, fields) => {
+    if (error) {
+      throw error;
+    }
+    res.json(results);
+  });
 });
 
 module.exports = router;
