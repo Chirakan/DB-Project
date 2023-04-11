@@ -3,7 +3,7 @@ const express = require("express"),
 const db = require("../config/db");
 const bcrypt = require("bcrypt");
 
-router.get("/user", async function (req, res) {
+router.get("/user", function (req, res) {
   db.query(`SELECT * FROM User`, (error, results) => {
     if (error) {
       throw error;
@@ -12,7 +12,7 @@ router.get("/user", async function (req, res) {
   });
 });
 
-router.get("/user/:id", async function (req, res) {
+router.get("/user/:id", function (req, res) {
   const { id } = req.params;
 
   db.query(
@@ -30,7 +30,7 @@ router.get("/user/:id", async function (req, res) {
   );
 });
 
-router.post("/register", async function (req, res) {
+router.post("/register", function (req, res) {
   const {
     firstName,
     lastName,
@@ -63,23 +63,22 @@ router.post("/register", async function (req, res) {
     (error, results) => {
       if (error) {
         console.log(error);
-      } else {
-        const createAddress = `INSERT INTO Address (address, country, province, user_id) VALUES (?, ?, ?, ?)`;
-
-        const userId = results.insertId;
-
-        db.query(
-          createAddress,
-          [address, country, province, results.insertId],
-          (error, results) => {
-            if (error) {
-              console.log(error);
-            } else {
-              res.send(`Created user ${firstName} with id ${userId}`);
-            }
-          }
-        );
       }
+      const createAddress = `INSERT INTO Address (address, country, province, user_id) VALUES (?, ?, ?, ?)`;
+
+      const userId = results.insertId;
+
+      db.query(
+        createAddress,
+        [address, country, province, results.insertId],
+        (error, results) => {
+          if (error) {
+            console.log(error);
+          } else {
+            res.send(`Created user ${firstName} with id ${userId}`);
+          }
+        }
+      );
     }
   );
 });
