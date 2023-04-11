@@ -12,7 +12,15 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background-image: linear-gradient(180deg, #f86161 0%, #970202 100%)
+    background-image: linear-gradient(180deg, #f86161 0%, #970202 100%);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 28px;
+    font-family: "Kanit", sans-serif;
+    color: white;
+    font-weight: 300;
 }
 
 .btn_login{
@@ -30,10 +38,22 @@
     background-color: hsl(0, 61%, 27%);
 }
 
-.nav_proflie{
-    
-}
+
 .void{
     flex: 1;
 }
 
+.pop_login{
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    background-color: rgb(58, 58, 58);
+    left: calc(50% - 15vw);
+    top:50%;
+}
+
+form{
+    position: relative;
+    
+}
