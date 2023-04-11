@@ -1,19 +1,12 @@
-.circle {
-    margin-top: 0%;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-image: linear-gradient(180deg, #F861C0 0%, #1F0297 100%)
-}
-
 nav {
     position: sticky;
     z-index: 2;
     top: 0%;
-    background-color: #fff;
+    background-color: #242424;
     width: 100%;
     height: 50px;
-    /* padding: 10px 10%; */
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;

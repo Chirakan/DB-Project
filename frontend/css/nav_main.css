@@ -1,0 +1,39 @@
+.whatsthisnavbarhavenaa{
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-image: linear-gradient(180deg, #f86161 0%, #970202 100%)
+}
+
+.btn_login{
+    height: 40px;
+    border-radius: 20px;
+    width: 150px;
+    font-size: large;
+    font-family: "Kanit", sans-serif;
+    background-color: hsl(0, 59%, 41%);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.btn_login:hover{
+    background-color: hsl(0, 61%, 27%);
+}
+
+.nav_proflie{
+    
+}
+.void{
+    flex: 1;
+}
+
