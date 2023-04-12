@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style_main.css" />
-    <link rel="stylesheet" href="../css/nav.css" />
-    <link rel="stylesheet" href="../css/nav_main.css" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <div id="allEventComponent">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style_main.css" />
+  <link rel="stylesheet" href="../css/nav.css" />
+  <link rel="stylesheet" href="../css/nav_main.css" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div id="allEventComponent">
+    <div class="contrainer">
       <nav>
         <div class="whatsthisnavbarhavenaa">
-          <a href="main.html"><div class="circle"></div></a>
+          <a href="main.html">
+            <div class="circle"></div>
+          </a>
           <div class="void"></div>
           <div class="circle" v-show="user_status == 'logingin'">A</div>
           <button class="btn_login" @click="pop_login = 'show'" v-show="user_status == 'anonymous'">
@@ -36,20 +35,20 @@
         </div>
 
         <div class="pop_login" v-show="pop_login == 'show'" v-bind:class="[login == 'yet' ? 'register' : '']">
-          <div class="btn" @click="pop_login = 'hide'" >
-            <i class="fas fa-times" ></i>
+          <div class="btn" @click="pop_login = 'hide'">
+            <i class="fas fa-times"></i>
           </div>
 
           <div class="pop_login_havewhat">
-            
+
             <div v-show=" login == 'used'">
               <h3>เข้าสู่ระบบ</h3>
               <form>
-                <input type="text" placeholder="ชื่อผู้ใช้" v-model="username" required/>
+                <input type="text" placeholder="ชื่อผู้ใช้" v-model="username" required />
                 <p class="textp" v-show="check_account_user == false">username ต้องอยู่ระหว่าง 1 - 12 ตัวอักษร</p>
                 <br />
-                
-                <input type="text" placeholder="รหัสผ่าน" v-model="password" required/>
+
+                <input type="text" placeholder="รหัสผ่าน" v-model="password" required />
                 <p class="textp" v-show="check_account_pass == false">password ต้องมีไม่ต่ำกว่า 9 ตัวอักษร</p><br />
               </form>
               <button class="btn btn_login" v-on:click="summit()">เข้าสู่ระบบ</button>
@@ -67,7 +66,7 @@
                   <option value="mercedes">Mercedes</option>
                   <option value="audi">Audi</option>
                 </select> <br>
-                
+
                 <select name="day" id="day">
                   <option value="null">วัน</option>
                   <option value="volvo">Volvo</option>
@@ -90,7 +89,7 @@
                   <option value="audi">Audi</option>
                 </select> <br>
                 <input type="text" placeholder="เบอร์โทรศัพท์" /><br />
-                
+
                 <input type="textarea" placeholder="ที่อยู่" /><br />
                 <select name="country" id="country">
                   <option value="null">ประเทศ</option>
@@ -113,7 +112,7 @@
                   <option value="mercedes">Mercedes</option>
                   <option value="audi">Audi</option>
                 </select> <br>
-                
+
               </form>
               <button class="btn btn_login" @click="login = 'used'">สมัครสมาชิก</button>
               <h4 @click="login = 'used'">มีบัญชีผู้ใช้อยู่แล้ว</h4>
@@ -121,21 +120,11 @@
           </div>
         </div>
       </nav>
-      <div
-        class="carousel"
-        v-for="events in allevents"
-        v-if="events.carousel === 'true'"
-      >
-        <iframe
-          class="ccc"
-          width="100%"
-          height="80%"
-          src="https://www.youtube.com/embed/6Ia6PLUZbCg?autoplay=1&mute=1"
-          title="YouTube video player"
-          frameborder="0"
+      <div class="carousel" v-for="events in allevents" v-if="events.carousel === 'true'">
+        <iframe class="ccc" width="100%" height="80%" src="https://www.youtube.com/embed/6Ia6PLUZbCg?autoplay=1&mute=1"
+          title="YouTube video player" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+          allowfullscreen></iframe>
         <div class="framepic_carousel">
           <img class="poster_carousel" :src="events.poster" />
         </div>
@@ -158,26 +147,14 @@
 
       <div class="cate">
         <div>
-          <h3
-            class="allBtn"
-            v-bind:class="[page == 'all' ? 'allcancomselecting' : '']"
-            v-on:click="page = 'all'"
-          >
+          <h3 class="allBtn" v-bind:class="[page == 'all' ? 'allcancomselecting' : '']" v-on:click="page = 'all'">
             ทุกการแสดง
           </h3>
         </div>
-        <h3
-          class="canbuyBtn"
-          v-bind:class="[page == 'now' ? 'allcancomselecting' : '']"
-          v-on:click="page = 'now' "
-        >
+        <h3 class="canbuyBtn" v-bind:class="[page == 'now' ? 'allcancomselecting' : '']" v-on:click="page = 'now' ">
           ซื้อบัตร
         </h3>
-        <h3
-          class="comingBtn"
-          v-bind:class="[page == 'soon' ? 'allcancomselecting' : '']"
-          v-on:click="page = 'soon'"
-        >
+        <h3 class="comingBtn" v-bind:class="[page == 'soon' ? 'allcancomselecting' : '']" v-on:click="page = 'soon'">
           เร็วๆนี้
         </h3>
         <div class="filterfunc">
@@ -265,14 +242,20 @@
           </div>
         </div>
       </div>
+      <footer>
+        <div class="textfooter">
+          <h2>King Mongkut's Institute of Technology Ladkrabang</h2>
+          <h3>School of Infomation Technology</h3>
+          <h4>DATABASE SYSTEM CONCEPT</h4>
+        </div>
+      </footer>
     </div>
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="./main.js">
-      
-    </script>
-  </body>
+  </div>
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="./main.js">
+
+  </script>
+</body>
+
 </html>

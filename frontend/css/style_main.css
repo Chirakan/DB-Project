@@ -7,6 +7,12 @@ body {
   margin: 0;
 }
 
+.contrainer {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 h3,
 p,
 h4 {

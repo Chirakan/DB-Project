@@ -26,10 +26,10 @@ var allEventComponent = new Vue({
 
     info: [
       {
-          user: "manee",
-          pass: "1234"
+        user: "manee",
+        pass: "1234"
       }
-  ],
+    ],
 
     check_account_user: null,
     check_account_pass: null,
@@ -162,16 +162,22 @@ var allEventComponent = new Vue({
     summit() {
       //เช็คว่า user กับ pass ที่กรอกมาตรงกับข้อมูลที่ตรงไหม
       if (this.username == this.info[0].user && this.password == this.info[0].pass) {
-          console.log(this.username)
-          //บอกว่าให้เปลี่ยนไปหน้า main
-          return this.pop_login = 'hide' ,this.user_status = 'logingin'
-          //ถ้าไม่กรอก
+        console.log(this.username)
+        //บอกว่าให้เปลี่ยนไปหน้า main
+        return this.pop_login = 'hide', this.user_status = 'logingin'
+        //ถ้าไม่กรอก
       } else if (this.username == '' && this.password == '') {
-          alert('กรุณาใส่ข้อมูล')
-      }else{
-          //ถ้า user ผิด
-          alert('username หรือ password ผิด')
+        alert('กรุณาใส่ข้อมูล')
+      } else {
+        //ถ้า user ผิด
+        alert('username หรือ password ผิด')
       }
-  }
+    }, buy() {
+      if (this.user_status === 'anonymous') {
+        this.pop_login = 'show'
+      } else {
+        window.location.href = 'zone-1.html';
+      }
+    }
   },
 });
