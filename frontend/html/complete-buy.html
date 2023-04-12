@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/complete-buy.css">
     <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/nav_main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link
@@ -19,31 +20,12 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="allEventComponent">
         <nav>
-            <div class="logo">
-                <a href="">
-                    <div class="circle"></div>
-                </a>
-            </div>
-
-            <div class="user" @click="openmenu = !openmenu"><i class="fa-solid fa-user fa-2x"
-                    style="color: #2f0297;"></i></div>
-            <div class="sub-menu-wrap" v-show="openmenu == true">
-                <div class="sub-menu">
-                    <div class="user-info">
-                        <a href="" v-if="statuslog == true">
-                            <h3><i class="fa-solid fa-user fa"></i>&nbsp;&nbsp;&nbsp;&nbsp; {{user}}</h3>
-                        </a>
-                    </div>
-                    <hr v-if="statuslog == true">
-                    <a href="" class="sub-menu-link" v-if="statuslog == true">
-                        <p v-on:click=" statuslog = !statuslog">Logout</p>
-                    </a>
-                    <a href="login.html" class="sub-menu-link" v-if="statuslog == false">
-                        <p>Login</p>
-                    </a>
-                </div>
+            <div class="whatsthisnavbarhavenaa">
+                <a href="main.html"><div class="circle"></div></a>
+                <div class="void"></div>
+                <div class="circle" >A</div>
             </div>
         </nav>
         <div id="container">
@@ -56,7 +38,7 @@
                 </div>
                 <div class="text1">การสั่งซื้อสำเร็จ</div>
                 <div class="text2">รหัสสั่งซื้อ : {{code_seat}}</div>
-                <a href=""><button class="text3">กลับหน้าหลัก</button></a>
+                <a href="main.html"><button class="text3">กลับหน้าหลัก</button></a>
             </div>
         </div>
         <footer>
@@ -68,21 +50,6 @@
         </footer>
     </div>
 </body>
-
-<script>
-    const app = new Vue({
-        el: '#app',
-        data: {
-            image: 'image.png',
-            statuslog: true,
-            user: 'Manee',
-            openmenu: false,
-            seat: 999,
-            code_seat: '00000000000',
-        },
-        methods: {
-        }
-    })
-</script>
+<script src="./main.js"></script>
 
 </html>

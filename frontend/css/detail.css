@@ -184,12 +184,12 @@ span .ticket-status{
   align-items: center;
 }
 
-.btn{
+.button{
   display: inline-block;
   font-family: "Poppins","Prompt",sans-serif;
 }
 
-.btn {
+.button {
   /* background: #b40000; */
   font-size: 16px;
   color: #fff;

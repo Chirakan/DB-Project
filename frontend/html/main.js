@@ -8,6 +8,13 @@ var allEventComponent = new Vue({
     dis: "../img/profile.png",
     openmenu: false,
 
+    seat_empty: 20,
+    zone: "A",
+    status: "AVAILABLE",
+    seat: 1,
+    num_seat: '000',
+    code_seat: '00000000000',
+
     page: "all",
     sta_edit: "edited",
     pop_login: "hide",

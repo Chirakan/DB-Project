@@ -27,7 +27,7 @@
     <div id="allEventComponent">
       <nav>
         <div class="whatsthisnavbarhavenaa">
-          <div class="circle"></div>
+          <a href="main.html"><div class="circle"></div></a>
           <div class="void"></div>
           <div class="circle" v-show="user_status == 'logingin'">A</div>
           <button class="btn_login" @click="pop_login = 'show'" v-show="user_status == 'anonymous'">
@@ -205,9 +205,11 @@
                 <h4>{{events.hall}}</h4>
               </div>
             </div>
-            <div class="button_canbuy">
-              <h3>ซื้อบัตร</h3>
-            </div>
+            <a href="detail.html">
+              <div class="button_canbuy">
+                <h3>ซื้อบัตร</h3>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -229,9 +231,11 @@
                 <h4>{{events.hall}}</h4>
               </div>
             </div>
-            <div class="button_canbuy">
-              <h3>ซื้อบัตร</h3>
-            </div>
+            <a href="detail.html">
+              <div class="button_canbuy">
+                <h3>ซื้อบัตร</h3>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -253,9 +257,11 @@
                 <h4>{{events.hall}}</h4>
               </div>
             </div>
-            <div class="button_canbuy">
-              <h3>ซื้อบัตร</h3>
-            </div>
+            <a href="detail.html">
+              <div class="button_canbuy">
+                <h3>ซื้อบัตร</h3>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -265,6 +271,8 @@
       src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="./main.js"></script>
+    <script src="./main.js">
+      
+    </script>
   </body>
 </html>

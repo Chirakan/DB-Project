@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/zone-2.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/navbar_buy.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,14 +20,14 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="allEventComponent">
         <nav>
             <div class="whatsthisnavbarhavenaa">
-                <div class="circle"></div>
+                <a href="main.html"><div class="circle"></div></a>
                 <div class="menu">
                     <a href="main.html" class="nav-color"> หน้าแรก</a>
                     <span>&nbsp;&nbsp;&nbsp;&gt;</span>
-                    <a href="zone-1.html" class="nav-color"> &nbsp; เลือกรอบการแสดง</a>
+                    <a href="zone-2.html" class="nav-color"> &nbsp; เลือกรอบการแสดง</a>
                     <span>&nbsp;&nbsp;&nbsp;&gt;</span>
                     <a style="color: #eee; cursor: context-menu;"> &nbsp; การสั่งซื้อ </a>
                 </div>
@@ -35,57 +35,63 @@
                 <div class="circle">A</div>
                 <button class="btn_login">เข้าสู่ระบบ</button>
             </div>
-
-            <!-- <div class="pop_login">
-                <div></div>
-                <div class="form">
-                    <div class="inp">
-                        <i class="fa-solid fa-user" style="color: #2f0297"></i>
-                        <input type="text" name="username" class="box" placeholder="Enter Username"
-                            v-model="username" required />
-                    </div>
-                    <div class="inp">
-                        <i class="fa-solid fa-lock" style="color: #2f0297"></i>
-                        <input type="password" name="password" class="box" placeholder="Enter password"
-                            v-model="password" required />
-                    </div>
-                    <button class="btn" v-on:click="summit()">Login</button>
-                    <span class="regs"><a href="register.html"> Register</a></span>
-                </div>
-            </div> -->
         </nav>
         <div id="container">
             <div id="zone-box">
                 <div class="stage">STAGE</div>
                 <div id="all">
                     <div id="zone-a">
-                        <a href=""><div class="level-4"></div></a>
+                        <a href="seat.html">
+                            <div class="level-4"></div>
+                        </a>
                         <div class="level-3">
-                            <a href=""><div class="level-3-1"></div></a>
-                            <a href=""><div class="level-3-2">S2 [seat]</div></a>
+                            <a href="seat.html">
+                                <div class="level-3-1"></div>
+                            </a>
+                            <a href="seat.html">
+                                <div class="level-3-2">S2 [seat]</div>
+                            </a>
                         </div>
                         <div class="center">
                             <div id="zone-stand">
                                 <div class="K">
-                                    <a href=""><div class="K1">K1 [standing]</div></a>
-                                    <a href=""><div class="K2">K2 [standing]</div></a>
+                                    <a href="seat.html">
+                                        <div class="K1">K1 [standing]</div>
+                                    </a>
+                                    <a href="seat.html">
+                                        <div class="K2">K2 [standing]</div>
+                                    </a>
                                 </div>
-                                <a href=""><div class="P"> P [standing]</div></a>
+                                <a href="seat.html">
+                                    <div class="P"> P [standing]</div>
+                                </a>
                             </div>
-                            <a href=""><div class="level-3-center">S1 [seat]</div></a>
+                            <a href="seat.html">
+                                <div class="level-3-center">S1 [seat]</div>
+                            </a>
                         </div>
                         <div class="level-3">
-                            <a href=""><div class="level-3-1"></div></a>
-                            <a href=""><div class="level-3-2">S2 [seat]</div></a>
+                            <a href="seat.html">
+                                <div class="level-3-1"></div>
+                            </a>
+                            <a href="seat.html">
+                                <div class="level-3-2">S2 [seat]</div>
+                            </a>
                         </div>
-                        <a href=""><div class="level-4"></div></a>
+                        <a href="seat.html">
+                            <div class="level-4"></div>
+                        </a>
                     </div>
-                    <a href=""><div id="zone-b" class="level-4-center">O [seat]</div></a>
-                    <a href=""><div id="zone-c" class="level-4-out"></div></a>
+                    <a href="seat.html">
+                        <div id="zone-b" class="level-4-center">O [seat]</div>
+                    </a>
+                    <a href="seat.html">
+                        <div id="zone-c" class="level-4-out"></div>
+                    </a>
                 </div>
             </div>
             <div id="rate">
-                <h3>{{name}}</h3>
+                <h3>{{allevents[0].name}}</h3>
                 <div class="line"></div>
                 <div class="date-seat">
                     <select id="date">
@@ -153,23 +159,9 @@
         </footer>
     </div>
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="./main.js"></script>
 <script>
-    const app = new Vue({
-        el: '#app',
-        data: {
-            image: 'image.png',
-            statuslog: true,
-            user: 'Manee',
-            openmenu: false,
-            seat: 999,
-            code_seat: '00000000000',
-            name: 'NAME CONCERT',
-            seat_empty: 20
-        },
-        methods: {
-        }
-    })
     // Get the modal
     var modal = document.getElementById("Mypopup");
 
