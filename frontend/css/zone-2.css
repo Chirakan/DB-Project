@@ -296,3 +296,115 @@ a{
     text-decoration: none;
     color: white;
 }
+
+
+.date-seat {
+  margin: 0 0 20px 30px;
+}
+
+select {
+  width: 130px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  text-align: center;
+
+}
+
+.seat-sn {
+  border: none;
+  background-color: brown;
+  width: 80px;
+  padding: 5px;
+  margin-left: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.popup-zone {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 350;
+  height: 420px;
+  font-size: 20px;
+
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  animation-name: animatetop;
+  animation-duration: 0.5s
+}
+.popup-zone p{
+  margin-top: 10px;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+th,td{
+  font-weight: normal;
+  width: 200;
+  text-align: center;
+  height: 35;
+  border-bottom: 2px solid black;
+}
+
+.zone-other {
+  display: flex;
+  font-size: 16px;
+  margin-top: 15px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-change{
+  border: 2px solid brown;
+  border-radius: 10px;
+  padding: 5px 15;
+  background-color: #ffffff;
+  color: brown;
+  cursor: pointer;
+  margin-left: 0;
+  margin-top: 20;
+}
+
+@keyframes animatetop {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}

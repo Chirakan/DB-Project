@@ -94,13 +94,12 @@
                 <div class="line"></div>
                 <div class="date-seat">
                     <select id="date">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
+                        <option value="0">เลือกรอบการแสดง</option>
+                        <option value="1">Sat 27 May 2023 19.00</option>
+                        <option value="2">Sun 28 May 2023 19.00</option>
                     </select>
                     <button id="seat-sn" class="seat-sn">ที่นั่งว่าง</button>
-                    <div id="popup" class="popup">
+                    <div id="Mypopup" class="popup">
                         <div class="popup-zone">
                             <span class="close">&times;</span>
                             <p>โซนที่นั่ง</p>
@@ -111,7 +110,7 @@
                                 </tr>
                                 <tr>
                                     <td>K1</td>
-                                    <td id="myNumber"></td>
+                                    <td>{{seat_empty}}</td>
                                 </tr>
                                 <tr>
                                     <td>K2</td>
@@ -130,7 +129,7 @@
                                     <td>{{seat_empty}}</td>
                                 </tr>
                             </table>
-                            <button class="btn-change">โหลดใหม่</button>
+                            <button class="btn-change" onclick="refreshmodal()">โหลดใหม่</button>
                         </div>
                     </div>
                 </div>
@@ -173,7 +172,7 @@
         }
     })
     // Get the modal
-    var modal = document.getElementById("popup");
+    var modal = document.getElementById("Mypopup");
 
     // Get the button that opens the modal
     var btn = document.getElementById("seat-sn");
@@ -183,27 +182,30 @@
 
     // When the user clicks the button, open the modal 
     btn.onclick = function () {
-        popup.style.display = "block";
+        Mypopup.style.display = "block";
         document.body.style.overflow = 'hidden';
 
     }
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
-        popup.style.display = "none";
+        Mypopup.style.display = "none";
         document.body.style.overflow = 'auto';
-
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
-            popup.style.display = "none";
+            Mypopup.style.display = "none";
 
         }
     }
-    let x = Math.random()
-    document.getElementById("myNumber").innerHTML = x;
+
+    //refresh page (not only popup)
+    function refreshmodal() {
+        location.reload();
+    }
+
 </script>
 
 </html>

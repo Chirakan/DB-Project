@@ -77,7 +77,7 @@ body {
   border-radius: 10px;
   color: #ffffff;
   font-size: 14px;
-  box-shadow: 2px 3px 10px 5px rgba(201, 128, 227, 0.2);
+ 
 }
 
 .zone-B,
@@ -87,26 +87,26 @@ body {
 
 .K1,
 .K2 {
-  background-color: #ef65cc;
+  background-color: #C6B3A8;
   width: 280px;
   height: 40px;
 }
 
 .A {
-  background-color: #D200A3;
+  background-color: #9A7263;
   width: 200px;
   height: 50px;
 
 }
 
 .B {
-  background-color: #aa46be;
+  background-color: #743835;
   width: 200px;
   height: 80px;
 }
 
 .C {
-  background-color: #4c1989;
+  background-color: #6D2121;
   width: 200px;
   height: 100px;
 }
@@ -131,11 +131,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #ffffff;
   width: 630px;
   height: 50px;
   border-radius: 10px;
-  box-shadow: 2px 3px 10px 5px rgba(201, 128, 227, 0.2);
 }
 
 
@@ -166,19 +165,19 @@ body {
 }
 
 .stand {
-  background-color: #ef65cc;
+  background-color: #C6B3A8;
 }
 
 .seat-A {
-  background-color: #D200A3;
+  background-color: #9A7263;
 }
 
 .seat-B {
-  background-color: #aa46be;
+  background-color: #743835;
 }
 
 .seat-C {
-  background-color: #4c1989;
+  background-color: #6D2121;
 }
 
 .line {
@@ -201,17 +200,15 @@ select {
   border: 2px solid #000;
   border-radius: 5px;
   text-align: center;
-}
 
-button {
-  margin-left: 20px;
 }
 
 .seat-sn {
   border: none;
-  background: linear-gradient(to right, #e515a0, #7210a0);
+  background-color: brown;
   width: 80px;
   padding: 5px;
+  margin-left: 20px;
   border-radius: 20px;
   cursor: pointer;
   color: #ffffff;
@@ -235,8 +232,8 @@ button {
   margin: auto;
   padding: 20px;
   border-radius: 10px;
-  width: 30%;
-  height: 450px;
+  width: 350;
+  height: 420px;
   font-size: 20px;
 
   text-align: center;
@@ -285,11 +282,11 @@ th,td{
 }
 
 .btn-change{
-  border: 2px solid #e515a0;
+  border: 2px solid brown;
   border-radius: 10px;
   padding: 5px 15;
   background-color: #ffffff;
-  color: #e515a0;
+  color: brown;
   cursor: pointer;
   margin-left: 0;
   margin-top: 20;
