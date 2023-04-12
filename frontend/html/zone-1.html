@@ -11,6 +11,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../css/zone-1.css">
     <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/navbar_buy.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
@@ -21,37 +22,48 @@
 <body>
     <div id="app">
         <nav>
-            <div class="logo">
-                <a href="">
-                    <div class="circle"></div>
-                </a>
+            <div class="whatsthisnavbarhavenaa">
+                <div class="circle"></div>
+                <div class="menu">
+                    <a href="main.html" class="nav-color"> หน้าแรก</a>
+                    <span>&nbsp;&nbsp;&nbsp;&gt;</span>
+                    <a href="zone-1.html" class="nav-color"> &nbsp; เลือกรอบการแสดง</a>
+                    <span>&nbsp;&nbsp;&nbsp;&gt;</span>
+                    <a style="color: #eee; cursor: context-menu;"> &nbsp; การสั่งซื้อ </a>
+                </div>
+                <div class="void"></div>
+                <div class="circle">A</div>
+                <button class="btn_login">เข้าสู่ระบบ</button>
             </div>
 
-            <div class="user" @click="openmenu = !openmenu"><i class="fa-solid fa-user fa-2x"
-                    style="color: #2f0297;"></i></div>
-            <div class="sub-menu-wrap" v-show="openmenu == true">
-                <div class="sub-menu">
-                    <div class="user-info">
-                        <a href="" v-if="statuslog == true">
-                            <h3><i class="fa-solid fa-user fa"></i>&nbsp;&nbsp;&nbsp;&nbsp; {{user}}</h3>
-                        </a>
+            <!-- <div class="pop_login">
+                <div></div>
+                <div class="form">
+                    <div class="inp">
+                        <i class="fa-solid fa-user" style="color: #2f0297"></i>
+                        <input type="text" name="username" class="box" placeholder="Enter Username"
+                            v-model="username" required />
                     </div>
-                    <hr v-if="statuslog == true">
-                    <a href="" class="sub-menu-link" v-if="statuslog == true">
-                        <p v-on:click=" statuslog = !statuslog">Logout</p>
-                    </a>
-                    <a href="login.html" class="sub-menu-link" v-if="statuslog == false">
-                        <p>Login</p>
-                    </a>
+                    <div class="inp">
+                        <i class="fa-solid fa-lock" style="color: #2f0297"></i>
+                        <input type="password" name="password" class="box" placeholder="Enter password"
+                            v-model="password" required />
+                    </div>
+                    <button class="btn" v-on:click="summit()">Login</button>
+                    <span class="regs"><a href="register.html"> Register</a></span>
                 </div>
-            </div>
+            </div> -->
         </nav>
         <div id="contrainer">
             <div id="zone-box">
                 <div class="stage">STAGE</div>
                 <div id="zone-stand">
-                    <a href=""><div class="K1">K1 [standing]</div></a>
-                    <a href=""><div class="K2">K2 [standing]</div></a>
+                    <a href="">
+                        <div class="K1">K1 [standing]</div>
+                    </a>
+                    <a href="">
+                        <div class="K2">K2 [standing]</div>
+                    </a>
                 </div>
                 <div id="zone-seat-all">
                     <a href="">
@@ -80,6 +92,47 @@
             <div id="rate">
                 <h3>{{name}}</h3>
                 <div class="line"></div>
+                <div class="date-seat">
+                    <select id="date">
+                        <option value="0">เลือกรอบการแสดง</option>
+                        <option value="1">Sat 27 May 2023 19.00</option>
+                        <option value="2">Sun 28 May 2023 19.00</option>
+                    </select>
+                    <button id="seat-sn" class="seat-sn">ที่นั่งว่าง</button>
+                    <div id="Mypopup" class="popup">
+                        <div class="popup-zone">
+                            <span class="close">&times;</span>
+                            <p>โซนที่นั่ง</p>
+                            <table class="zone-other">
+                                <tr>
+                                    <th>โซนที่นั่ง</th>
+                                    <th>ที่นั่งว่าง</th>
+                                </tr>
+                                <tr>
+                                    <td>K1</td>
+                                    <td>{{seat_empty}}</td>
+                                </tr>
+                                <tr>
+                                    <td>K2</td>
+                                    <td>{{seat_empty}}</td>
+                                </tr>
+                                <tr>
+                                    <td>ZONE A</td>
+                                    <td>{{seat_empty}}</td>
+                                </tr>
+                                <tr>
+                                    <td>ZONE B</td>
+                                    <td>{{seat_empty}}</td>
+                                </tr>
+                                <tr>
+                                    <td>ZONE C</td>
+                                    <td>{{seat_empty}}</td>
+                                </tr>
+                            </table>
+                            <button class="btn-change" onclick="refreshmodal()">โหลดใหม่</button>
+                        </div>
+                    </div>
+                </div>
                 <div id="price">
                     <div class="stand"></div>
                     <div class="price-stand">6,000 THB</div>
@@ -91,6 +144,7 @@
                     <div class="price-C">1,500 THB</div>
                 </div>
             </div>
+
         </div>
         <footer>
             <div class="textfooter">
@@ -111,11 +165,47 @@
             openmenu: false,
             seat: 999,
             code_seat: '00000000000',
-            name: 'NAME CONCERT'
+            name: 'NAME CONCERT',
+            seat_empty: 20
         },
         methods: {
         }
     })
+    // Get the modal
+    var modal = document.getElementById("Mypopup");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("seat-sn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        Mypopup.style.display = "block";
+        document.body.style.overflow = 'hidden';
+
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        Mypopup.style.display = "none";
+        document.body.style.overflow = 'auto';
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            Mypopup.style.display = "none";
+
+        }
+    }
+
+    //refresh page (not only popup)
+    function refreshmodal() {
+        location.reload();
+    }
+
 </script>
 
 </html>
