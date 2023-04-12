@@ -29,37 +29,91 @@
         <div class="whatsthisnavbarhavenaa">
           <div class="circle"></div>
           <div class="void"></div>
-          <div class="circle">A</div>
-          <button class="btn_login">เข้าสู่ระบบ</button>
+          <div class="circle" v-show="user_status == 'logingin'">A</div>
+          <button class="btn_login" @click="pop_login = 'show'" v-show="user_status == 'anonymous'">
+            เข้าสู่ระบบ
+          </button>
         </div>
 
-        <div class="pop_login">
-          <div></div>
-          <div class="form">
-            <div class="inp">
-              <i class="fa-solid fa-user" style="color: #2f0297"></i>
-              <input
-                type="text"
-                name="username"
-                class="box"
-                placeholder="Enter Username"
-                v-model="username"
-                required
-              />
+        <div class="pop_login" v-show="pop_login == 'show'" v-bind:class="[login == 'yet' ? 'register' : '']">
+          <div class="btn" @click="pop_login = 'hide'" >
+            <i class="fas fa-times" ></i>
+          </div>
+
+          <div class="pop_login_havewhat">
+            
+            <div v-show=" login == 'used'">
+              <h3>เข้าสู่ระบบ</h3>
+              <form>
+                <input type="text" placeholder="ชื่อผู้ใช้" /><br />
+                <input type="text" placeholder="รหัสผ่าน" /><br />
+              </form>
+              <button class="btn btn_login" @click="user_status = 'logingin',pop_login = 'hide'">เข้าสู่ระบบ</button>
+              <h4 @click="login = 'yet'">สมัครสมาชิก</h4>
             </div>
-            <div class="inp">
-              <i class="fa-solid fa-lock" style="color: #2f0297"></i>
-              <input
-                type="password"
-                name="password"
-                class="box"
-                placeholder="Enter password"
-                v-model="password"
-                required
-              />
+            <div v-show=" login == 'yet'">
+              <h3>สมัครสมาชิก</h3>
+              <form>
+                <input type="text" placeholder="ชื่อ" /><br />
+                <input type="text" placeholder="นามสกุล" /><br />
+                <select name="gender" id="gender">
+                  <option value="null">เพศ</option>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select> <br>
+                
+                <select name="day" id="day">
+                  <option value="null">วัน</option>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+                <select name="month" id="month">
+                  <option value="null">เดือน</option>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+                <select name="year" id="year">
+                  <option value="null">ปี</option>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select> <br>
+                <input type="text" placeholder="เบอร์โทรศัพท์" /><br />
+                
+                <input type="textarea" placeholder="ที่อยู่" /><br />
+                <select name="country" id="country">
+                  <option value="null">ประเทศ</option>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select> <br>
+                <select name="province" id="province">
+                  <option value="null">จังหวัด</option>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select> <br>
+                <select name="state" id="state">
+                  <option value="null">อำเภอ</option>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select> <br>
+                
+              </form>
+              <button class="btn btn_login" @click="login = 'used'">สมัครสมาชิก</button>
+              <h4 @click="login = 'used'">มีบัญชีผู้ใช้อยู่แล้ว</h4>
             </div>
-            <button class="btn" v-on:click="summit()">Login</button>
-            <span class="regs"><a href="register.html"> Register</a></span>
           </div>
         </div>
       </nav>
