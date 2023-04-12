@@ -143,3 +143,7 @@ select{
 .pop_login_havewhat .btn_login:hover{
     background-color: hsl(0, 0%, 13%);
 }
+
+a{
+    text-decoration: none;
+}

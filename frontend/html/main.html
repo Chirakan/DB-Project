@@ -28,7 +28,7 @@
             <div class="circle"></div>
           </a>
           <div class="void"></div>
-          <div class="circle" v-show="user_status == 'logingin'">A</div>
+          <a href="profile.html"><div class="circle" v-show="user_status == 'logingin'">A</div></a>
           <button class="btn_login" @click="pop_login = 'show'" v-show="user_status == 'anonymous'">
             เข้าสู่ระบบ
           </button>
@@ -157,15 +157,16 @@
         <h3 class="comingBtn" v-bind:class="[page == 'soon' ? 'allcancomselecting' : '']" v-on:click="page = 'soon'">
           เร็วๆนี้
         </h3>
+        <!-- search -->
         <div class="filterfunc">
           <i class="fas fa-search"></i>
-          <input type="text" class="filter" />
+          <input type="text" class="filter" v-model="searchName"/>
         </div>
       </div>
 
       <hr />
       <div class="all_concert all_e" v-show="page == 'all'">
-        <div v-for="events in allevents">
+        <div v-for="events in newData">
           <div class="card">
             <div class="framepic">
               <img class="poster" :src="events.poster" />
@@ -191,7 +192,7 @@
         </div>
       </div>
       <div class="all_concert canbuy" v-show="page == 'now'">
-        <div v-for="events in allevents" v-if="events.status === 'now'">
+        <div v-for="events in newData" v-if="events.status === 'now'">
           <div class="card">
             <div class="framepic">
               <img class="poster" :src="events.poster" />
@@ -217,7 +218,7 @@
         </div>
       </div>
       <div class="all_concert coming" v-show="page == 'soon'">
-        <div v-for="events in allevents" v-if="events.status === 'soon'">
+        <div v-for="events in newData" v-if="events.status === 'soon'">
           <div class="card">
             <div class="framepic">
               <img class="poster" :src="events.poster" />

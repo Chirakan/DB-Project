@@ -1,111 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style_profile.css" />
-    <link rel="stylesheet" href="detail.css" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="allEventComponent">
-      <div id="profile">
-        <div class="content_1">
-          <div class="profile_pic">
-            <img class="profile_img" :src="dis" />
-          </div>
-          <div class="user_name">
-            <h3>{{user}}</h3>
-          </div>
-          <div class="user_email">
-            <h3>{{email}}</h3>
-          </div>
-          <div class="user_phone">
-            <h3>{{phone}}</h3>
-          </div>
-          <button class="btn_edited" v-show="sta_edit == 'edited'" v-on:click="sta_edit = 'editing'">Edit Profile</button>
-          <button class="btn_editing" v-show="sta_edit == 'editing'">Edit Profile</button>
-          <input type="text" placeholder="Name" v-show="sta_edit == 'editing'">
-          <input type="text" placeholder="Phone" v-show="sta_edit == 'editing'">
-          <button class="btn_editfin" v-show="sta_edit == 'editing'" v-on:click="sta_edit = 'edited'">Apply</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style_profile.css" />
+  <link rel="stylesheet" href="detail.css" />
+  <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/nav_main.css">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div id="allEventComponent">
+    <nav>
+      <div class="whatsthisnavbarhavenaa">
+        <a href="main.html">
+          <div class="circle"></div>
+        </a>
+        <div class="void"></div>
+        <a href="profile.html">
+          <div class="circle" >A</div>
+        </a>
+      </div>
+    </nav>
+    <div id="profile">
+      <div class="content_1">
+        <div class="profile_pic">
+          <img class="profile_img" :src="dis" />
         </div>
-        <div class="content_2">
-          <h3>YourMeet</h3>
-          <div class="content_2_his">
-            
-            <div class="all_his">
-              <div v-for="history in historys">
-                <div
-                  v-for="events in allevents"
-                  v-if="events.id === history.id"
-                >
-                  <div class="history">
-                    <img class="once_his_poster" :src="events.poster" />
-                    <div class="history_detail">
-                      <div class="namehall">
-                        <div class="once_his event_name">
-                          <!-- <h3>Event :</h3> -->
-                          <h3>{{events.name}}</h3>
-                        </div>
+        <div class="user_name">
+          <h3>{{user}}</h3>
+        </div>
+        <div class="user_email">
+          <h3>{{email}}</h3>
+        </div>
+        <div class="user_phone">
+          <h3>{{phone}}</h3>
+        </div>
+        <button class="btn_edited" v-show="sta_edit == 'edited'" v-on:click="sta_edit = 'editing'">Edit Profile</button>
+        <button class="btn_editing" v-show="sta_edit == 'editing'">Edit Profile</button>
+        <input type="text" placeholder="Name" v-show="sta_edit == 'editing'">
+        <input type="text" placeholder="Phone" v-show="sta_edit == 'editing'">
+        <button class="btn_editfin" v-show="sta_edit == 'editing'" v-on:click="sta_edit = 'edited'">Apply</button>
+      </div>
+      <div class="content_2">
+        <h3>YourMeet</h3>
+        <div class="content_2_his">
 
-                        <div class="once_his once_his_hall">
-                          <!-- <h3>Hall :</h3> -->
-                          <p>
-                            <i class="fas fa-map-marker-alt"></i>
-                            {{events.hall}}
-                          </p>
-                        </div>
+          <div class="all_his">
+            <div v-for="history in historys">
+              <div v-for="events in allevents" v-if="events.id === history.id">
+                <div class="history">
+                  <img class="once_his_poster" :src="events.poster" />
+                  <div class="history_detail">
+                    <div class="namehall">
+                      <div class="once_his event_name">
+                        <!-- <h3>Event :</h3> -->
+                        <h3>{{events.name}}</h3>
                       </div>
 
-                      <hr />
-                      <div class="once_his once_his_date_hall">
-                        <h3>Date/Time :</h3>
-                        <p>{{events.date}}</p>
-                      </div>
-                      <div class="zoneseat">
-                        <div class="once_his once_his_zone">
-                          <h3>Zone :</h3>
-                          <p>นกแก้วกินองุ่น</p>
-                        </div>
-                        <div class="once_his once_his_seat">
-                          <h3>Seat(s) :</h3>
-                          <p>นกแก้วกินองุ่น</p>
-                        </div>
+                      <div class="once_his once_his_hall">
+                        <!-- <h3>Hall :</h3> -->
+                        <p>
+                          <i class="fas fa-map-marker-alt"></i>
+                          {{events.hall}}
+                        </p>
                       </div>
                     </div>
-                    <!-- <div class="once_his event_total">
+
+                    <hr />
+                    <div class="once_his once_his_date_hall">
+                      <h3>Date/Time :</h3>
+                      <p>{{events.date}}</p>
+                    </div>
+                    <div class="zoneseat">
+                      <div class="once_his once_his_zone">
+                        <h3>Zone :</h3>
+                        <p>นกแก้วกินองุ่น</p>
+                      </div>
+                      <div class="once_his once_his_seat">
+                        <h3>Seat(s) :</h3>
+                        <p>นกแก้วกินองุ่น</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="once_his event_total">
                     <h3>Total :</h3>
                     <p>{{events.price}}</p>
                   </div> -->
-                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <hr>
-          <h3>Calendar</h3>
         </div>
+        <hr>
+        <h3>Calendar</h3>
       </div>
     </div>
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="./main.js"></script>
-  </body>
+    <footer>
+      <div class="textfooter">
+          <h2>King Mongkut's Institute of Technology Ladkrabang</h2>
+          <h3>School of Infomation Technology</h3>
+          <h4>DATABASE SYSTEM CONCEPT</h4>
+      </div>
+  </footer>
+  </div>
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="./main.js"></script>
+</body>
+
 </html>
