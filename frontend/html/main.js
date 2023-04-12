@@ -1,6 +1,3 @@
-
-
-
 var allEventComponent = new Vue({
   el: "#allEventComponent",
   data: {
@@ -8,14 +5,27 @@ var allEventComponent = new Vue({
     user: "Manee",
     email: "นกแก้ว@กินองุ่น.คอม",
     phone: "012345678",
-    dis:"../img/profile.png",
+    dis: "../img/profile.png",
     openmenu: false,
 
     page: "all",
     sta_edit: "edited",
     pop_login: "hide",
     login: "used",
-    user_status:'anonymous',
+    user_status: "anonymous",
+
+    username: "",
+    password: "",
+
+    info: [
+      {
+          user: "manee",
+          pass: "1234"
+      }
+  ],
+
+    check_account_user: null,
+    check_account_pass: null,
     allevents: [
       {
         id: "01",
@@ -118,28 +128,43 @@ var allEventComponent = new Vue({
     ],
     historys: [
       {
-        id: "02"
+        id: "02",
       },
       {
-        id: "05"
-      },
-      
-      {
-        id: "03"
-      },
-      {
-        id: "01"
-      },
-      {
-        id: "03"
-      },
-      {
-        id: "04"
-      },
-      {
-        id: "05"
+        id: "05",
       },
 
+      {
+        id: "03",
+      },
+      {
+        id: "01",
+      },
+      {
+        id: "03",
+      },
+      {
+        id: "04",
+      },
+      {
+        id: "05",
+      },
     ],
+  },
+  methods: {
+    summit() {
+      //เช็คว่า user กับ pass ที่กรอกมาตรงกับข้อมูลที่ตรงไหม
+      if (this.username == this.info[0].user && this.password == this.info[0].pass) {
+          console.log(this.username)
+          //บอกว่าให้เปลี่ยนไปหน้า main
+          return this.pop_login = 'hide' ,this.user_status = 'logingin'
+          //ถ้าไม่กรอก
+      } else if (this.username == '' && this.password == '') {
+          alert('กรุณาใส่ข้อมูล')
+      }else{
+          //ถ้า user ผิด
+          alert('username หรือ password ผิด')
+      }
+  }
   },
 });

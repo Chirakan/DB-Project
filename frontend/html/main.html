@@ -45,10 +45,14 @@
             <div v-show=" login == 'used'">
               <h3>เข้าสู่ระบบ</h3>
               <form>
-                <input type="text" placeholder="ชื่อผู้ใช้" /><br />
-                <input type="text" placeholder="รหัสผ่าน" /><br />
+                <input type="text" placeholder="ชื่อผู้ใช้" v-model="username" required/>
+                <p class="textp" v-show="check_account_user == false">username ต้องอยู่ระหว่าง 1 - 12 ตัวอักษร</p>
+                <br />
+                
+                <input type="text" placeholder="รหัสผ่าน" v-model="password" required/>
+                <p class="textp" v-show="check_account_pass == false">password ต้องมีไม่ต่ำกว่า 9 ตัวอักษร</p><br />
               </form>
-              <button class="btn btn_login" @click="user_status = 'logingin',pop_login = 'hide'">เข้าสู่ระบบ</button>
+              <button class="btn btn_login" v-on:click="summit()">เข้าสู่ระบบ</button>
               <h4 @click="login = 'yet'">สมัครสมาชิก</h4>
             </div>
             <div v-show=" login == 'yet'">
