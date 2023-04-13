@@ -12,8 +12,8 @@ var allEventComponent = new Vue({
     zone: "A",
     status: "AVAILABLE",
     seat: 1,
-    num_seat: '000',
-    code_seat: '00000000000',
+    num_seat: "000",
+    code_seat: "00000000000",
 
     page: "all",
     sta_edit: "edited",
@@ -24,14 +24,19 @@ var allEventComponent = new Vue({
     username: "",
     password: "",
 
+    account_user:"",
+    account_pass:"",
+
+    account_gender:"เพศ",
+
     info: [
       {
         user: "manee",
-        pass: "1234"
-      }
+        pass: "1234",
+      },
     ],
 
-    searchName: '',
+    searchName: "",
     newData: [
       {
         id: "01",
@@ -261,31 +266,66 @@ var allEventComponent = new Vue({
     ],
   },
   methods: {
-    summit() {
+    loginnn() {
       //เช็คว่า user กับ pass ที่กรอกมาตรงกับข้อมูลที่ตรงไหม
-      if (this.username == this.info[0].user && this.password == this.info[0].pass) {
-        console.log(this.username)
+      if (
+        this.username == this.info[0].user &&
+        this.password == this.info[0].pass
+      ) {
+        console.log(this.username);
         //บอกว่าให้เปลี่ยนไปหน้า main
-        return this.pop_login = 'hide', this.user_status = 'logingin'
+        return (this.pop_login = "hide"), (this.user_status = "logingin");
         //ถ้าไม่กรอก
-      } else if (this.username == '' && this.password == '') {
-        alert('กรุณาใส่ข้อมูล')
+      } else if (this.username == "" && this.password == "") {
+        alert("กรุณาใส่ข้อมูล");
       } else {
         //ถ้า user ผิด
-        alert('username หรือ password ผิด')
+        alert("username หรือ password ผิด");
       }
-    }, buy() {
-      if (this.user_status === 'anonymous') {
-        this.pop_login = 'show'
+    },
+    regis(){
+      
+    },
+
+    buy() {
+      if (this.user_status === "anonymous") {
+        this.pop_login = "show";
       } else {
-        window.location.href = 'zone-1.html';
+        window.location.href = "zone-1.html";
       }
-    }
-  }, watch: {
+    },
+  },
+  watch: {
     searchName(newvalue) {
-      this.newData = this.allevents.filter(value => {
-        return value.name.toLowerCase().includes(newvalue.toLowerCase())
-      })
-    }
-  }
+      this.newData = this.allevents.filter((value) => {
+        return value.name.toLowerCase().includes(newvalue.toLowerCase());
+      });
+    },
+    account_user(newvalue) {
+      //เช็คว่าพิมพ์ user เกิน 12 ตัว ไหม ถ้าเกิน status ขึ้น false
+      if (newvalue.length > 12) {
+        return (this.create_account_user = false);
+      } else {
+        this.account_user = newvalue;
+        if (this.account_user.length < 1) {
+          return (this.create_account_user = false);
+        } else {
+          return (this.create_account_user = true);
+        }
+      }
+    },
+    account_pass(newvalue) {
+      //เช็คว่าพิมพ์ pass ถึง 9 ตัว ไหม ถ้าไม่ status ขึ้น false
+      if (newvalue.length < 9) {
+        return (this.create_account_pass = false);
+      } else {
+        this.account_pass = newvalue;
+        if (this.account_pass.length < 1) {
+          return (this.create_account_pass = false);
+        } else {
+          return (this.create_account_pass = true);
+        }
+      }
+    },
+  },
 });
