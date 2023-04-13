@@ -13,17 +13,16 @@ nav {
 }
 
 footer {
-    height: 10vw;
+    max-width: 100%;
     text-align: center;
-    padding: 3px;
     background-color: brown;
     line-height: 40px;
     color: white;
     font-size: 15px;
 }
 
-footer .textfooter {
-    margin-top: 20px;
+.textfooter {
+    padding: 10px;
     text-align: center;
 }
 

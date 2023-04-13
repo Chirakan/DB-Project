@@ -107,11 +107,10 @@ body {
     justify-content: center;
     align-items: center;
     margin: auto;
-    background-color: #ef65cc;
+    background-color: #C6B3A8;
     width: 120px;
     height: 120px;
     border-radius: 10px;
-    box-shadow: 2px 3px 10px 5px rgba(201, 128, 227, 0.2);
 }
 
 .P {
@@ -119,10 +118,9 @@ body {
     justify-content: center;
     align-items: center;
     margin: auto;
-    background-color: #D200A3;
+    background-color: #9A7263;
     height: 50px;
     border-radius: 10px;
-    box-shadow: 2px 3px 10px 5px rgba(201, 128, 227, 0.2);
 }
 
 .level-3 {
@@ -139,11 +137,10 @@ body {
 .level-3-1,
 .level-3-2 {
     border-radius: 10px;
-    box-shadow: 2px 3px 10px 5px rgba(201, 128, 227, 0.2);
 }
 
 .level-3-1 {
-    background-color: #aa46be;
+    background-color: #743835;
     width: 55px;
     height: 150;
 }
@@ -156,7 +153,7 @@ body {
     margin: auto;
     width: 55px;
     height: 80;
-    background-color: #613cb0;
+    background-color: #361715;
 }
 
 .level-3-center {
@@ -164,18 +161,16 @@ body {
     justify-content: center;
     align-items: center;
     margin: auto;
-    background-color: #aa46be;
+    background-color: #743835;
     height: 40px;
     border-radius: 10px;
-    box-shadow: 2px 3px 10px 5px rgba(201, 128, 227, 0.2);
 }
 
 .level-4 {
     width: 40px;
     height: 250px;
     border-radius: 10px;
-    background-color: #4c1989;
-    box-shadow: 2px 3px 10px 5px rgba(201, 128, 227, 0.2);
+    background-color: #6D2121;
 }
 
 .level-4-center {
@@ -183,19 +178,17 @@ body {
     justify-content: center;
     align-items: center;
     margin: auto;
-    background-color: #4c1989;
+    background-color: #6D2121;
     width: 600px;
     height: 40px;
     border-radius: 10px;
-    box-shadow: 2px 3px 10px 5px rgba(201, 128, 227, 0.2);
 }
 
 .level-4-out {
-    background-color: rgb(255, 255, 255);
+    background-color:#dcd0ca;
     width: 600px;
     height: 20px;
     border-radius: 10px;
-    box-shadow: 2px 3px 10px 5px rgba(201, 128, 227, 0.2);
 }
 
 .stage {
@@ -207,7 +200,6 @@ body {
     width: 330px;
     height: 50px;
     border-radius: 10px;
-    box-shadow: 2px 3px 10px 5px rgba(201, 128, 227, 0.2);
 }
 
 .K1,
@@ -262,27 +254,27 @@ body {
 }
 
 .stand-1 {
-    background-color: #ef65cc;
+    background-color: #C6B3A8;
 }
 
 .stand-2 {
-    background-color: #D200A3;
+    background-color: #9A7263;
 }
 
 .seat-A {
-    background-color: #aa46be;
+    background-color: #743835;
 }
 
 .seat-B {
-    background-color: #613cb0;
+    background-color: #361715;
 }
 
 .seat-C {
-    background-color: #4c1989;
+    background-color: #6D2121;
 }
 
 .seat-D {
-    border: 1px solid black;
+    background-color: #dcd0ca;
 }
 
 .line {

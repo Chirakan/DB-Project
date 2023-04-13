@@ -9,14 +9,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../css/seat.css">
+    <link rel="stylesheet" href="../css/stand.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/navbar_buy.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>seat</title>
+    <title>stand</title>
 </head>
 
 <body>
@@ -36,7 +36,22 @@
             </div>
         </nav>
         <div id="container">
-            <div id="seat-box"></div>
+            <div id="stand-box">
+                <h3>เลือกจำนวนที่นั่ง</h3>
+                <div class="ticket-num">
+                    <div>จำนวนบัตร</div>
+                    <select class="num">
+                        <option value="0">0</option>
+                        <option value="1">0</option>
+                        <option value="2">0</option>
+                    </select>
+                </div>
+                <div class="line-stand"></div>
+                <div class="note">
+                    <h4>หมายเหตุ:</h4>
+                    <p>สามารถจองบัตรได้สูงสุด 2 ครั้งต่อใบ</p>
+                </div>
+            </div>
             <div id="rate">
                 <h3>{{allevents[0].name}}</h3>
                 <div class="line"></div>
@@ -50,9 +65,7 @@
                     <div>ราคาบัตร</div>   
                     <div class="detail-info">{{allevents[0].price}}</div>
                     <div>จำนวนที่นั่ง</div>   
-                    <div class="detail-info">{{seat}}</div>
-                    <div>เลขที่นั่ง</div>    
-                    <div class="detail-info">{{num_seat}}</div>
+                    <div class="detail-info">-</div>
                 </div>
                 <div class="btn">
                     <a href="complete-buy.html "><button class="confirm">ยืนยันการซื้อบัตร</button></a>
