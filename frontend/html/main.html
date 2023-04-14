@@ -28,7 +28,9 @@
             <div class="circle"></div>
           </a>
           <div class="void"></div>
-          <a href="profile.html"><div class="circle" v-show="user_status == 'logingin'">A</div></a>
+          <a href="profile.html">
+            <div class="circle" v-show="user_status == 'logingin'">A</div>
+          </a>
           <button class="btn_login" @click="pop_login = 'show'" v-show="user_status == 'anonymous'">
             เข้าสู่ระบบ
           </button>
@@ -45,7 +47,7 @@
               <h3>เข้าสู่ระบบ</h3>
               <form>
                 <input type="text" placeholder="ชื่อผู้ใช้" v-model="username" required />
-              
+
                 <br />
 
                 <input type="text" placeholder="รหัสผ่าน" v-model="password" required />
@@ -58,88 +60,44 @@
               <h3>สมัครสมาชิก</h3>
               <form>
                 <input type="text" placeholder="อีเมลล์" v-model="account_email" required />
-                <p class="textp" v-show="create_account_email == false">ระบุ อีเมล</p>
-                
+                <p class="textp" v-show="create_account_email == false">โปรดระบุอีเมล</p>
+                <p class="textp" v-show="create_account_email_info == false">อีเมลนี้เคยลงทะเบียนแล้ว</p>
+
                 <input type="text" placeholder="ชื่อผู้ใช้" v-model="account_user" required />
                 <p class="textp" v-show="create_account_user == false">username ต้องอยู่ระหว่าง 1 - 12 ตัวอักษร</p>
-              
+                <p class="textp" v-show="create_account_user_info == false">username มีคนใช้งานแล้ว</p>
+
                 <input type="text" placeholder="รหัสผ่าน" v-model="account_pass" required />
                 <p class="textp" v-show="create_account_pass == false">password ต้องมีไม่ต่ำกว่า 9 ตัวอักษร</p>
                 <input type="text" placeholder="ชื่อ" v-model="account_name" />
-                <p class="textp" v-show="create_account_name == false">ระบุ ชื่อ</p><br />
-                <input type="text" placeholder="นามสกุล" v-model="account_sur"/>
-                <p class="textp" v-show="create_account_sur == false">ระบุ นามสกุล</p><br />
+                <p class="textp" v-show="create_account_name == false">โปรดระบุชื่อ</p><br />
+                <input type="text" placeholder="นามสกุล" v-model="account_sur" />
+                <p class="textp" v-show="create_account_sur == false">โปรดระบุนามสกุล</p><br />
                 <select name="gender" id="gender" v-model="account_gender">
-                  <option value="" selected>เพศ</option>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select> 
-                
-                <br><p class="textp" v-show="create_account_gender == false">ระบุ เพศ</p>
+                  <option value="" >โปรดเลือกเพศ</option>
+                  <option value="female">หญิง</option>
+                  <option value="male">ชาย</option>
+                  <option value="none">ไม่ระบุ</option>
+                </select>
 
-                <select name="day" id="day" v-model="account_day">
-                  <option value="" selected>วัน</option>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select>
-                <select name="month" id="month" v-model="account_month">
-                  <option value="" selected>เดือน</option>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select>
-                <select name="year" id="year" v-model="account_year">
-                  <option value="" selected>ปี</option>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select> <br>
-                <input type="text" placeholder="เบอร์โทรศัพท์" />
-                <p class="textp" v-show="create_account_day== false">ระบุ วันเกิด</p>
-                <p class="textp" v-show="create_account_month == false">ระบุ เดือนเกิด</p>
-                <p class="textp" v-show="create_account_year == false">ระบุ ปีเกิด</p>
+                <br>
+                <p class="textp" v-show="create_account_gender == false">โปรดระบุเพศ</p>
+
+                <input type="date" name="birthday" id="birthday" v-model="account_birth">
+                <p class="textp" v-show="create_account_birth== false">โปรดระบุวันเกิด</p>
+
+                <br>
+                <input type="text" placeholder="เบอร์โทรศัพท์" v-model="account_phone"/>
+                <p class="textp" v-show="create_account_phone== false">โปรดระบุเบอร์โทร</p>
                 <br />
 
-                <input type="textarea" placeholder="ที่อยู่" />
-                <p class="textp" v-show="create_account_address == false" >ที่อยู่ ต้องมีไม่ต่ำกว่า 50 ตัวอักษร</p>
-                <br />
-                <select name="country" id="country">
-                  <option value=""  selected>ประเทศ</option>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select> 
-                <p class="textp" v-show="create_account_country == false">ระบุ ประเทศ</p>
+                <input type="textarea" placeholder="ที่อยู่" v-model="account_address" />
+                <p class="textp" v-show="create_account_address == false">ที่อยู่ ต้องมีไม่ต่ำกว่า 50 ตัวอักษร</p>
                 <br>
-                <select name="province" id="province">
-                  <option value="" selected>จังหวัด</option>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select> 
-                <p class="textp" v-show="create_account_province == false">ระบุ จังหวัด</p>
-                <br>
-                <select name="state" id="state">
-                  <option value="" selected>อำเภอ</option>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select> 
-                <p class="textp" v-show="create_account_state == false">ระบุ อำเภอ/ตำบล</p>
-                <br>
-                <input type="text" placeholder="รหัสไปรษณีย์" />
-                <p class="textp" v-show="create_account_postal == false">ระบุ รหัสไปรษณีย์</p><br />
+                <input type="text" placeholder="รหัสไปรษณีย์" v-model="account_postal" />
+                <p class="textp" v-show="create_account_postal == false">โปรดระบุรหัสไปรษณีย์</p><br />
               </form>
-              <button class="btn btn_login" @click="login = 'used'">สมัครสมาชิก</button>
+              <button class="btn btn_login" @click="regis()">สมัครสมาชิก</button>
               <h4 @click="login = 'used'">มีบัญชีผู้ใช้อยู่แล้ว</h4>
             </div>
           </div>
@@ -185,7 +143,7 @@
         <!-- search -->
         <div class="filterfunc">
           <i class="fas fa-search"></i>
-          <input type="text" class="filter" v-model="searchName"/>
+          <input type="text" class="filter" v-model="searchName" />
         </div>
       </div>
 
@@ -279,9 +237,7 @@
   </div>
   <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script src="./main.js">
-
-  </script>
+  <script src="./main.js"></script>
 </body>
 
 </html>

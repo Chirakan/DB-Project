@@ -24,15 +24,34 @@ var allEventComponent = new Vue({
     username: "",
     password: "",
 
-    account_user:"",
-    account_pass:"",
-
-    account_gender:"เพศ",
+    account_user: "",
+    create_account_user: true,
+    create_account_user_info: true,
+    account_pass: "",
+    create_account_pass: true,
+    account_email: "",
+    create_account_email: true,
+    create_account_email_info: true,
+    account_name: "",
+    create_account_name: true,
+    account_sur: "",
+    create_account_sur: true,
+    account_gender: "",
+    create_account_gender: true,
+    account_phone: '',
+    create_account_phone: true,
+    account_birth: '',
+    create_account_birth: true,
+    account_address: '',
+    create_account_address: true,
+    account_postal: '',
+    create_account_postal: true,
 
     info: [
       {
         user: "manee",
         pass: "1234",
+        email: "123456@"
       },
     ],
 
@@ -263,7 +282,7 @@ var allEventComponent = new Vue({
       {
         id: "05",
       },
-    ],
+    ]
   },
   methods: {
     loginnn() {
@@ -283,8 +302,25 @@ var allEventComponent = new Vue({
         alert("username หรือ password ผิด");
       }
     },
-    regis(){
-      
+    regis() {
+      if (
+        this.create_account_user == true &&
+        this.create_account_user_info == true &&
+        this.create_account_pass == true &&
+        this.create_account_email == true &&
+        this.create_account_email_info == true &&
+        this.create_account_name == true &&
+        this.create_account_sur == true &&
+        this.create_account_gender == true &&
+        this.create_account_phone == true &&
+        this.create_account_birth == true &&
+        this.create_account_address == true &&
+        this.create_account_postal == true
+      ){
+        return (this.login = 'used')
+      } else {
+        alert("กรุณาใส่ข้อมูล");
+      }
     },
 
     buy() {
@@ -310,7 +346,12 @@ var allEventComponent = new Vue({
         if (this.account_user.length < 1) {
           return (this.create_account_user = false);
         } else {
-          return (this.create_account_user = true);
+          this.create_account_user = true
+          if (this.account_user == this.info[0].user) {
+            return (this.create_account_user_info = false);
+          } else {
+            return (this.create_account_user_info = true);
+          }
         }
       }
     },
@@ -318,12 +359,128 @@ var allEventComponent = new Vue({
       //เช็คว่าพิมพ์ pass ถึง 9 ตัว ไหม ถ้าไม่ status ขึ้น false
       if (newvalue.length < 9) {
         return (this.create_account_pass = false);
-      } else {
+      } else{
         this.account_pass = newvalue;
         if (this.account_pass.length < 1) {
           return (this.create_account_pass = false);
         } else {
           return (this.create_account_pass = true);
+        }
+      }
+    },
+
+    account_email(newvalue) {
+      //เช็คว่าพิมพ์ email ไหม
+      if (newvalue.length < 1) {
+        return (this.create_account_email = false);
+      } else {
+        this.account_email = newvalue;
+        if (this.account_email.length < 1) {
+          return (this.create_account_email = false);
+        } else {
+          this.create_account_email = true
+          if (this.account_email == this.info[0].email) {
+            return (this.create_account_email_info = false);
+          } else {
+            return (this.create_account_email_info = true);
+          }
+        }
+      }
+    },
+
+    account_name(newvalue) {
+      //เช็คว่าพิมพ์ name ไหม
+      if (newvalue.length < 1) {
+        return (this.create_account_name = false);
+      } else {
+        this.account_name = newvalue;
+        if (this.account_name.length < 1) {
+          return (this.create_account_name = false);
+        } else {
+          return (this.create_account_name = true);
+        }
+      }
+    },
+
+    account_sur(newvalue) {
+      //เช็คว่าพิมพ์ surname ไหม
+      if (newvalue.length < 1) {
+        return (this.create_account_sur = false);
+      } else {
+        this.account_sur = newvalue;
+        if (this.account_sur.length < 1) {
+          return (this.create_account_sur = false);
+        } else {
+          return (this.create_account_sur = true);
+        }
+      }
+    },
+
+    account_gender(newvalue) {
+      //เช็คว่าselect gender ไหม
+      if (newvalue == '') {
+        return (this.create_account_gender = false);
+      } else {
+        this.account_gender = newvalue;
+        if (this.account_gender == '') {
+          return (this.create_account_gender = false);
+        } else {
+          return (this.create_account_gender = true);
+        }
+      }
+    },
+
+    account_birth(newvalue) {
+      //เช็คว่าselect birth ไหม
+      if (newvalue == '') {
+        return (this.create_account_birth = false);
+      } else {
+        this.account_birth = newvalue;
+        if (this.account_birth == '') {
+          return (this.create_account_birth = false);
+        } else {
+          return (this.create_account_birth = true);
+        }
+      }
+    },
+    account_phone(newvalue) {
+      //เช็คว่าพิมพ์ phone ไหม
+      if (newvalue.length < 10) {
+        return (this.create_account_phone = false);
+      } else {
+        this.account_phone = newvalue;
+        if (this.account_phone.length > 10) {
+          return (this.create_account_phone = false);
+        } else {
+          return (this.create_account_phone = true);
+        }
+      }
+    },
+
+    account_address(newvalue) {
+      //เช็คว่าพิมพ์ address ไหม
+      if (newvalue.length < 50) {
+        return (this.create_account_address = false);
+      } else {
+        this.account_address = newvalue;
+        if (this.account_address.length < 1) {
+          return (this.create_account_address = false);
+        } else {
+          return (this.create_account_address = true);
+        }
+      }
+    },
+
+    account_postal(newvalue) {
+      //เช็คว่าพิมพ์ postal ไหม
+      if (newvalue.length < 5) {
+        return (this.create_account_postal = false);
+      } else {
+        this.account_postal = newvalue;
+        if (this.account_postal.length > 5) {
+          return (this.create_account_postal = false);
+        } else {
+          return (this.create_account_postal = true);
         }
       }
     },
