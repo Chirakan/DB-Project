@@ -191,6 +191,38 @@ input{
     color: white;
     padding-left: 10px;
   }
+  .all_addrs, .all_addrs h3{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .once_addr{
+    width: 95%;
+    height: auto;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: rgba(104, 104, 104, 0.418);
+    border-radius: 5px;
+    
+  }
+  .btn_addrs{
+    background-color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  .btn_addrs_editing{
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    border: solid 0.25px white;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+
   /* ::-webkit-scrollbar-thumb:hover {
     background: #555;
   } */

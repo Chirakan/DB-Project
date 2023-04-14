@@ -24,6 +24,8 @@ var allEventComponent = new Vue({
     username: "",
     password: "",
 
+    add_edit:"edited",
+    
     account_user: "",
     create_account_user: true,
     create_account_user_info: true,
