@@ -41,6 +41,10 @@
         <div class="user_name">
           <h3>{{user}}</h3>
         </div>
+        <div class="user_namesurname">
+          <h3>{{user}} {{user}}</h3>
+        </div>
+        
         <div class="user_email">
           <h3>{{email}}</h3>
         </div>
@@ -49,8 +53,10 @@
         </div>
         <button class="btn_edited" v-show="sta_edit == 'edited'" v-on:click="sta_edit = 'editing'">Edit Profile</button>
         <button class="btn_editing" v-show="sta_edit == 'editing'">Edit Profile</button>
-        <input type="text" placeholder="Name" v-show="sta_edit == 'editing'">
-        <input type="text" placeholder="Phone" v-show="sta_edit == 'editing'">
+        <input type="text" placeholder="ชื่อผู้ใช้" v-show="sta_edit == 'editing'" :value="user">
+        <input type="text" placeholder="ชื่อ" v-show="sta_edit == 'editing'" :value="user">
+        <input type="text" placeholder="นามาสกุล" v-show="sta_edit == 'editing'" :value="user">
+        <input type="text" placeholder="เบอร์โทรศัพท์" v-show="sta_edit == 'editing'" :value="phone">
         <button class="btn_editfin" v-show="sta_edit == 'editing'" v-on:click="sta_edit = 'edited'">Apply</button>
       </div>
       <div class="content_2">
