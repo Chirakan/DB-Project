@@ -49,6 +49,9 @@ var allEventComponent = new Vue({
     account_postal: '',
     create_account_postal: true,
 
+    qrcode: '',
+    pathqr: 'hellowelcome', 
+
     info: [
       {
         user: "manee",
@@ -332,6 +335,9 @@ var allEventComponent = new Vue({
         window.location.href = "zone-1.html";
       }
     },
+    genqr(pathqr){
+      return qrcode = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+pathqr
+    }
   },
   watch: {
     searchName(newvalue) {
