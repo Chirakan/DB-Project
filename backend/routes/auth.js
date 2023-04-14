@@ -8,6 +8,7 @@ router.get("/user", function (req, res) {
     if (error) {
       throw error;
     }
+    console.log(results);
     res.json(results);
   });
 });
@@ -25,6 +26,7 @@ router.get("/user/:id", function (req, res) {
       if (error) {
         throw error;
       }
+      console.log(results);
       res.json(results[0]);
     }
   );
@@ -75,6 +77,7 @@ router.post("/register", function (req, res) {
           if (error) {
             console.log(error);
           } else {
+            console.log("insert ", results);
             res.send(`Created user ${firstName} with id ${userId}`);
           }
         }
