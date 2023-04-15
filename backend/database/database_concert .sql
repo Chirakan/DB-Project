@@ -49,8 +49,8 @@ CREATE TABLE `concert` (
   CONSTRAINT `concert_hall_hall_id` FOREIGN KEY (`hall_id`) REFERENCES `hall` (`hall_id`)
 );
 
-drop table if exists `order`;
-CREATE TABLE `order` (
+drop table if exists `orders`;
+CREATE TABLE `orders` (
   `order_id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
   `order_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -103,7 +103,7 @@ CREATE TABLE `order_ticket` (
   UNIQUE KEY `order_ticket_id_UNIQUE` (`order_ticket_id`),
   KEY `order_ticket_order_order_id_idx` (`order_id`),
   KEY `order_ticket_ticket_ticket_id_idx` (`ticket_id`),
-  CONSTRAINT `order_ticket_order_order_id` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`),
+  CONSTRAINT `order_ticket_order_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
   CONSTRAINT `order_ticket_ticket_ticket_id` FOREIGN KEY (`ticket_id`) REFERENCES `ticket` (`ticket_id`)
 );
 
@@ -221,8 +221,8 @@ values(null,'credit/debit card'),
 (null,'direct debit');
 
 
-alter table `order` auto_increment = 1;
-insert into `order`
+alter table orders auto_increment = 1;
+insert into orders
 values(null,6,null, 'koibito128@gmail.com',6000, 4, 1),
 (null,9,null, 'JainmesJay@gmail.com',4800, 4, 1),
 (null,2,null, 'NekoRabu03@gmail.com',4800, 2, 1),
