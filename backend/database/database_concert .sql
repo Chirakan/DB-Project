@@ -237,6 +237,21 @@ values(null,6,null, 'koibito128@gmail.com',6000, 4, 1),
 (null,8,null, 'RazeNa02@gmail.com',500, 4, 1)
 ;
 
+-- alter table order auto_increment = 1;
+-- insert into order
+-- values(null,6,'2023-04-05', 'koibito128@gmail.com',6000, 4, null),
+-- (null,9,'2023-03-05', 'JainmesJay@gmail.com',4800, 4, null),
+-- (null,2,'2022-11-13', 'NekoRabu03@gmail.com',4800, 2, null),
+-- (null,6,'2023-03-05', 'koibito128@gmail.com',4800, 4, null),
+-- (null,7,'2023-03-08', 'Jettkorea@gmail.com',3000, 4, null),
+-- (null,9,'2023-03-08', 'JainmesJay@gmail.com',3000, 4, null),
+-- (null,5,'2023-03-15', 'Isekaiusagi102@gmail.com',500, 3, null),
+-- (null,11,'2023-06-02', 'Eyeanataya224@gmail.com',1800, 4, null),
+-- (null,1,'2023-03-01', 'Chalita2002@gmail.com',990, 1, null),
+-- (null,4,'2023-03-22', 'Bamryoshi@gmail.com',3500, 4, null),
+-- (null,2,'2023-03-15', 'NekoRabu03@gmail.com',500, 2, null),
+-- (null,8,'2023-03-16', 'RazeNa02@gmail.com',500, 4, null),
+-- ;
 
 alter table ticket auto_increment = 1;
 insert into ticket
