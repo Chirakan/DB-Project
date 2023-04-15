@@ -20,10 +20,10 @@ body {
 }
 
 #seat-box{
-    width: 700px;
-    height: 430px;
+    width: 750px;
+    height: 380px;
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
     justify-content: center;
     align-items: center;
     grid-gap: 10px;
@@ -37,6 +37,12 @@ body {
     position: relative;
     overflow: hidden;
 
+}
+
+.name_seat{
+    font-size: 20px;
+    color: #ffffff;
+    
 }
 
 .checkbox__input {

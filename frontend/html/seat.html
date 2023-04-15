@@ -72,9 +72,21 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="./main.js"></script>
 <script>
+    const name_seat = ["A", "B", "C", "D", "E"];
     let text = "";
-    for (let i = 1; i <= 75; i++) {
+    let num = 0;
+    let num_name = 0;
+    for (let i = 0; i < 75; i++) {
+        if (num == 0){
+            text += "<div class='name_seat'>"+name_seat[num_name] +"</div>";
+            num_name += 1;
+        }
         text += " <label class='seat'><input type='checkbox' class='checkbox__input'/><span class='checkbox__inner'></span></label>";
+        num += 1;
+        
+        if (num == 15){
+            num = 0;
+        }
     }
     document.getElementById("seat-box").innerHTML = text;
 </script>
