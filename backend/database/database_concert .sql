@@ -1,9 +1,9 @@
 drop table if exists `payments`;
 CREATE TABLE `payments` (
-  `banking_id` int NOT NULL AUTO_INCREMENT,
+  `payment_id` int NOT NULL AUTO_INCREMENT,
   `payment` varchar(20) NOT NULL,
-  PRIMARY KEY (`banking_id`),
-  UNIQUE KEY `banking_id` (`banking_id`)
+  PRIMARY KEY (`payment_id`),
+  UNIQUE KEY `payment_id` (`payment_id`)
 );
 
 drop table if exists `halls`;
@@ -38,7 +38,7 @@ drop table if exists `concerts`;
 CREATE TABLE `concerts` (
   `concert_id` int NOT NULL AUTO_INCREMENT,
   `concert_name` varchar(255) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `hall_id` int NOT NULL,
   `max_ticket` int DEFAULT NULL,
   `remain_ticket` int DEFAULT NULL,
@@ -56,12 +56,12 @@ CREATE TABLE `orders` (
   `order_time` datetime NOT NULL,
   `delivery_email` varchar(255) NOT NULL,
   `total_price` int NOT NULL,
-  `banking_id` int NOT NULL,
+  `payment_id` int NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`order_id`),
   KEY `order_user_user_id` (`user_id`),
-  KEY `order_banking_banking_id_idx` (`banking_id`),
-  CONSTRAINT `order_banking_banking_id` FOREIGN KEY (`banking_id`) REFERENCES `payments` (`banking_id`),
+  KEY `order_payment_payment_id_idx` (`payment_id`),
+  CONSTRAINT `order_payment_payment_id` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`payment_id`),
   CONSTRAINT `order_user_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 );
 
@@ -85,7 +85,6 @@ CREATE TABLE `tickets` (
   `concert_id` int NOT NULL,
   `ticket_zone_id` int NOT NULL,
   `seat` varchar(255) NOT NULL,
-  `purchase_date` datetime,
   PRIMARY KEY (`ticket_id`),
   UNIQUE KEY `ticket_id_UNIQUE` (`ticket_id`),
   KEY `ticket_concert_concert_id_idx` (`concert_id`),
@@ -240,17 +239,17 @@ values(null,6,'2023-04-05', 'koibito128@gmail.com',6000, 4, 1),
 
 alter table tickets auto_increment = 1;
 insert into tickets
-values(null,8,32, 'A10',null),
-(null,3,11, 'F5',null),
-(null,6,21, 'B30',null),
-(null,3,11, 'F20',null),
-(null,7,27, 'D10',null),
-(null,7,27, 'D5',null),
-(null,10,45, 'A1',null),
-(null,1,4, 'D50',null),
-(null,7,26, 'C57',null),
-(null,10,45, 'A2',null),
-(null,10,45, 'A3',null)
+values(null,8,32, 'A10'),
+(null,3,11, 'F5'),
+(null,6,21, 'B30'),
+(null,3,11, 'F20'),
+(null,7,27, 'D10'),
+(null,7,27, 'D5'),
+(null,10,45, 'A1'),
+(null,1,4, 'D50'),
+(null,7,26, 'C57'),
+(null,10,45, 'A2'),
+(null,10,45, 'A3')
 ;
 
 alter table order_tickets auto_increment = 1;
