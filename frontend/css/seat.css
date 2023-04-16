@@ -16,7 +16,7 @@ body {
     grid-gap: 50px;
     justify-content: center;
     align-items: center;
-    margin: 50px 0px 100px 0px;
+    height: 100%;
 }
 
 #seat-box{

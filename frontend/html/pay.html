@@ -1,0 +1,108 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/pay.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/navbar_buy.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>pay</title>
+</head>
+
+<body>
+    <div id="allEventComponent">
+        <nav>
+            <div class="whatsthisnavbarhavenaa">
+                <a href="main.html">
+                    <div class="circle"></div>
+                </a>
+                <div class="menu">
+                    <a href="main.html" class="nav-color"> หน้าแรก</a>
+                    <span>&nbsp;&nbsp;&nbsp;&gt;</span>
+                    <a href="zone-1.html" class="nav-color"> &nbsp; เลือกรอบการแสดง</a>
+                    <span>&nbsp;&nbsp;&nbsp;&gt;</span>
+                    <a style="color: #eee; cursor: context-menu;"> &nbsp; การสั่งซื้อ </a>
+                </div>
+                <div class="void"></div>
+                <a href="profile.html">
+                    <div class="circle">A</div>
+                </a>
+            </div>
+        </nav>
+        <div id="container">
+            <div id="choose-box">
+                <h3>กรุณาเลือกวิธีการชำระเงิน</h3>
+                <form class="choose-pay">
+                    <input type="radio" id="pay-credit" name="pay" value="credit/debit card">
+                    <label for="credit/debit card">บัตรเครดิต/เดบิต</label><br>
+                    <input type="radio" id="pay-money" name="pay" value="money">
+                    <label for="money">ชำระเงินสด และเอทีเอ็ม</label><br>
+                    <input type="radio" id="pay-wallet" name="pay" value="truemoney wallet">
+                    <label for="truemoney wallet">ชำระเงินมือถือ [Pay Plus, TrueMoney Wallet]</label><br>
+                    <input type="radio" id="pay-debit" name="pay" value="direct debit">
+                    <label for="direct debit">หักเงินผ่านบัญชี</label>
+                </form>
+                <div class="line-pay"></div>
+                <p>
+                    ทางบริษัทฯ จะคืนเงินให้กับลูกค้าตามจำนวนที่ชำระ ยกเว้น ค่าบริการใบละ 30 บาท ค่าธรรมเนียมที่ชำระผ่าน
+                    Bill payment, ค่าธรรมเนียมในการโอนเงินผ่านธนาคาร, ค่าบริการจัดส่ง และ/หรือ ค่าใช้จ่ายอื่นๆ
+                    ที่นอกเหนือจากค่าบัตร เป็นต้น
+                </p>
+                <p>
+                    หากท่านได้ชำระค่าสินค้า หรือค่าบริการแก่ทางบริษัทฯเรียบร้อยแล้ว โดยบริษัทฯได้ทำการสำรองที่นั่ง
+                    หรือสินค้าให้แก่ท่าน ในกรณีที่ท่านมิได้รับบัตรเข้าชมการแสดง หรือมิได้รับสินค้าภายในเวลาที่กำหนด
+                    บริษัทฯขอสงวนสิทธิ์ในการคืนเงินให้แก่ท่าน ไม่ว่ากรณีใดก็ตาม
+                    กรุณาอ่านข้อตกลงการยอมรับในการใช้บริการผ่าน Thaiticketmajor
+                </p>
+            </div>
+            <div id="rate">
+                <h3>{{allevents[0].name}}</h3>
+                <div class="line"></div>
+                <div class="detail">
+                    <div>รอบการแสดง</div>
+                    <div class="detail-info">{{allevents[0].date}}</div>
+                    <div>โซนที่นั่ง</div>
+                    <div class="detail-info">{{zone}}</div>
+                    <div>สถานะ</div>
+                    <div class="detail-info">{{status}}</div>
+                    <div>ราคาบัตร</div>
+                    <div class="detail-info">{{allevents[0].price}}</div>
+                    <div>จำนวนที่นั่ง</div>
+                    <div class="detail-info">-</div>
+                </div>
+                <div class="btn">
+                    <a href="complete-buy.html "><button class="confirm">ยืนยันการซื้อบัตร</button></a>
+                    <a href="zone-1.html"><button class="other-zone">โซนอื่น ๆ</button></a>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="textfooter">
+                <h2>King Mongkut's Institute of Technology Ladkrabang</h2>
+                <h3>School of Infomation Technology</h3>
+                <h4>DATABASE SYSTEM CONCEPT</h4>
+            </div>
+        </footer>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="./main.js"></script>
+<script>
+    let text = "";
+    for (let i = 1; i <= 75; i++) {
+        text += " <label class='seat'><input type='checkbox' class='checkbox__input'/><span class='checkbox__inner'></span></label>";
+    }
+    document.getElementById("seat-box").innerHTML = text;
+</script>
+
+</html>

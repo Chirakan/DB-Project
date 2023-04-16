@@ -8,7 +8,6 @@
 body {
   background-color: #000000;
   display: grid;
-  width: 100%;
 }
 
 #contrainer {
@@ -16,7 +15,7 @@ body {
   grid-template-columns: auto auto;
   justify-content: center;
   align-items: center;
-  padding: 80px;
+  height: 100%;
 }
 
 #zone-box {
