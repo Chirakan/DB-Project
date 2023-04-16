@@ -61,8 +61,8 @@ CREATE TABLE `orders` (
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`order_id`),
   KEY `order_user_user_id` (`user_id`),
-  KEY `order_banking_payment_id_idx` (`payment_id`),
-  CONSTRAINT `order_banking_payment_id` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`payment_id`),
+  KEY `order_banking_banking_id_idx` (`banking_id`),
+  CONSTRAINT `order_banking_banking_id` FOREIGN KEY (`banking_id`) REFERENCES `payments` (`banking_id`),
   CONSTRAINT `order_user_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 );
 
@@ -86,7 +86,7 @@ CREATE TABLE `tickets` (
   `concert_id` int NOT NULL,
   `ticket_zone_id` int NOT NULL,
   `seat` varchar(255) NOT NULL,
-  `purchase_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `purchase_date` datetime,
   PRIMARY KEY (`ticket_id`),
   UNIQUE KEY `ticket_id_UNIQUE` (`ticket_id`),
   KEY `ticket_concert_concert_id_idx` (`concert_id`),
@@ -353,31 +353,9 @@ values(null,8,32, 'A10',null),
 (null,7,27, 'D5',null),
 (null,10,45, 'A1',null),
 (null,1,4, 'D50',null),
-(null,2,5, 'A1',null),
 (null,7,26, 'C57',null),
-
-
 (null,10,45, 'A2',null),
-(null,10,45, 'A3',null),
-(null,15,52, 'A1',null),
-(null,15,58, 'D1',null),
-(null,15,58, 'D2',null),
-(null,15,58, 'D3',null),
-(null,15,58, 'D4',null),
-(null,15,53, 'B1',null),
-(null,15,45, 'D5',null),
-(null,15,45, 'C1',null),
-
-(null,14,45, 'F1',null),
-(null,14,45, 'F2',null),
-(null,19,45, 'A1',null),
-(null,3,8, 'C1',null),
-(null,19,45, 'A2',null),
-(null,1,45, 'D1',null),
-(null,15,45, 'A2',null),
-(null,3,8, 'C5',null),
-(null,3,6, 'A30',null),
-(null,3,8, 'C1',null)
+(null,10,45, 'A3',null)
 ;
 
 alter table order_tickets auto_increment = 1;
