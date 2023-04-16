@@ -28,6 +28,7 @@ CREATE TABLE `users` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `address` text NOT NULL,
+  `postcode` CHAR(5) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_id_UNIQUE` (`user_id`),
   UNIQUE KEY `username_UNIQUE` (`username`),
@@ -42,6 +43,7 @@ CREATE TABLE `concerts` (
   `hall_id` int NOT NULL,
   `max_ticket` int DEFAULT NULL,
   `remain_ticket` int DEFAULT NULL,
+  `status` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`concert_id`),
   UNIQUE KEY `concert_id_UNIQUE` (`concert_id`),
   UNIQUE KEY `concert_name_UNIQUE` (`concert_name`),
@@ -84,7 +86,7 @@ CREATE TABLE `tickets` (
   `ticket_id` int NOT NULL AUTO_INCREMENT,
   `concert_id` int NOT NULL,
   `ticket_zone_id` int NOT NULL,
-  `seat` varchar(255) NOT NULL,
+  `seat_name` varchar(255) NOT NULL,
   PRIMARY KEY (`ticket_id`),
   UNIQUE KEY `ticket_id_UNIQUE` (`ticket_id`),
   KEY `ticket_concert_concert_id_idx` (`concert_id`),
@@ -107,162 +109,162 @@ CREATE TABLE `order_tickets` (
 );
 
 insert into users
-values(null, 'Chalitawang' ,  'ชลิตา', 'หนันวงค์ ', 'หญิง', '2002-09-20', '0958786609', 'Chalita2002@gmail.com', 'attn8965', 'ลีลา  ถ.นิมิตใหม่ เขตมีนบุรี กรุงเทพ 10510'),
-(null,'NekoRabu03', 'กชกร', 'นิลกำแหง', 'ชาย', '2003-03-03', '0992547812', 'NekoRabu03@gmail.com', 'GHv2546', 'คาซาลีน่า2 ถ.นิมิตใหม่ เขตคลองสามวา  กรุงเทพ 10510'),
-(null,'Sinnerdarker', 'นิ่มนาล', 'พลโยธา', 'หญิง', '2002-01-21', '0861124567', 'Boom2545@gmail.com', 'darkness4561', '103 ถ.พหลโยธิน เขตลำลูกา ปทุมธานี 12130'),
-(null,'ryoshi', 'ปุณณภา', 'เขมรัฐวงศ์', 'ไม่ระบุ', '2001-05-18', '0812547892', 'Bamryoshi@gmail.com', 'mama54612', '123 ถ.วิภาวดี-รังสิต เขตจตุจักร กรุงเทพ 10900'),
-(null,'Tamaw102', 'ชนาพร', 'ไตรโชค', 'ไม่ระบุ', '2003-06-21', '0951479525', 'Isekaiusagi102@gmail.com', 'kratai3000', '299 ถ.บางกรวย-ไทรน้อย เขตบางบัวทอง นนทบุรี 11110'),
-(null,'Diaochan', 'ศศิกานต์', 'หลงกระจ่าง', 'หญิง', '1995-08-23', '0826515521', 'koibito128@gmail.com', 'lubuloveme', '253 ถ.แจ้งวัฒนะ เขตหลักสี่ กรุงเทพ 10210'),
-(null,'Jett', 'จิรการ', 'ใจศิริ', 'ชาย', '1998-06-10', '0902551133', 'Jettkorea@gmail.com', 'jettreviveme', '2046 ถ.บรรทัดทอง เขตปทุมวัน กรุงเทพ 10330'),
-(null,'Raze867', 'ณฐยศ', 'อรุณสุริยศักดิ์', 'ชาย', '2002-12-30', '0915552059', 'RazeNa02@gmail.com', 'bombbuddy', 'คาซาลีน่า1 ถ.นิมิตใหม่ เขตคลองสามวา  กรุงเทพ 10510'),
-(null,'JayJay', 'ศุภณัฐ', 'แก้วกุลศรี', 'ชาย', '2002-12-30', '0806965551', 'JainmesJay@gmail.com', 'Jainmes12345', '2055 ถ.บรรทัดทอง เขตปทุมวัน กรุงเทพ 10330'),
-(null,'Keqing2005', 'นภิศา', 'พัศระ', 'หญิง', '1995-11-08', '0951592315', 'Ganyu999@gmail.com', 'Liyuemorax', 'ลัดดารมย์บางนา ซ.โรงเรียนราชวินิตบางแก้ว เขตบางพลี สมุทรปราการ 10140'),
-(null,'Anantaya', 'อนันตญา', 'ชามทอง', 'หญิง', '1995-11-08', '0957425544', 'Eyeanataya224@gmail.com', 'datelinecomming', 'เคซีการ์เด้นโฮม ถ.นิมิตใหม่ เขตคลองสามวา กรุงเทพ  10510');
+values(null, 'Chalitawang' ,  'ชลิตา', 'หนันวงค์ ', 'หญิง', '2002-09-20', '0958786609', 'Chalita2002@gmail.com', 'attn8965', 'ลีลา  ถ.นิมิตใหม่ เขตมีนบุรี กรุงเทพ', '10510'),
+(null,'NekoRabu03', 'กชกร', 'นิลกำแหง', 'ชาย', '2003-03-03', '0992547812', 'NekoRabu03@gmail.com', 'GHv2546', 'คาซาลีน่า2 ถ.นิมิตใหม่ เขตคลองสามวา  กรุงเทพ', '10510'),
+(null,'Sinnerdarker', 'นิ่มนาล', 'พลโยธา', 'หญิง', '2002-01-21', '0861124567', 'Boom2545@gmail.com', 'darkness4561', '103 ถ.พหลโยธิน เขตลำลูกา ปทุมธานี', '12130'),
+(null,'ryoshi', 'ปุณณภา', 'เขมรัฐวงศ์', 'ไม่ระบุ', '2001-05-18', '0812547892', 'Bamryoshi@gmail.com', 'mama54612', '123 ถ.วิภาวดี-รังสิต เขตจตุจักร กรุงเทพ', '10900'),
+(null,'Tamaw102', 'ชนาพร', 'ไตรโชค', 'ไม่ระบุ', '2003-06-21', '0951479525', 'Isekaiusagi102@gmail.com', 'kratai3000', '299 ถ.บางกรวย-ไทรน้อย เขตบางบัวทอง นนทบุรี', '11110'),
+(null,'Diaochan', 'ศศิกานต์', 'หลงกระจ่าง', 'หญิง', '1995-08-23', '0826515521', 'koibito128@gmail.com', 'lubuloveme', '253 ถ.แจ้งวัฒนะ เขตหลักสี่ กรุงเทพ', '10210'),
+(null,'Jett', 'จิรการ', 'ใจศิริ', 'ชาย', '1998-06-10', '0902551133', 'Jettkorea@gmail.com', 'jettreviveme', '2046 ถ.บรรทัดทอง เขตปทุมวัน กรุงเทพ', '10330'),
+(null,'Raze867', 'ณฐยศ', 'อรุณสุริยศักดิ์', 'ชาย', '2002-12-30', '0915552059', 'RazeNa02@gmail.com', 'bombbuddy', 'คาซาลีน่า1 ถ.นิมิตใหม่ เขตคลองสามวา  กรุงเทพ', '10510'),
+(null,'JayJay', 'ศุภณัฐ', 'แก้วกุลศรี', 'ชาย', '2002-12-30', '0806965551', 'JainmesJay@gmail.com', 'Jainmes12345', '2055 ถ.บรรทัดทอง เขตปทุมวัน กรุงเทพ', '10330'),
+(null,'Keqing2005', 'นภิศา', 'พัศระ', 'หญิง', '1995-11-08', '0951592315', 'Ganyu999@gmail.com', 'Liyuemorax', 'ลัดดารมย์บางนา ซ.โรงเรียนราชวินิตบางแก้ว เขตบางพลี สมุทรปราการ', '10140'),
+(null,'Anantaya', 'อนันตญา', 'ชามทอง', 'หญิง', '1995-11-08', '0957425544', 'Eyeanataya224@gmail.com', 'datelinecomming', 'เคซีการ์เด้นโฮม ถ.นิมิตใหม่ เขตคลองสามวา กรุงเทพ', '10510');
 
-alter table halls auto_increment = 1;
-insert into halls
-values(null,'ธันเดอร์โดม เมืองทองธานี','15000'),
-(null,'แลก BKK','150'),
-(null,'สนามราชมังคลากีฬาสถาน','51552'),
-(null,'SEARCH STUDIO รามคำแหง 81','200'),
-(null,'รอยัล พารากอน ฮอลล์ 1','2000'),
-(null,'รอยัล พารากอน ฮอลล์ 2','5200'),
-(null,'อิมแพ็ค อารีน่า','12000'),
-(null,'DE MOON BANGKOK รัชดา ซ.4','500'),
-(null,'CENTRAL WORLD SQUARE',null),
-(null,'สามย่าน มิตรทาวน์ ฮอลล์ ','3000'),
-(null,'เอ็มซีซีฮอลล์','5000');
+-- alter table halls auto_increment = 1;
+-- insert into halls
+-- values(null,'ธันเดอร์โดม เมืองทองธานี','15000'),
+-- (null,'แลก BKK','150'),
+-- (null,'สนามราชมังคลากีฬาสถาน','51552'),
+-- (null,'SEARCH STUDIO รามคำแหง 81','200'),
+-- (null,'รอยัล พารากอน ฮอลล์ 1','2000'),
+-- (null,'รอยัล พารากอน ฮอลล์ 2','5200'),
+-- (null,'อิมแพ็ค อารีน่า','12000'),
+-- (null,'DE MOON BANGKOK รัชดา ซ.4','500'),
+-- (null,'CENTRAL WORLD SQUARE',null),
+-- (null,'สามย่าน มิตรทาวน์ ฮอลล์ ','3000'),
+-- (null,'เอ็มซีซีฮอลล์','5000');
 
-alter table concerts auto_increment = 1;
-insert into concerts
-values(null,'BOWKYLION LANTA CONCERT','2023-06-18', 1, 5000, null),
-(null,'YourMOOD x MIRRR x แลก BKK Concert','2022-04-27', 2, 150, null),
-(null,'BLACKPINK BORN PINK World tour Bangkok','2023-05-27', 3, 20000, null),
-(null,'In the Studio with 2 Days Ago Kids','2023-04-01', 4, 200, null),
-(null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK','2023-06-08', 5, 1800, null),
-(null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK','2023-04-08', 1, 12000, null),
-(null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร','2023-06-30', 7, 8000, null),
-(null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK','2023-04-14', 7, 10000, null),
-(null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์','2023-04-29', 7, 5000, null),
-(null,'DE MOON BANGKOK WATER FESTIVAL','2023-04-12', 8, 500, null),
-(null,'SUPERFLUID FEST 2023','2023-04-14', 9, null, null);
+-- alter table concerts auto_increment = 1;
+-- insert into concerts
+-- values(null,'BOWKYLION LANTA CONCERT','2023-06-18', 1, 5000, null),
+-- (null,'YourMOOD x MIRRR x แลก BKK Concert','2022-04-27', 2, 150, null),
+-- (null,'BLACKPINK BORN PINK World tour Bangkok','2023-05-27', 3, 20000, null),
+-- (null,'In the Studio with 2 Days Ago Kids','2023-04-01', 4, 200, null),
+-- (null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK','2023-06-08', 5, 1800, null),
+-- (null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK','2023-04-08', 1, 12000, null),
+-- (null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร','2023-06-30', 7, 8000, null),
+-- (null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK','2023-04-14', 7, 10000, null),
+-- (null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์','2023-04-29', 7, 5000, null),
+-- (null,'DE MOON BANGKOK WATER FESTIVAL','2023-04-12', 8, 500, null),
+-- (null,'SUPERFLUID FEST 2023','2023-04-14', 9, null, null);
 
-alter table ticket_zones auto_increment = 1;
-insert into ticket_zones
-values(null,'BOWKYLION LANTA CONCERT',9800, '2023-06-02', 'A', 1),
-(null,'BOWKYLION LANTA CONCERT',7800, '2023-06-02', 'B', 1),
-(null,'BOWKYLION LANTA CONCERT',6800, '2023-06-02', 'C', 1),
-(null,'BOWKYLION LANTA CONCERT',1800, '2023-06-02', 'D', 1),
+-- alter table ticket_zones auto_increment = 1;
+-- insert into ticket_zones
+-- values(null,'BOWKYLION LANTA CONCERT',9800, '2023-06-02', 'A', 1),
+-- (null,'BOWKYLION LANTA CONCERT',7800, '2023-06-02', 'B', 1),
+-- (null,'BOWKYLION LANTA CONCERT',6800, '2023-06-02', 'C', 1),
+-- (null,'BOWKYLION LANTA CONCERT',1800, '2023-06-02', 'D', 1),
 
-(null,'YourMOOD x MIRRR x แลก BKK Concert',990,'2023-03-01', 'A', 2),
+-- (null,'YourMOOD x MIRRR x แลก BKK Concert',990,'2023-03-01', 'A', 2),
 
-(null,'BLACKPINK BORN PINK World tour Bangkok',14800,'2023-03-05', 'A', 3),
-(null,'BLACKPINK BORN PINK World tour Bangkok',9800,'2023-03-05', 'B', 3),
-(null,'BLACKPINK BORN PINK World tour Bangkok',7800,'2023-03-05', 'C', 3),
-(null,'BLACKPINK BORN PINK World tour Bangkok',6800,'2023-03-05', 'D', 3),
-(null,'BLACKPINK BORN PINK World tour Bangkok',5800,'2023-03-05', 'E', 3),
-(null,'BLACKPINK BORN PINK World tour Bangkok',4800,'2023-03-05', 'F', 3),
-(null,'BLACKPINK BORN PINK World tour Bangkok',3800,'2023-03-05', 'G', 3),
-(null,'BLACKPINK BORN PINK World tour Bangkok',2800,'2023-03-05', 'H', 3),
-
-
-(null,'In the Studio with 2 Days Ago Kids',2400,'2023-03-10', 'A', 4),
-(null,'In the Studio with 2 Days Ago Kids',1900,'2023-03-10', 'B', 4),
-
-(null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK',6500,'2023-04-04', 'A', 5),
-(null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK',5500,'2023-04-04', 'B', 5),
-(null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK',4500,'2023-04-04', 'C', 5),
-(null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK',3000,'2023-04-04', 'D', 5),
+-- (null,'BLACKPINK BORN PINK World tour Bangkok',14800,'2023-03-05', 'A', 3),
+-- (null,'BLACKPINK BORN PINK World tour Bangkok',9800,'2023-03-05', 'B', 3),
+-- (null,'BLACKPINK BORN PINK World tour Bangkok',7800,'2023-03-05', 'C', 3),
+-- (null,'BLACKPINK BORN PINK World tour Bangkok',6800,'2023-03-05', 'D', 3),
+-- (null,'BLACKPINK BORN PINK World tour Bangkok',5800,'2023-03-05', 'E', 3),
+-- (null,'BLACKPINK BORN PINK World tour Bangkok',4800,'2023-03-05', 'F', 3),
+-- (null,'BLACKPINK BORN PINK World tour Bangkok',3800,'2023-03-05', 'G', 3),
+-- (null,'BLACKPINK BORN PINK World tour Bangkok',2800,'2023-03-05', 'H', 3),
 
 
-(null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK',5800,'2022-11-13', 'A', 6),
-(null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK',4800,'2022-11-13', 'B', 6),
-(null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK',3800,'2022-11-13', 'C', 6),
-(null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK',2800,'2022-11-13', 'D', 6),
+-- (null,'In the Studio with 2 Days Ago Kids',2400,'2023-03-10', 'A', 4),
+-- (null,'In the Studio with 2 Days Ago Kids',1900,'2023-03-10', 'B', 4),
+
+-- (null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK',6500,'2023-04-04', 'A', 5),
+-- (null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK',5500,'2023-04-04', 'B', 5),
+-- (null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK',4500,'2023-04-04', 'C', 5),
+-- (null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK',3000,'2023-04-04', 'D', 5),
 
 
-(null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',4500,'2023-03-22', 'A', 7),
-(null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',4000,'2023-03-22', 'B', 7),
-(null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',3500,'2023-03-22', 'C', 7),
-(null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',3000,'2023-03-22', 'D', 7),
-(null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',2500,'2023-03-22', 'E', 7),
-(null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',2000,'2023-03-22', 'F', 7),
-(null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',1500,'2023-03-22', 'G', 7),
-(null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',1200,'2023-03-22', 'H', 7),
+-- (null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK',5800,'2022-11-13', 'A', 6),
+-- (null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK',4800,'2022-11-13', 'B', 6),
+-- (null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK',3800,'2022-11-13', 'C', 6),
+-- (null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK',2800,'2022-11-13', 'D', 6),
 
 
-(null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',6000,'2023-04-05', 'A', 8),
-(null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',5800,'2023-04-05', 'B', 8),
-(null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',5500,'2023-04-05', 'C', 8),
-(null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',4500,'2023-04-05', 'D', 8),
-(null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',3500,'2023-04-05', 'E', 8),
-(null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',2500,'2023-04-05', 'F', 8),
+-- (null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',4500,'2023-03-22', 'A', 7),
+-- (null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',4000,'2023-03-22', 'B', 7),
+-- (null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',3500,'2023-03-22', 'C', 7),
+-- (null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',3000,'2023-03-22', 'D', 7),
+-- (null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',2500,'2023-03-22', 'E', 7),
+-- (null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',2000,'2023-03-22', 'F', 7),
+-- (null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',1500,'2023-03-22', 'G', 7),
+-- (null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร',1200,'2023-03-22', 'H', 7),
 
 
-(null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',6000,'2023-03-08', 'A', 9),
-(null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',4500,'2023-03-08', 'B', 9),
-(null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',3500,'2023-03-08', 'C', 9),
-(null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',3000,'2023-03-08', 'D', 9),
-(null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',2500,'2023-03-08', 'E', 9),
-(null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',2000,'2023-03-08', 'F', 9),
-(null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',1200,'2023-03-08', 'G', 9),
-
-(null,'DE MOON BANGKOK WATER FESTIVAL',500,'2023-03-15', 'A', 10),
-
-(null,'SUPERFLUID FEST 2023',600,'2023-04-05', 'A', 11);
+-- (null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',6000,'2023-04-05', 'A', 8),
+-- (null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',5800,'2023-04-05', 'B', 8),
+-- (null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',5500,'2023-04-05', 'C', 8),
+-- (null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',4500,'2023-04-05', 'D', 8),
+-- (null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',3500,'2023-04-05', 'E', 8),
+-- (null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK',2500,'2023-04-05', 'F', 8),
 
 
-alter table payments auto_increment = 1;
-insert into payments
-values(null,'credit/debit card'),
-(null,'money'),
-(null,'truemoney wallet'),
-(null,'direct debit');
+-- (null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',6000,'2023-03-08', 'A', 9),
+-- (null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',4500,'2023-03-08', 'B', 9),
+-- (null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',3500,'2023-03-08', 'C', 9),
+-- (null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',3000,'2023-03-08', 'D', 9),
+-- (null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',2500,'2023-03-08', 'E', 9),
+-- (null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',2000,'2023-03-08', 'F', 9),
+-- (null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์',1200,'2023-03-08', 'G', 9),
+
+-- (null,'DE MOON BANGKOK WATER FESTIVAL',500,'2023-03-15', 'A', 10),
+
+-- (null,'SUPERFLUID FEST 2023',600,'2023-04-05', 'A', 11);
+
+
+-- alter table payments auto_increment = 1;
+-- insert into payments
+-- values(null,'credit/debit card'),
+-- (null,'money'),
+-- (null,'truemoney wallet'),
+-- (null,'direct debit');
 
 
 
-alter table orders auto_increment = 1;
-insert into orders
-values(null,6,'2023-04-05', 'koibito128@gmail.com',6000, 4, 1),
-(null,9,'2023-03-05', 'JainmesJay@gmail.com',4800, 4, 1),
-(null,2,'2022-11-13', 'NekoRabu03@gmail.com',4800, 2, 1),
-(null,6,'2023-03-05', 'koibito128@gmail.com',4800, 4, 1),
-(null,7,'2023-03-08', 'Jettkorea@gmail.com',3000, 4, 1),
-(null,9,'2023-03-08', 'JainmesJay@gmail.com',3000, 4, 1),
-(null,5,'2023-03-15', 'Isekaiusagi102@gmail.com',500, 3, 1),
-(null,11,'2023-06-02', 'Eyeanataya224@gmail.com',1800, 4, 1),
-(null,1,'2023-03-01', 'Chalita2002@gmail.com',990, 1, 1),
-(null,4,'2023-03-22', 'Bamryoshi@gmail.com',3500, 4, 1),
-(null,2,'2023-03-15', 'NekoRabu03@gmail.com',500, 2, 1),
-(null,8,'2023-03-16', 'RazeNa02@gmail.com',500, 4, 1)
-;
+-- alter table orders auto_increment = 1;
+-- insert into orders
+-- values(null,6,'2023-04-05', 'koibito128@gmail.com',6000, 4, 1),
+-- (null,9,'2023-03-05', 'JainmesJay@gmail.com',4800, 4, 1),
+-- (null,2,'2022-11-13', 'NekoRabu03@gmail.com',4800, 2, 1),
+-- (null,6,'2023-03-05', 'koibito128@gmail.com',4800, 4, 1),
+-- (null,7,'2023-03-08', 'Jettkorea@gmail.com',3000, 4, 1),
+-- (null,9,'2023-03-08', 'JainmesJay@gmail.com',3000, 4, 1),
+-- (null,5,'2023-03-15', 'Isekaiusagi102@gmail.com',500, 3, 1),
+-- (null,11,'2023-06-02', 'Eyeanataya224@gmail.com',1800, 4, 1),
+-- (null,1,'2023-03-01', 'Chalita2002@gmail.com',990, 1, 1),
+-- (null,4,'2023-03-22', 'Bamryoshi@gmail.com',3500, 4, 1),
+-- (null,2,'2023-03-15', 'NekoRabu03@gmail.com',500, 2, 1),
+-- (null,8,'2023-03-16', 'RazeNa02@gmail.com',500, 4, 1)
+-- ;
 
-alter table tickets auto_increment = 1;
-insert into tickets
-values(null,8,32, 'A10'),
-(null,3,11, 'F5'),
-(null,6,21, 'B30'),
-(null,3,11, 'F20'),
-(null,7,27, 'D10'),
-(null,7,27, 'D5'),
-(null,10,45, 'A1'),
-(null,1,4, 'D50'),
-(null,7,26, 'C57'),
-(null,10,45, 'A2'),
-(null,10,45, 'A3')
-;
+-- alter table tickets auto_increment = 1;
+-- insert into tickets
+-- values(null,8,32, 'A10'),
+-- (null,3,11, 'F5'),
+-- (null,6,21, 'B30'),
+-- (null,3,11, 'F20'),
+-- (null,7,27, 'D10'),
+-- (null,7,27, 'D5'),
+-- (null,10,45, 'A1'),
+-- (null,1,4, 'D50'),
+-- (null,7,26, 'C57'),
+-- (null,10,45, 'A2'),
+-- (null,10,45, 'A3')
+-- ;
 
-alter table order_tickets auto_increment = 1;
-insert into order_tickets
-values(null,1,1),
-(null,2,2),
-(null,3,3),
-(null,4,4),
-(null,5,5),
-(null,6,6),
-(null,7,7),
-(null,8,8),
-(null,9,9),
-(null,10,10),
-(null,11,11)
-;
+-- alter table order_tickets auto_increment = 1;
+-- insert into order_tickets
+-- values(null,1,1),
+-- (null,2,2),
+-- (null,3,3),
+-- (null,4,4),
+-- (null,5,5),
+-- (null,6,6),
+-- (null,7,7),
+-- (null,8,8),
+-- (null,9,9),
+-- (null,10,10),
+-- (null,11,11)
+-- ;
