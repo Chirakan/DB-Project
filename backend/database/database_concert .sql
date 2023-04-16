@@ -1,23 +1,23 @@
-drop table if exists `banking`;
-CREATE TABLE `banking` (
+drop table if exists `payments`;
+CREATE TABLE `payments` (
   `banking_id` int NOT NULL AUTO_INCREMENT,
   `payment` varchar(20) NOT NULL,
   PRIMARY KEY (`banking_id`),
   UNIQUE KEY `banking_id` (`banking_id`)
 );
 
-drop table if exists `hall`;
-CREATE TABLE `hall` (
+drop table if exists `halls`;
+CREATE TABLE `halls` (
   `hall_id` int NOT NULL AUTO_INCREMENT,
   `hall_name` varchar(255) NOT NULL,
-  `capacity` int NOT NULL,
+  `capacity` int DEFAULT NULL,
   PRIMARY KEY (`hall_id`),
   UNIQUE KEY `hall_name_UNIQUE` (`hall_name`),
   UNIQUE KEY `hall_id_UNIQUE` (`hall_id`)
 );
 
-drop table if exists `user`;
-CREATE TABLE `user` (
+drop table if exists `users`;
+CREATE TABLE `users` (
   `user_id` int NOT NULL AUTO_INCREMENT,
   `username` char(20) NOT NULL,
   `first_name` varchar(30) NOT NULL,
@@ -34,8 +34,8 @@ CREATE TABLE `user` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 );
 
-drop table if exists `concert`;
-CREATE TABLE `concert` (
+drop table if exists `concerts`;
+CREATE TABLE `concerts` (
   `concert_id` int NOT NULL AUTO_INCREMENT,
   `concert_name` varchar(255) NOT NULL,
   `date` datetime NOT NULL,
@@ -46,14 +46,14 @@ CREATE TABLE `concert` (
   UNIQUE KEY `concert_id_UNIQUE` (`concert_id`),
   UNIQUE KEY `concert_name_UNIQUE` (`concert_name`),
   KEY `concert_hall_hall_id` (`hall_id`),
-  CONSTRAINT `concert_hall_hall_id` FOREIGN KEY (`hall_id`) REFERENCES `hall` (`hall_id`)
+  CONSTRAINT `concert_hall_hall_id` FOREIGN KEY (`hall_id`) REFERENCES `halls` (`hall_id`)
 );
 
 drop table if exists `orders`;
 CREATE TABLE `orders` (
   `order_id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
-  `order_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `order_time` datetime NOT NULL,
   `delivery_email` varchar(255) NOT NULL,
   `total_price` int NOT NULL,
   `banking_id` int NOT NULL,
@@ -61,12 +61,12 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`order_id`),
   KEY `order_user_user_id` (`user_id`),
   KEY `order_banking_banking_id_idx` (`banking_id`),
-  CONSTRAINT `order_banking_banking_id` FOREIGN KEY (`banking_id`) REFERENCES `banking` (`banking_id`),
-  CONSTRAINT `order_user_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+  CONSTRAINT `order_banking_banking_id` FOREIGN KEY (`banking_id`) REFERENCES `payments` (`banking_id`),
+  CONSTRAINT `order_user_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 );
 
-drop table if exists `ticket_zone`;
-CREATE TABLE `ticket_zone` (
+drop table if exists `ticket_zones`;
+CREATE TABLE `ticket_zones` (
   `ticket_zone_id` int NOT NULL AUTO_INCREMENT,
   `description` text,
   `price` int NOT NULL,
@@ -76,11 +76,11 @@ CREATE TABLE `ticket_zone` (
   PRIMARY KEY (`ticket_zone_id`),
   UNIQUE KEY `ticket_zone_id_UNIQUE` (`ticket_zone_id`),
   KEY `ticket_zone_concert_concert_id_idx` (`concert_id`),
-  CONSTRAINT `ticket_zone_concert_concert_id` FOREIGN KEY (`concert_id`) REFERENCES `concert` (`concert_id`)
+  CONSTRAINT `ticket_zone_concert_concert_id` FOREIGN KEY (`concert_id`) REFERENCES `concerts` (`concert_id`)
 );
 
-drop table if exists `ticket`;
-CREATE TABLE `ticket` (
+drop table if exists `tickets`;
+CREATE TABLE `tickets` (
   `ticket_id` int NOT NULL AUTO_INCREMENT,
   `concert_id` int NOT NULL,
   `ticket_zone_id` int NOT NULL,
@@ -90,12 +90,12 @@ CREATE TABLE `ticket` (
   UNIQUE KEY `ticket_id_UNIQUE` (`ticket_id`),
   KEY `ticket_concert_concert_id_idx` (`concert_id`),
   KEY `ticket_ticket_zone_ticket_zone_id_idx` (`ticket_zone_id`),
-  CONSTRAINT `ticket_concert_concert_id` FOREIGN KEY (`concert_id`) REFERENCES `concert` (`concert_id`),
-  CONSTRAINT `ticket_ticket_zone_ticket_zone_id` FOREIGN KEY (`ticket_zone_id`) REFERENCES `ticket_zone` (`ticket_zone_id`)
+  CONSTRAINT `ticket_concert_concert_id` FOREIGN KEY (`concert_id`) REFERENCES `concerts` (`concert_id`),
+  CONSTRAINT `ticket_ticket_zone_ticket_zone_id` FOREIGN KEY (`ticket_zone_id`) REFERENCES `ticket_zones` (`ticket_zone_id`)
 );
 
-drop table if exists `order_ticket`;
-CREATE TABLE `order_ticket` (
+drop table if exists `order_tickets`;
+CREATE TABLE `order_tickets` (
   `order_ticket_id` int NOT NULL AUTO_INCREMENT,
   `order_id` int NOT NULL,
   `ticket_id` int NOT NULL,
@@ -104,10 +104,10 @@ CREATE TABLE `order_ticket` (
   KEY `order_ticket_order_order_id_idx` (`order_id`),
   KEY `order_ticket_ticket_ticket_id_idx` (`ticket_id`),
   CONSTRAINT `order_ticket_order_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
-  CONSTRAINT `order_ticket_ticket_ticket_id` FOREIGN KEY (`ticket_id`) REFERENCES `ticket` (`ticket_id`)
+  CONSTRAINT `order_ticket_ticket_ticket_id` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`ticket_id`)
 );
 
-insert into user
+insert into users
 values(null, 'Chalitawang' ,  'ชลิตา', 'หนันวงค์ ', 'หญิง', '2002-09-20', '0958786609', 'Chalita2002@gmail.com', 'attn8965', 'ลีลา  ถ.นิมิตใหม่ เขตมีนบุรี กรุงเทพ 10510'),
 (null,'NekoRabu03', 'กชกร', 'นิลกำแหง', 'ชาย', '2003-03-03', '0992547812', 'NekoRabu03@gmail.com', 'GHv2546', 'คาซาลีน่า2 ถ.นิมิตใหม่ เขตคลองสามวา  กรุงเทพ 10510'),
 (null,'Sinnerdarker', 'นิ่มนาล', 'พลโยธา', 'หญิง', '2002-01-21', '0861124567', 'Boom2545@gmail.com', 'darkness4561', '103 ถ.พหลโยธิน เขตลำลูกา ปทุมธานี 12130'),
@@ -120,8 +120,8 @@ values(null, 'Chalitawang' ,  'ชลิตา', 'หนันวงค์ ', '�
 (null,'Keqing2005', 'นภิศา', 'พัศระ', 'หญิง', '1995-11-08', '0951592315', 'Ganyu999@gmail.com', 'Liyuemorax', 'ลัดดารมย์บางนา ซ.โรงเรียนราชวินิตบางแก้ว เขตบางพลี สมุทรปราการ 10140'),
 (null,'Anantaya', 'อนันตญา', 'ชามทอง', 'หญิง', '1995-11-08', '0957425544', 'Eyeanataya224@gmail.com', 'datelinecomming', 'เคซีการ์เด้นโฮม ถ.นิมิตใหม่ เขตคลองสามวา กรุงเทพ  10510');
 
-alter table hall auto_increment = 1;
-insert into hall
+alter table halls auto_increment = 1;
+insert into halls
 values(null,'ธันเดอร์โดม เมืองทองธานี','15000'),
 (null,'แลก BKK','150'),
 (null,'สนามราชมังคลากีฬาสถาน','51552'),
@@ -130,26 +130,26 @@ values(null,'ธันเดอร์โดม เมืองทองธาน
 (null,'รอยัล พารากอน ฮอลล์ 2','5200'),
 (null,'อิมแพ็ค อารีน่า','12000'),
 (null,'DE MOON BANGKOK รัชดา ซ.4','500'),
-(null,'CENTRAL WORLD SQUARE','0'),
+(null,'CENTRAL WORLD SQUARE',null),
 (null,'สามย่าน มิตรทาวน์ ฮอลล์ ','3000'),
 (null,'เอ็มซีซีฮอลล์','5000');
 
-alter table concert auto_increment = 1;
-insert into concert
-values(null,'BOWKYLION LANTA CONCERT','2023-06-18', 1, null, null),
-(null,'YourMOOD x MIRRR x แลก BKK Concert','2022-04-27', 2, null, null),
-(null,'BLACKPINK BORN PINK World tour Bangkok','2023-05-27', 3, null, null),
-(null,'In the Studio with 2 Days Ago Kids','2023-04-01', 4, null, null),
-(null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK','2023-06-08', 5, null, null),
-(null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK','2023-04-08', 1, null, null),
-(null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร','2023-06-30', 7, null, null),
-(null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK','2023-04-14', 7, null, null),
-(null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์','2023-04-29', 7, null, null),
-(null,'DE MOON BANGKOK WATER FESTIVAL','2023-04-12', 8, null, null),
+alter table concerts auto_increment = 1;
+insert into concerts
+values(null,'BOWKYLION LANTA CONCERT','2023-06-18', 1, 5000, null),
+(null,'YourMOOD x MIRRR x แลก BKK Concert','2022-04-27', 2, 150, null),
+(null,'BLACKPINK BORN PINK World tour Bangkok','2023-05-27', 3, 20000, null),
+(null,'In the Studio with 2 Days Ago Kids','2023-04-01', 4, 200, null),
+(null,'2023 JI CHANG WOOK FAN MEETING < REACH YOU > in BANGKOK','2023-06-08', 5, 1800, null),
+(null,'ITZY THE 1ST WORLD TOUR < CHECKMATE > BANGKOK','2023-04-08', 1, 12000, null),
+(null,'INKSYLAND ดินเเดนขยี้ใจ คอนเสิร์ตครั้งใหญ่ ก้าวใหม่ของ อิ้งค์ วรันธร','2023-06-30', 7, 8000, null),
+(null,'SUGA | Agust D TOUR \'D-DAY\' IN BANGKOK','2023-04-14', 7, 10000, null),
+(null,'คอนเสิร์ต 37 ปี อัสนีและวสันต์','2023-04-29', 7, 5000, null),
+(null,'DE MOON BANGKOK WATER FESTIVAL','2023-04-12', 8, 500, null),
 (null,'SUPERFLUID FEST 2023','2023-04-14', 9, null, null);
 
-alter table ticket_zone auto_increment = 1;
-insert into ticket_zone
+alter table ticket_zones auto_increment = 1;
+insert into ticket_zones
 values(null,'BOWKYLION LANTA CONCERT',9800, '2023-06-02', 'A', 1),
 (null,'BOWKYLION LANTA CONCERT',7800, '2023-06-02', 'B', 1),
 (null,'BOWKYLION LANTA CONCERT',6800, '2023-06-02', 'C', 1),
@@ -213,48 +213,33 @@ values(null,'BOWKYLION LANTA CONCERT',9800, '2023-06-02', 'A', 1),
 (null,'SUPERFLUID FEST 2023',600,'2023-04-05', 'A', 11);
 
 
-alter table banking auto_increment = 1;
-insert into banking
+alter table payments auto_increment = 1;
+insert into payments
 values(null,'credit/debit card'),
 (null,'money'),
 (null,'truemoney wallet'),
 (null,'direct debit');
 
 
+
 alter table orders auto_increment = 1;
 insert into orders
-values(null,6,null, 'koibito128@gmail.com',6000, 4, 1),
-(null,9,null, 'JainmesJay@gmail.com',4800, 4, 1),
-(null,2,null, 'NekoRabu03@gmail.com',4800, 2, 1),
-(null,6,null, 'koibito128@gmail.com',4800, 4, 1),
-(null,7,null, 'Jettkorea@gmail.com',3000, 4, 1),
-(null,9,null, 'JainmesJay@gmail.com',3000, 4, 1),
-(null,5,null, 'Isekaiusagi102@gmail.com',500, 3, 1),
-(null,11,null, 'Eyeanataya224@gmail.com',1800, 4, 1),
-(null,1,null, 'Chalita2002@gmail.com',990, 1, 1),
-(null,4,null, 'Bamryoshi@gmail.com',3500, 4, 1),
-(null,2,null, 'NekoRabu03@gmail.com',500, 2, 1),
-(null,8,null, 'RazeNa02@gmail.com',500, 4, 1)
+values(null,6,'2023-04-05', 'koibito128@gmail.com',6000, 4, 1),
+(null,9,'2023-03-05', 'JainmesJay@gmail.com',4800, 4, 1),
+(null,2,'2022-11-13', 'NekoRabu03@gmail.com',4800, 2, 1),
+(null,6,'2023-03-05', 'koibito128@gmail.com',4800, 4, 1),
+(null,7,'2023-03-08', 'Jettkorea@gmail.com',3000, 4, 1),
+(null,9,'2023-03-08', 'JainmesJay@gmail.com',3000, 4, 1),
+(null,5,'2023-03-15', 'Isekaiusagi102@gmail.com',500, 3, 1),
+(null,11,'2023-06-02', 'Eyeanataya224@gmail.com',1800, 4, 1),
+(null,1,'2023-03-01', 'Chalita2002@gmail.com',990, 1, 1),
+(null,4,'2023-03-22', 'Bamryoshi@gmail.com',3500, 4, 1),
+(null,2,'2023-03-15', 'NekoRabu03@gmail.com',500, 2, 1),
+(null,8,'2023-03-16', 'RazeNa02@gmail.com',500, 4, 1)
 ;
 
--- alter table order auto_increment = 1;
--- insert into order
--- values(null,6,'2023-04-05', 'koibito128@gmail.com',6000, 4, null),
--- (null,9,'2023-03-05', 'JainmesJay@gmail.com',4800, 4, null),
--- (null,2,'2022-11-13', 'NekoRabu03@gmail.com',4800, 2, null),
--- (null,6,'2023-03-05', 'koibito128@gmail.com',4800, 4, null),
--- (null,7,'2023-03-08', 'Jettkorea@gmail.com',3000, 4, null),
--- (null,9,'2023-03-08', 'JainmesJay@gmail.com',3000, 4, null),
--- (null,5,'2023-03-15', 'Isekaiusagi102@gmail.com',500, 3, null),
--- (null,11,'2023-06-02', 'Eyeanataya224@gmail.com',1800, 4, null),
--- (null,1,'2023-03-01', 'Chalita2002@gmail.com',990, 1, null),
--- (null,4,'2023-03-22', 'Bamryoshi@gmail.com',3500, 4, null),
--- (null,2,'2023-03-15', 'NekoRabu03@gmail.com',500, 2, null),
--- (null,8,'2023-03-16', 'RazeNa02@gmail.com',500, 4, null),
--- ;
-
-alter table ticket auto_increment = 1;
-insert into ticket
+alter table tickets auto_increment = 1;
+insert into tickets
 values(null,8,32, 'A10',null),
 (null,3,11, 'F5',null),
 (null,6,21, 'B30',null),
@@ -268,8 +253,8 @@ values(null,8,32, 'A10',null),
 (null,10,45, 'A3',null)
 ;
 
-alter table order_ticket auto_increment = 1;
-insert into order_ticket
+alter table order_tickets auto_increment = 1;
+insert into order_tickets
 values(null,1,1),
 (null,2,2),
 (null,3,3),
@@ -279,5 +264,6 @@ values(null,1,1),
 (null,7,7),
 (null,8,8),
 (null,9,9),
-(null,10,10)
+(null,10,10),
+(null,11,11)
 ;
