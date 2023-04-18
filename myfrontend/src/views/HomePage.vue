@@ -23,8 +23,8 @@
         v-show="pop_login == 'show'"
         v-bind:class="[login == 'yet' ? 'register' : '']"
       >
-        <div  @click="pop_login = 'hide'">
-          <i class="fas fa-times" style="cursor:pointer; color:white;"></i>
+        <div @click="pop_login = 'hide'">
+          <i class="fas fa-times" style="cursor: pointer; color: white"></i>
         </div>
 
         <div class="pop_login_havewhat">
@@ -667,7 +667,31 @@ export default {
         this.create_account_address == true &&
         this.create_account_postal == true
       ) {
-        return (this.login = "used");
+        const bodyForm = {
+          firstName: this.account_name,
+          lastName: this.account_sur,
+          username: this.account_user,
+          email: this.account_email,
+          password: this.account_pass,
+          gender: this.account_gender,
+          birthday: this.account_birth,
+          phoneNumber: this.account_phone,
+          address: this.account_address,
+          postcode: this.account_postal,
+        };
+
+        fetch("http://localhost:3000/auth/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bodyForm),
+        }).then((response) => {
+          this.login = "used";
+
+          localStorage.setItem("ticket-user", response);
+          return response.json();
+        });
       } else {
         alert("กรุณาใส่ข้อมูล");
       }
@@ -843,6 +867,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
