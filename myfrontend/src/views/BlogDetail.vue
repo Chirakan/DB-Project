@@ -671,24 +671,34 @@ export default {
     //   });
   },
   methods: {
-    loginnn() {
+    async loginnn() {
       //เช็คว่า user กับ pass ที่กรอกมาตรงกับข้อมูลที่ตรงไหม
-      if (
-        this.username == this.info[0].user &&
-        this.password == this.info[0].pass
-      ) {
-        console.log(this.username);
-        //บอกว่าให้เปลี่ยนไปหน้า main
-        return (this.pop_login = "hide"), (this.user_status = "logingin");
-        //ถ้าไม่กรอก
-      } else if (this.username == "" && this.password == "") {
+      if (this.username == "" && this.password == "") {
         alert("กรุณาใส่ข้อมูล");
       } else {
         //ถ้า user ผิด
-        alert("username หรือ password ผิด");
+        const bodyForm = {
+          username: this.username,
+          password: this.password,
+        };
+
+        const response = await fetch("http://localhost:3000/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bodyForm),
+        });
+
+        const storeResponseJson = await response.json();
+        this.login = "used";
+
+        localStorage.setItem("ticket-user", JSON.stringify(storeResponseJson));
+        //บอกว่าให้เปลี่ยนไปหน้า main
+        return (this.pop_login = "hide"), (this.user_status = "logingin");
       }
     },
-    regis() {
+    async regis() {
       if (
         this.create_account_user == true &&
         this.create_account_user_info == true &&
@@ -703,7 +713,28 @@ export default {
         this.create_account_address == true &&
         this.create_account_postal == true
       ) {
-        return (this.login = "used");
+        const bodyForm = {
+          firstName: this.account_name,
+          lastName: this.account_sur,
+          username: this.account_user,
+          email: this.account_email,
+          password: this.account_pass,
+          gender: this.account_gender,
+          birthday: this.account_birth,
+          phoneNumber: this.account_phone,
+          address: this.account_address,
+          postcode: this.account_postal,
+        };
+
+        await fetch("http://localhost:3000/auth/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bodyForm),
+        });
+
+        this.login = "used";
       } else {
         alert("กรุณาใส่ข้อมูล");
       }
