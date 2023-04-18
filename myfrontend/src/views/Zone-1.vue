@@ -58,10 +58,10 @@
                         <option value="1">Sat 27 May 2023 19.00</option>
                         <option value="2">Sun 28 May 2023 19.00</option>
                     </select>
-                    <button id="seat-sn" class="seat-sn">ที่นั่งว่าง</button>
-                    <div id="Mypopup" class="popup">
+                    <button id="seat-sn" class="seat-sn" v-on:click="popseat = true">ที่นั่งว่าง</button>
+                    <div id="Mypopup" class="popup" v-show="popseat == true">
                         <div class="popup-zone">
-                            <span class="close">&times;</span>
+                            <span class="close" v-on:click="popseat = false">&times;</span>
                             <p>โซนที่นั่ง</p>
                             <table class="zone-other">
                                 <tr>
@@ -123,6 +123,7 @@ import poster7 from "../assets/img/poster_07.jpg";
 export default {
   data() {
     return {
+      popseat:false,
       statuslog: true,
       user: "Manee",
       email: "นกแก้ว@กินองุ่น.คอม",

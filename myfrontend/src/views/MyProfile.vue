@@ -90,7 +90,7 @@
                         <div class="once_his once_his_hall">
                           <!-- <h3>Hall :</h3> -->
                           <p>
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt" style="color:white;"></i>
                             {{ events.hall }}
                           </p>
                         </div>
