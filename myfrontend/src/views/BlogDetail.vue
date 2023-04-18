@@ -2,11 +2,11 @@
   <div class="contrainer">
     <nav>
       <div class="whatsthisnavbarhavenaa">
-        <router-link to="/">
-            <div class="circle"></div>
-          </router-link>
+        <a href="main.html">
+          <div class="circle"></div>
+        </a>
         <div class="void"></div>
-        <a href="">
+        <a href="profile.html">
           <div class="circle" v-show="user_status == 'logingin'">A</div>
         </a>
         <button
@@ -102,7 +102,7 @@
               </p>
               <br />
               <select name="gender" id="gender" v-model="account_gender">
-                <option value>โปรดเลือกเพศ</option>
+                <option value="">โปรดเลือกเพศ</option>
                 <option value="female">หญิง</option>
                 <option value="male">ชาย</option>
                 <option value="none">ไม่ระบุ</option>
@@ -159,164 +159,201 @@
         </div>
       </div>
     </nav>
-    <div class="carousel">
-      <!-- <div class="carousel" v-for="events in allevents" :key="events.id"> -->
-      <!-- <div class="carousel" v-if="events.carousel === 'true'"> -->
-      <iframe
-        class="ccc"
-        width="100%"
-        height="80%"
-        src="https://www.youtube.com/embed/6Ia6PLUZbCg?autoplay=1&mute=1"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-      <div class="framepic_carousel">
-        <img class="poster_carousel" :src="allevents[6].poster" alt="" />
+
+    <div class="event-billboard">
+      <div class="bg clear">
+        <img :src="allevents[0].poster" alt="" class="background" />
       </div>
-      <div>
-        <div class="detailc">
-          <div class="namec">
-            <h3>{{ allevents[6].name }}</h3>
+      <div class="content container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md col-img">
+            <div class="box-img">
+              <img :src="allevents[0].poster" alt="" class="poster" />
+            </div>
           </div>
-          <div class="datec">
-            <p>{{ allevents[6].date }}</p>
+          <div class="col-12 col-md">
+            <div class="box-txt">
+              <div class="row">
+                <div class="col-12">
+                  <h1 class="title">{{ allevents[0].name }}</h1>
+                </div>
+              </div>
+              <div class="row row-detail">
+                <div class="col-12 col-md">
+                  <ul class="event-detail-list">
+                    <li class="item">
+                      <i class="fa fa-calendar-o"></i>
+                      <small> วันที่แสดง</small>
+                      <p class="txt">
+                        <span>{{ allevents[0].date }}</span>
+                      </p>
+                    </li>
+                    <li class="item">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <small> สถานที่แสดง</small>
+                      <p class="txt">
+                        <span>{{ allevents[0].hall }}</span>
+                      </p>
+                    </li>
+                    <li class="item">
+                      <i class="fa fa-clock-o"></i> 
+                      <small> ประตูเปิด</small>
+                      <p class="txt">
+                        <span>-</span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-6 col-overlay">
+                  <ul class="event-detail-list">
+                    <li class="item">
+                      <i class="fa fa-calendar-o"></i>
+                      <small> วัน Pre Sale</small>
+                      <p class="txt">
+                        <span>วันอาทิตย์ที่ 2 เมษายน 2566, 10:00 น.</span>
+                      </p>
+                    </li>
+                    <li class="item">
+                      <i class="fa fa-money"></i>
+                      <small> ราคาบัตร</small>
+                      <p class="txt">
+                        <span>{{ allevents[0].price }}</span>
+                      </p>
+                    </li>
+                    <li class="item">
+                      <i class="fa fa-ticket"></i>
+                      <small> Ticket Status</small>
+                      <p class="txt">
+                        <span class="">
+                          <span class="ticket-status">{{
+                            allevents[0].status
+                          }}</span></span
+                        >
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="locationc">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <h4>{{ allevents[6].hall }}</h4>
-          </div>
-          <p>{{ allevents[6].description }}</p>
         </div>
       </div>
-      <!-- </div> -->
+    </div>
+    <div class="box_container">
+      <div class="row_2">
+        <div class="col-12 col-lg-8">
+          <article class="event-detail">
+            <section class="section" id="section-event-round">
+              <h2 class="head">รอบการแสดง</h2>
+              <div class="body">
+                <!-- EVENT ROUND -->
+                <div class="event-detail-item">
+                  <div class="box-event-list">
+                    <div class="head">
+                      <div class="row_2">
+                        <div class="col-label col-6">
+                          <small>วันที่แสดง</small>
+                        </div>
+                        <div class="col-btn col-6"><small>เวลา</small></div>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="row_2">
+                        <div class="col-label">
+                          <div class="date">วันอาทิตย์ที่ 4 มิถุนายน 2566</div>
+                        </div>
+                        <div class="col-btn" v-show="allevents[0].status === 'now'" @click="buy()">
+                          <span class="btn-item">
+                            <a
+                              class="button"
+                              style="background-color: #b40000; cursor: pointer"
+                            >
+                              <span class="item-show">19:00</span>
+                            </a>
+                          </span>
+                        </div>
+                        <div
+                          class="col-btn"
+                          v-show="
+                            allevents[0].status === 'out' || status === 'soon'
+                          "
+                        >
+                          <span class="btn-item">
+                            <a
+                              class="button"
+                              href=""
+                              style="
+                                background-color: #9e9e9e;
+                                cursor: not-allowed;
+                              "
+                            >
+                              <span class="item-show">19:00</span>
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="row_2">
+                        <div class="col-label">
+                          <div class="date">วันอาทิตย์ที่ 4 มิถุนายน 2566</div>
+                        </div>
+                        <div
+                          class="col-btn"
+                          v-show="allevents[0].status === 'now'"
+                          @click="buy()"
+                        >
+                          <span class="btn-item">
+                            <a
+                              class="button"
+                              style="background-color: #b40000; cursor: pointer"
+                            >
+                              <span class="item-show">19:00</span>
+                            </a>
+                          </span>
+                        </div>
+                        <div
+                          class="col-btn"
+                          v-show="
+                            allevents[0].status === 'out' || status === 'soon'
+                          "
+                        >
+                          <span class="btn-item">
+                            <a
+                              class="button"
+                              href=""
+                              style="
+                                background-color: #9e9e9e;
+                                cursor: not-allowed;
+                              "
+                            >
+                              <span class="item-show">19:00</span>
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- / EVENT ROUND  -->
+              </div>
+            </section>
+
+            <section class="section detail">
+              <h2 class="head">รายละเอียด</h2>
+              <div class="body">
+                <div style="text-align: center">
+                  <div>
+                    <span class="text_detail" style="font-size: 18px"
+                      ><strong>{{ allevents[0].description }}</strong></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
     </div>
 
-    <div class="cate">
-      <div>
-        <h3
-          class="allBtn"
-          v-bind:class="[page == 'all' ? 'allcancomselecting' : '']"
-          v-on:click="page = 'all'"
-        >
-          ทุกการแสดง
-        </h3>
-      </div>
-      <h3
-        class="canbuyBtn"
-        v-bind:class="[page == 'now' ? 'allcancomselecting' : '']"
-        v-on:click="page = 'now'"
-      >
-        ซื้อบัตร
-      </h3>
-      <h3
-        class="comingBtn"
-        v-bind:class="[page == 'soon' ? 'allcancomselecting' : '']"
-        v-on:click="page = 'soon'"
-      >
-        เร็วๆนี้
-      </h3>
-      <div class="filterfunc">
-        <i class="fas fa-search"></i>
-        <input type="text" class="filter" v-model="searchName" />
-      </div>
-    </div>
-
-    <hr />
-    <div class="all_concert all_e" v-show="page == 'all'">
-      <div v-for="events in newData" :key="events.id">
-        <div class="card">
-          <div class="framepic">
-            <img class="poster" :src="events.poster" />
-          </div>
-          <div class="detail">
-            <div class="name">
-              <h3>{{ events.name }}</h3>
-            </div>
-            <div class="date">
-              <p>{{ events.date }}</p>
-            </div>
-            <div class="location">
-              <i class="fas fa-map-marker-alt"></i>
-              <h4>{{ events.hall }}</h4>
-            </div>
-          </div>
-          <router-link to="/blog/detail">
-            <!-- <a href="detail.html"> -->
-            <div class="button_canbuy">
-              <h3>ซื้อบัตร</h3>
-            </div>
-            <!-- </a> -->
-          </router-link>
-        </div>
-      </div>
-    </div>
-    <div class="all_concert canbuy" v-show="page == 'now'">
-      <div v-for="events in newData" :key="events.id">
-        <div v-if="events.status === 'now'">
-          <div class="card">
-            <div class="framepic">
-              <img class="poster" :src="events.poster" />
-            </div>
-            <div class="detail">
-              <div class="name">
-                <h3>{{ events.name }}</h3>
-              </div>
-              <div class="date">
-                <p>{{ events.date }}</p>
-              </div>
-              <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <h4>{{ events.hall }}</h4>
-              </div>
-            </div>
-            <router-link to="/blog/detail">
-              <!-- <a href="detail.html"> -->
-              <div class="button_canbuy">
-                <h3>ซื้อบัตร</h3>
-              </div>
-              <!-- </a> -->
-            </router-link>
-            <!-- <a href="detail.html">
-              <div class="button_canbuy">
-                <h3>ซื้อบัตร</h3>
-              </div>
-            </a> -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="all_concert coming" v-show="page == 'soon'">
-      <div v-for="events in newData" :key="events.id">
-        <div v-if="events.status === 'soon'">
-          <div class="card">
-            <div class="framepic">
-              <img class="poster" :src="events.poster" />
-            </div>
-            <div class="detail">
-              <div class="name">
-                <h3>{{ events.name }}</h3>
-              </div>
-              <div class="date">
-                <p>{{ events.date }}</p>
-              </div>
-              <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <h4>{{ events.hall }}</h4>
-              </div>
-            </div>
-            <router-link to="/blog/detail">
-              <!-- <a href="detail.html"> -->
-              <div class="button_canbuy">
-                <h3>ซื้อบัตร</h3>
-              </div>
-              <!-- </a> -->
-            </router-link>
-          </div>
-        </div>
-      </div>
-    </div>
     <footer>
       <div class="textfooter">
         <h2>King Mongkut's Institute of Technology Ladkrabang</h2>
@@ -684,7 +721,7 @@ export default {
       if (this.user_status === "anonymous") {
         this.pop_login = "show";
       } else {
-        window.location.href = "zone-1.html";
+        this.$router.push('/blog/zone-1')
       }
     },
     genqr(pathqr) {
@@ -851,7 +888,7 @@ export default {
 </script>
 
 <style scoped src="">
-@import "../assets/css/nav_main.css";
+@import "../assets/css/detail.css";
 @import "../assets/css/nav.css";
 @import "../assets/css/style_main.css";
 </style>

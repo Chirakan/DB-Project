@@ -31,102 +31,89 @@
         <div class="contrainer">
             <nav>
                 <div class="whatsthisnavbarhavenaa">
-                  <a href="main.html">
-                    <div class="circle"></div>
-                  </a>
-                  <div class="void"></div>
-                  <a href="profile.html"><div class="circle" v-show="user_status == 'logingin'">A</div></a>
-                  <button class="btn_login" @click="pop_login = 'show'" v-show="user_status == 'anonymous'">
-                    เข้าสู่ระบบ
-                  </button>
+                    <a href="main.html">
+                        <div class="circle"></div>
+                    </a>
+                    <div class="void"></div>
+                    <a href="profile.html">
+                        <div class="circle" v-show="user_status == 'logingin'">A</div>
+                    </a>
+                    <button class="btn_login" @click="pop_login = 'show'" v-show="user_status == 'anonymous'">
+                        เข้าสู่ระบบ
+                    </button>
                 </div>
-        
+
                 <div class="pop_login" v-show="pop_login == 'show'" v-bind:class="[login == 'yet' ? 'register' : '']">
-                  <div class="btn" @click="pop_login = 'hide'">
-                    <i class="fas fa-times"></i>
-                  </div>
-        
-                  <div class="pop_login_havewhat">
-        
-                    <div v-show=" login == 'used'">
-                      <h3>เข้าสู่ระบบ</h3>
-                      <form>
-                        <input type="text" placeholder="ชื่อผู้ใช้" v-model="username" required />
-                        <p class="textp" v-show="check_account_user == false">username ต้องอยู่ระหว่าง 1 - 12 ตัวอักษร</p>
-                        <br />
-        
-                        <input type="text" placeholder="รหัสผ่าน" v-model="password" required />
-                        <p class="textp" v-show="check_account_pass == false">password ต้องมีไม่ต่ำกว่า 9 ตัวอักษร</p><br />
-                      </form>
-                      <button class="btn btn_login" v-on:click="summit()">เข้าสู่ระบบ</button>
-                      <h4 @click="login = 'yet'">สมัครสมาชิก</h4>
+                    <div class="btn" @click="pop_login = 'hide'">
+                        <i class="fas fa-times"></i>
                     </div>
-                    <div v-show=" login == 'yet'">
-                      <h3>สมัครสมาชิก</h3>
-                      <form>
-                        <input type="text" placeholder="ชื่อ" /><br />
-                        <input type="text" placeholder="นามสกุล" /><br />
-                        <select name="gender" id="gender">
-                          <option value="null">เพศ</option>
-                          <option value="volvo">Volvo</option>
-                          <option value="saab">Saab</option>
-                          <option value="mercedes">Mercedes</option>
-                          <option value="audi">Audi</option>
-                        </select> <br>
-        
-                        <select name="day" id="day">
-                          <option value="null">วัน</option>
-                          <option value="volvo">Volvo</option>
-                          <option value="saab">Saab</option>
-                          <option value="mercedes">Mercedes</option>
-                          <option value="audi">Audi</option>
-                        </select>
-                        <select name="month" id="month">
-                          <option value="null">เดือน</option>
-                          <option value="volvo">Volvo</option>
-                          <option value="saab">Saab</option>
-                          <option value="mercedes">Mercedes</option>
-                          <option value="audi">Audi</option>
-                        </select>
-                        <select name="year" id="year">
-                          <option value="null">ปี</option>
-                          <option value="volvo">Volvo</option>
-                          <option value="saab">Saab</option>
-                          <option value="mercedes">Mercedes</option>
-                          <option value="audi">Audi</option>
-                        </select> <br>
-                        <input type="text" placeholder="เบอร์โทรศัพท์" /><br />
-        
-                        <input type="textarea" placeholder="ที่อยู่" /><br />
-                        <select name="country" id="country">
-                          <option value="null">ประเทศ</option>
-                          <option value="volvo">Volvo</option>
-                          <option value="saab">Saab</option>
-                          <option value="mercedes">Mercedes</option>
-                          <option value="audi">Audi</option>
-                        </select> <br>
-                        <select name="province" id="province">
-                          <option value="null">จังหวัด</option>
-                          <option value="volvo">Volvo</option>
-                          <option value="saab">Saab</option>
-                          <option value="mercedes">Mercedes</option>
-                          <option value="audi">Audi</option>
-                        </select> <br>
-                        <select name="state" id="state">
-                          <option value="null">อำเภอ</option>
-                          <option value="volvo">Volvo</option>
-                          <option value="saab">Saab</option>
-                          <option value="mercedes">Mercedes</option>
-                          <option value="audi">Audi</option>
-                        </select> <br>
-        
-                      </form>
-                      <button class="btn btn_login" @click="login = 'used'">สมัครสมาชิก</button>
-                      <h4 @click="login = 'used'">มีบัญชีผู้ใช้อยู่แล้ว</h4>
+
+                    <div class="pop_login_havewhat">
+
+                        <div v-show=" login == 'used'">
+                            <h3>เข้าสู่ระบบ</h3>
+                            <form>
+                                <input type="text" placeholder="ชื่อผู้ใช้" v-model="username" required />
+
+                                <br />
+
+                                <input type="text" placeholder="รหัสผ่าน" v-model="password" required />
+                                <br />
+                            </form>
+                            <button class="btn btn_login" v-on:click="loginnn()">เข้าสู่ระบบ</button>
+                            <h4 @click="login = 'yet'">สมัครสมาชิก</h4>
+                        </div>
+                        <div v-show=" login == 'yet'">
+                            <h3>สมัครสมาชิก</h3>
+                            <form>
+                                <input type="text" placeholder="อีเมลล์" v-model="account_email" required />
+                                <p class="textp" v-show="create_account_email == false">โปรดระบุอีเมล</p>
+                                <p class="textp" v-show="create_account_email_info == false">อีเมลนี้เคยลงทะเบียนแล้ว
+                                </p>
+
+                                <input type="text" placeholder="ชื่อผู้ใช้" v-model="account_user" required />
+                                <p class="textp" v-show="create_account_user == false">username ต้องอยู่ระหว่าง 1 - 12
+                                    ตัวอักษร</p>
+                                <p class="textp" v-show="create_account_user_info == false">username มีคนใช้งานแล้ว</p>
+
+                                <input type="text" placeholder="รหัสผ่าน" v-model="account_pass" required />
+                                <p class="textp" v-show="create_account_pass == false">password ต้องมีไม่ต่ำกว่า 9
+                                    ตัวอักษร</p>
+                                <input type="text" placeholder="ชื่อ" v-model="account_name" />
+                                <p class="textp" v-show="create_account_name == false">โปรดระบุชื่อ</p><br />
+                                <input type="text" placeholder="นามสกุล" v-model="account_sur" />
+                                <p class="textp" v-show="create_account_sur == false">โปรดระบุนามสกุล</p><br />
+                                <select name="gender" id="gender" v-model="account_gender">
+                                    <option value="">โปรดเลือกเพศ</option>
+                                    <option value="female">หญิง</option>
+                                    <option value="male">ชาย</option>
+                                    <option value="none">ไม่ระบุ</option>
+                                </select>
+
+                                <br>
+                                <p class="textp" v-show="create_account_gender == false">โปรดระบุเพศ</p>
+
+                                <input type="date" name="birthday" id="birthday" v-model="account_birth">
+                                <p class="textp" v-show="create_account_birth== false">โปรดระบุวันเกิด</p>
+
+                                <br>
+                                <input type="text" placeholder="เบอร์โทรศัพท์" v-model="account_phone" />
+                                <p class="textp" v-show="create_account_phone== false">โปรดระบุเบอร์โทร</p>
+                                <br />
+
+                                <input type="textarea" placeholder="ที่อยู่" v-model="account_address" />
+                                <p class="textp" v-show="create_account_address == false">ที่อยู่ ต้องมีไม่ต่ำกว่า 50
+                                    ตัวอักษร</p>
+                                <br>
+                                <input type="text" placeholder="รหัสไปรษณีย์" v-model="account_postal" />
+                                <p class="textp" v-show="create_account_postal == false">โปรดระบุรหัสไปรษณีย์</p><br />
+                            </form>
+                            <button class="btn btn_login" @click="regis()">สมัครสมาชิก</button>
+                            <h4 @click="login = 'used'">มีบัญชีผู้ใช้อยู่แล้ว</h4>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </nav>
+            </nav>
 
             <div class="event-billboard">
                 <div class="bg clear">
@@ -222,7 +209,8 @@
                                                     <div class="col-label">
                                                         <div class="date">วันอาทิตย์ที่ 4 มิถุนายน 2566</div>
                                                     </div>
-                                                    <div class="col-btn" v-show="allevents[0].status === 'now'" @click="buy()">
+                                                    <div class="col-btn" v-show="allevents[0].status === 'now'"
+                                                        @click="buy()">
                                                         <span class="btn-item">
                                                             <a class="button"
                                                                 style="background-color: #b40000; cursor: pointer;">
@@ -230,7 +218,8 @@
                                                             </a>
                                                         </span>
                                                     </div>
-                                                    <div class="col-btn" v-show="allevents[0].status === 'out' || status === 'soon'">
+                                                    <div class="col-btn"
+                                                        v-show="allevents[0].status === 'out' || status === 'soon'">
                                                         <span class="btn-item">
                                                             <a class="button" href=""
                                                                 style="background-color: #9e9e9e; cursor: not-allowed;">
@@ -243,15 +232,17 @@
                                                     <div class="col-label">
                                                         <div class="date">วันอาทิตย์ที่ 4 มิถุนายน 2566</div>
                                                     </div>
-                                                    <div class="col-btn" v-show="allevents[0].status === 'now'" @click="buy()">
+                                                    <div class="col-btn" v-show="allevents[0].status === 'now'"
+                                                        @click="buy()">
                                                         <span class="btn-item">
-                                                            <a class="button" 
+                                                            <a class="button"
                                                                 style="background-color: #b40000; cursor: pointer;">
                                                                 <span class="item-show">19:00</span>
                                                             </a>
                                                         </span>
                                                     </div>
-                                                    <div class="col-btn" v-show="allevents[0].status === 'out' || status === 'soon'">
+                                                    <div class="col-btn"
+                                                        v-show="allevents[0].status === 'out' || status === 'soon'">
                                                         <span class="btn-item">
                                                             <a class="button" href=""
                                                                 style="background-color: #9e9e9e; cursor: not-allowed;">

@@ -5,7 +5,8 @@ import VueRouter from 'vue-router'
 //components Page
 import HomePage from '../views/HomePage.vue'
 // import CreateBlog from '../views/blogs/CreateBlog.vue'
-// import BlogDetail from '../views/blogs/BlogDetail.vue'
+import BlogDetail from '../views/BlogDetail.vue'
+import BlogZone_1 from '../views/Zone-1.vue'
 
 Vue.use(VueRouter)
 
@@ -15,11 +16,16 @@ const routes = [
     name: 'Home',
     component: HomePage
   },
-//   {
-//     path: '/blog/create',
-//     name: 'Create new blog',
-//     component: CreateBlog
-//   },
+  {
+    path: '/blog/detail',
+    name: 'BlogDetail',
+    component: BlogDetail
+  },
+  {
+    path: '/blog/zone-1',
+    name: 'BlogDetail',
+    component: BlogZone_1
+  },
 //   {
 //     path: '/blog/:id',
 //     name: 'BlogDetail',
