@@ -1,0 +1,149 @@
+.btn{
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+.whatsthisnavbarhavenaa{
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-image: linear-gradient(180deg, #f86161 0%, #970202 100%);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 28px;
+    font-family: "Kanit", sans-serif;
+    color: white;
+    font-weight: 300;
+}
+
+.btn_login{
+    height: 40px;
+    border-radius: 20px;
+    width: 150px;
+    font-size: large;
+    font-family: "Kanit", sans-serif;
+    background-color: hsl(0, 59%, 41%);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.btn_login:hover{
+    background-color: hsl(0, 61%, 27%);
+}
+
+
+.void{
+    flex: 1;
+}
+
+.pop_login{
+    position: fixed;
+    width: 25vw;
+    background-color: brown;
+    left: calc(50% - 12.5vw);
+    top:calc(50% - 9vw);
+    border-radius: 20px;
+}
+.pop_login_havewhat{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.fa-times{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    z-index: 100;
+}
+form{
+    margin-top: 30px;   
+    margin-bottom: 20px;  
+}
+
+form input{
+    margin-top: 5px;
+    width: 60%;
+    height: 1.8vw;
+    border-radius: 20px;
+    padding-left: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+
+.pop_login_havewhat h3{
+    color: white;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.pop_login_havewhat h4{
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.pop_login_havewhat h4:hover{
+    text-decoration: underline;
+}
+
+select{
+    margin-top: 5px;
+    width: 63%;
+    height: 1.8vw;
+    border-radius: 20px;
+    padding-left: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+#day,#month,#year{
+    margin-top: 5px;
+    width: 20.5%;
+    height: 1.8vw;
+    border-radius: 20px;
+    padding-left: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+.register{
+    margin-top: -13vw;
+    background-color: brown;
+}
+
+.pop_login_havewhat .btn_login{
+    height: 40px;
+    border-radius: 20px;
+    width: 150px;
+    font-size: large;
+    font-family: "Kanit", sans-serif;
+    background-color: hsl(0, 2%, 16%);
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 70%;
+}
+.pop_login_havewhat .btn_login:hover{
+    background-color: hsl(0, 0%, 13%);
+}
+
+a{
+    text-decoration: none;
+}

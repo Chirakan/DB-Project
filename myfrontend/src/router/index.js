@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 
 //components Page
-import main from '../views/main.vue'
+import HomePage from '../views/HomePage.vue'
 // import CreateBlog from '../views/blogs/CreateBlog.vue'
 // import BlogDetail from '../views/blogs/BlogDetail.vue'
 
@@ -13,9 +13,8 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: main
-  }
-//   ,
+    component: HomePage
+  },
 //   {
 //     path: '/blog/create',
 //     name: 'Create new blog',

@@ -1,0 +1,31 @@
+nav {
+    position: sticky;
+    z-index: 2;
+    top: 0%;
+    background-color: #242424;
+    width: 100%;
+    height: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer {
+    max-width: 100%;
+    text-align: center;
+    background-color: brown;
+    line-height: 40px;
+    color: white;
+    font-size: 15px;
+}
+
+.textfooter {
+    padding: 10px;
+    text-align: center;
+}
+
+.textfooter h4 {
+    color: white;
+}
