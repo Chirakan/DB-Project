@@ -104,9 +104,9 @@ form input{
     text-decoration: underline;
 }
 
-select{
+#gender{
     margin-top: 5px;
-    width: 63%;
+    width: 18vw;
     height: 1.8vw;
     border-radius: 20px;
     padding-left: 10px;
@@ -125,7 +125,7 @@ select{
 }
 
 .register{
-    margin-top: -13vw;
+    margin-top: -7vw;
     background-color: brown;
 }
 

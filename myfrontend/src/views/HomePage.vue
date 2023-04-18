@@ -1,5 +1,5 @@
 <template>
-  <div class="contrainer">
+  <div class="style_main_contrainer">
     <nav>
       <div class="whatsthisnavbarhavenaa">
         <router-link to="/">
@@ -23,8 +23,8 @@
         v-show="pop_login == 'show'"
         v-bind:class="[login == 'yet' ? 'register' : '']"
       >
-        <div class="btn" @click="pop_login = 'hide'">
-          <i class="fas fa-times"></i>
+        <div  @click="pop_login = 'hide'">
+          <i class="fas fa-times" style="cursor:pointer; color:white;"></i>
         </div>
 
         <div class="pop_login_havewhat">
@@ -48,7 +48,7 @@
               />
               <br />
             </form>
-            <button class="btn btn_login" v-on:click="loginnn()">
+            <button class="btn_login" v-on:click="loginnn()">
               เข้าสู่ระบบ
             </button>
             <h4 @click="login = 'yet'">สมัครสมาชิก</h4>
@@ -153,7 +153,7 @@
               </p>
               <br />
             </form>
-            <button class="btn btn_login" @click="regis()">สมัครสมาชิก</button>
+            <button class="btn_login" @click="regis()">สมัครสมาชิก</button>
             <h4 @click="login = 'used'">มีบัญชีผู้ใช้อยู่แล้ว</h4>
           </div>
         </div>
@@ -226,7 +226,7 @@
     <hr />
     <div class="all_concert all_e" v-show="page == 'all'">
       <div v-for="events in newData" :key="events.id">
-        <div class="card">
+        <div class="style_main_card">
           <div class="framepic">
             <img class="poster" :src="events.poster" />
           </div>
@@ -255,7 +255,7 @@
     <div class="all_concert canbuy" v-show="page == 'now'">
       <div v-for="events in newData" :key="events.id">
         <div v-if="events.status === 'now'">
-          <div class="card">
+          <div class="style_main_card">
             <div class="framepic">
               <img class="poster" :src="events.poster" />
             </div>
@@ -290,7 +290,7 @@
     <div class="all_concert coming" v-show="page == 'soon'">
       <div v-for="events in newData" :key="events.id">
         <div v-if="events.status === 'soon'">
-          <div class="card">
+          <div class="style_main_card">
             <div class="framepic">
               <img class="poster" :src="events.poster" />
             </div>

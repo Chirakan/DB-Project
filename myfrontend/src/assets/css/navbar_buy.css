@@ -56,7 +56,6 @@ span {
     width: 30vw;
     background-color: rgb(58, 58, 58);
     left: calc(50% - 15vw);
-    top:50%;
 }
 
 form{

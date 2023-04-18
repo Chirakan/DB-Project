@@ -7,7 +7,7 @@ body {
   margin: 0;
 }
 
-.contrainer {
+.style_main_contrainer {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -61,6 +61,7 @@ p {
   margin: auto;
   margin-top: calc(100% - 10vw);
   width: 100%;
+  height: 80%;
   border-radius: 10px;
 }
 
@@ -81,7 +82,7 @@ p {
   transition: 0.2s;
 }
 
-.card {
+.style_main_card {
   position: relative;
   width: 100%;
   height: 26vw;
@@ -110,6 +111,7 @@ p {
 }
 
 .detail {
+  display: block;
   position: relative;
   width: 90%;
   height: 25%;
@@ -121,10 +123,11 @@ p {
 .name {
   height: 50%;
   overflow: hidden;
-  color: #2e0c6d;
+  color: #0f0f0f;
 }
 .date {
   height: 15%;
+  color: #0f0f0f;
 }
 
 .location {
@@ -280,6 +283,9 @@ hr {
     margin-top: -5px;
     border: none;
     padding-left: 10px;
+    background-color: #ffffff;
+    margin-left: 10px;
+    color: #0f0f0f;
 }
 
 .filterfunc{
@@ -292,4 +298,14 @@ hr {
 
 a {
   text-decoration: none;
+}
+
+.date p {
+  font-weight: 400;
+  font-size: small;
+}
+
+.location h4 {
+  font-weight: 500;
+  font-size: small;
 }
