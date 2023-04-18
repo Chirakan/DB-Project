@@ -251,7 +251,7 @@
       </div>
     </div>
     <div class="all_concert canbuy" v-show="page == 'now'">
-      <div v-for="events in newData" :key="events.id">
+      <div v-for="events in newData" :key="events.id" >
         <div v-if="events.status === 'now'">
           <div class="card">
             <div class="framepic">
@@ -317,7 +317,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 import profile from "../assets/img/profile.png";
 import poster1 from "../assets/img/poster_01.jpg";
@@ -631,24 +631,206 @@ export default {
     //   });
   },
   methods: {
-    // likeBlog(blog) {
-    //   axios.post(`http://localhost:3000/blogs/addlike/${blog.id}`)
-    //     .then((response) => {
-    //       console.log(response);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // }
-    async likeBlog2(blog) {
-      try {
-        const response = await axios.post(
-          `http://localhost:3000/blogs/addlike/${blog.id}`
-        );
-        console.log(response.data.blogs);
-        this.blogs = response.data.blogs;
-      } catch (error) {
-        console.log(error);
+    loginnn() {
+      //เช็คว่า user กับ pass ที่กรอกมาตรงกับข้อมูลที่ตรงไหม
+      if (
+        this.username == this.info[0].user &&
+        this.password == this.info[0].pass
+      ) {
+        console.log(this.username);
+        //บอกว่าให้เปลี่ยนไปหน้า main
+        return (this.pop_login = "hide"), (this.user_status = "logingin");
+        //ถ้าไม่กรอก
+      } else if (this.username == "" && this.password == "") {
+        alert("กรุณาใส่ข้อมูล");
+      } else {
+        //ถ้า user ผิด
+        alert("username หรือ password ผิด");
+      }
+    },
+    regis() {
+      if (
+        this.create_account_user == true &&
+        this.create_account_user_info == true &&
+        this.create_account_pass == true &&
+        this.create_account_email == true &&
+        this.create_account_email_info == true &&
+        this.create_account_name == true &&
+        this.create_account_sur == true &&
+        this.create_account_gender == true &&
+        this.create_account_phone == true &&
+        this.create_account_birth == true &&
+        this.create_account_address == true &&
+        this.create_account_postal == true
+      ){
+        return (this.login = 'used')
+      } else {
+        alert("กรุณาใส่ข้อมูล");
+      }
+    },
+
+    buy() {
+      if (this.user_status === "anonymous") {
+        this.pop_login = "show";
+      } else {
+        window.location.href = "zone-1.html";
+      }
+    },
+    genqr(pathqr){
+      return this.qrcode = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+pathqr
+    }
+  },
+  watch: {
+    searchName(newvalue) {
+      this.newData = this.allevents.filter((value) => {
+        return value.name.toLowerCase().includes(newvalue.toLowerCase());
+      });
+    },
+    account_user(newvalue) {
+      //เช็คว่าพิมพ์ user เกิน 12 ตัว ไหม ถ้าเกิน status ขึ้น false
+      if (newvalue.length > 12) {
+        return (this.create_account_user = false);
+      } else {
+        this.account_user = newvalue;
+        if (this.account_user.length < 1) {
+          return (this.create_account_user = false);
+        } else {
+          this.create_account_user = true
+          if (this.account_user == this.info[0].user) {
+            return (this.create_account_user_info = false);
+          } else {
+            return (this.create_account_user_info = true);
+          }
+        }
+      }
+    },
+    account_pass(newvalue) {
+      //เช็คว่าพิมพ์ pass ถึง 9 ตัว ไหม ถ้าไม่ status ขึ้น false
+      if (newvalue.length < 9) {
+        return (this.create_account_pass = false);
+      } else{
+        this.account_pass = newvalue;
+        if (this.account_pass.length < 1) {
+          return (this.create_account_pass = false);
+        } else {
+          return (this.create_account_pass = true);
+        }
+      }
+    },
+
+    account_email(newvalue) {
+      //เช็คว่าพิมพ์ email ไหม
+      if (newvalue.length < 1) {
+        return (this.create_account_email = false);
+      } else {
+        this.account_email = newvalue;
+        if (this.account_email.length < 1) {
+          return (this.create_account_email = false);
+        } else {
+          this.create_account_email = true
+          if (this.account_email == this.info[0].email) {
+            return (this.create_account_email_info = false);
+          } else {
+            return (this.create_account_email_info = true);
+          }
+        }
+      }
+    },
+
+    account_name(newvalue) {
+      //เช็คว่าพิมพ์ name ไหม
+      if (newvalue.length < 1) {
+        return (this.create_account_name = false);
+      } else {
+        this.account_name = newvalue;
+        if (this.account_name.length < 1) {
+          return (this.create_account_name = false);
+        } else {
+          return (this.create_account_name = true);
+        }
+      }
+    },
+
+    account_sur(newvalue) {
+      //เช็คว่าพิมพ์ surname ไหม
+      if (newvalue.length < 1) {
+        return (this.create_account_sur = false);
+      } else {
+        this.account_sur = newvalue;
+        if (this.account_sur.length < 1) {
+          return (this.create_account_sur = false);
+        } else {
+          return (this.create_account_sur = true);
+        }
+      }
+    },
+
+    account_gender(newvalue) {
+      //เช็คว่าselect gender ไหม
+      if (newvalue == '') {
+        return (this.create_account_gender = false);
+      } else {
+        this.account_gender = newvalue;
+        if (this.account_gender == '') {
+          return (this.create_account_gender = false);
+        } else {
+          return (this.create_account_gender = true);
+        }
+      }
+    },
+
+    account_birth(newvalue) {
+      //เช็คว่าselect birth ไหม
+      if (newvalue == '') {
+        return (this.create_account_birth = false);
+      } else {
+        this.account_birth = newvalue;
+        if (this.account_birth == '') {
+          return (this.create_account_birth = false);
+        } else {
+          return (this.create_account_birth = true);
+        }
+      }
+    },
+    account_phone(newvalue) {
+      //เช็คว่าพิมพ์ phone ไหม
+      if (newvalue.length < 10) {
+        return (this.create_account_phone = false);
+      } else {
+        this.account_phone = newvalue;
+        if (this.account_phone.length > 10) {
+          return (this.create_account_phone = false);
+        } else {
+          return (this.create_account_phone = true);
+        }
+      }
+    },
+
+    account_address(newvalue) {
+      //เช็คว่าพิมพ์ address ไหม
+      if (newvalue.length < 50) {
+        return (this.create_account_address = false);
+      } else {
+        this.account_address = newvalue;
+        if (this.account_address.length < 1) {
+          return (this.create_account_address = false);
+        } else {
+          return (this.create_account_address = true);
+        }
+      }
+    },
+
+    account_postal(newvalue) {
+      //เช็คว่าพิมพ์ postal ไหม
+      if (newvalue.length < 5) {
+        return (this.create_account_postal = false);
+      } else {
+        this.account_postal = newvalue;
+        if (this.account_postal.length > 5) {
+          return (this.create_account_postal = false);
+        } else {
+          return (this.create_account_postal = true);
+        }
       }
     },
   },
