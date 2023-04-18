@@ -13,7 +13,7 @@
 
 body {
     display: block;
-    background-color: #ECEEF3;
+    /* background-color: #ECEEF3; */
     width: 100%;
 }
 
@@ -42,7 +42,7 @@ body {
     box-shadow: 0px 5px 15px rgba(12, 65, 255, 0.1);
 }
 
-div {
+div #card {
     text-align: center;
     font-family: 'Kanit', sans-serif;
 }

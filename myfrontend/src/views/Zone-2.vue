@@ -6,7 +6,7 @@
                 <div class="menu">
                     <a href="main.html" class="nav-color"> หน้าแรก</a>
                     <span>&nbsp;&nbsp;&nbsp;&gt;</span>
-                    <a href="zone-1.html" class="nav-color"> &nbsp; เลือกรอบการแสดง</a>
+                    <a href="zone-2.html" class="nav-color"> &nbsp; เลือกรอบการแสดง</a>
                     <span>&nbsp;&nbsp;&nbsp;&gt;</span>
                     <a style="color: #eee; cursor: context-menu;"> &nbsp; การสั่งซื้อ </a>
                 </div>
@@ -14,38 +14,57 @@
                 <a href="profile.html"><div class="circle" >A</div></a>
             </div>
         </nav>
-        <div id="contrainer">
+        <div id="container">
             <div id="zone-box">
                 <div class="stage">STAGE</div>
-                <div id="zone-stand">
-                    <a href="seat.html">
-                        <div class="K1">K1 [standing]</div>
-                    </a>
-                    <a href="seat.html">
-                        <div class="K2">K2 [standing]</div>
-                    </a>
-                </div>
-                <div id="zone-seat-all">
-                    <a href="seat.html">
-                        <div id="zone-seat" class="zone-A">
-                            <div class="A"></div>
-                            <div class="A">ZONE A</div>
-                            <div class="A"></div>
+                <div id="all">
+                    <div id="zone-a">
+                        <a href="seat.html">
+                            <div class="level-4"></div>
+                        </a>
+                        <div class="level-3">
+                            <a href="seat.html">
+                                <div class="level-3-1"></div>
+                            </a>
+                            <a href="seat.html">
+                                <div class="level-3-2">S2 [seat]</div>
+                            </a>
                         </div>
+                        <div class="center">
+                            <div id="zone-stand">
+                                <div class="K">
+                                    <a href="seat.html">
+                                        <div class="K1">K1 [standing]</div>
+                                    </a>
+                                    <a href="seat.html">
+                                        <div class="K2">K2 [standing]</div>
+                                    </a>
+                                </div>
+                                <a href="seat.html">
+                                    <div class="P"> P [standing]</div>
+                                </a>
+                            </div>
+                            <a href="seat.html">
+                                <div class="level-3-center">S1 [seat]</div>
+                            </a>
+                        </div>
+                        <div class="level-3">
+                            <a href="seat.html">
+                                <div class="level-3-1"></div>
+                            </a>
+                            <a href="seat.html">
+                                <div class="level-3-2">S2 [seat]</div>
+                            </a>
+                        </div>
+                        <a href="seat.html">
+                            <div class="level-4"></div>
+                        </a>
+                    </div>
+                    <a href="seat.html">
+                        <div id="zone-b" class="level-4-center">O [seat]</div>
                     </a>
                     <a href="seat.html">
-                        <div id="zone-seat" class="zone-B">
-                            <div class="B"></div>
-                            <div class="B">ZONE B</div>
-                            <div class="B"></div>
-                        </div>
-                    </a>
-                    <a href="seat.html">
-                        <div id="zone-seat" class="zone-C">
-                            <div class="C"></div>
-                            <div class="C">ZONE C</div>
-                            <div class="C"></div>
-                        </div>
+                        <div id="zone-c" class="level-4-out"></div>
                     </a>
                 </div>
             </div>
@@ -94,17 +113,20 @@
                     </div>
                 </div>
                 <div id="price">
-                    <div class="stand"></div>
+                    <div class="stand-1"></div>
                     <div class="price-stand">6,000 THB</div>
+                    <div class="stand-2"></div>
+                    <div class="price-stand">5,000 THB</div>
                     <div class="seat-A"></div>
-                    <div class="price-A">4,500 THB</div>
+                    <div class="price-A">5,500 THB</div>
                     <div class="seat-B"></div>
-                    <div class="price-B">2,500 THB</div>
+                    <div class="price-B">5,000 THB</div>
                     <div class="seat-C"></div>
-                    <div class="price-C">1,500 THB</div>
+                    <div class="price-C">2,400 THB</div>
+                    <div class="seat-D"></div>
+                    <div class="price-D">1,500 THB</div>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
@@ -633,7 +655,7 @@ export default {
 </script>
 
 <style scoped src="">
-/* @import "../assets/css/zone-1.css";
+/* @import "../assets/css/zone-2.css";
 @import "../assets/css/nav.css";
 @import "../assets/css/navbar_buy.css"; */
 </style>

@@ -1,112 +1,162 @@
 <template>
   <div id="allEventComponent">
-        <nav>
-            <div class="whatsthisnavbarhavenaa">
-                <a href="main.html"><div class="circle"></div></a>
-                <div class="menu">
-                    <a href="main.html" class="nav-color"> หน้าแรก</a>
-                    <span>&nbsp;&nbsp;&nbsp;&gt;</span>
-                    <a href="zone-1.html" class="nav-color"> &nbsp; เลือกรอบการแสดง</a>
-                    <span>&nbsp;&nbsp;&nbsp;&gt;</span>
-                    <a style="color: #eee; cursor: context-menu;"> &nbsp; การสั่งซื้อ </a>
-                </div>
-                <div class="void"></div>
-                <a href="profile.html"><div class="circle" >A</div></a>
-            </div>
-        </nav>
-        <div id="contrainer">
-            <div id="zone-box">
-                <div class="stage">STAGE</div>
-                <div id="zone-stand">
-                    <a href="seat.html">
-                        <div class="K1">K1 [standing]</div>
-                    </a>
-                    <a href="seat.html">
-                        <div class="K2">K2 [standing]</div>
-                    </a>
-                </div>
-                <div id="zone-seat-all">
-                    <a href="seat.html">
-                        <div id="zone-seat" class="zone-A">
-                            <div class="A"></div>
-                            <div class="A">ZONE A</div>
-                            <div class="A"></div>
-                        </div>
-                    </a>
-                    <a href="seat.html">
-                        <div id="zone-seat" class="zone-B">
-                            <div class="B"></div>
-                            <div class="B">ZONE B</div>
-                            <div class="B"></div>
-                        </div>
-                    </a>
-                    <a href="seat.html">
-                        <div id="zone-seat" class="zone-C">
-                            <div class="C"></div>
-                            <div class="C">ZONE C</div>
-                            <div class="C"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div id="rate">
-                <h3>{{allevents[0].name}}</h3>
-                <div class="line"></div>
-                <div class="date-seat">
-                    <select id="date">
-                        <option value="0">เลือกรอบการแสดง</option>
-                        <option value="1">Sat 27 May 2023 19.00</option>
-                        <option value="2">Sun 28 May 2023 19.00</option>
-                    </select>
-                    <button id="seat-sn" class="seat-sn">ที่นั่งว่าง</button>
-                    <div id="Mypopup" class="popup">
-                        <div class="popup-zone">
-                            <span class="close">&times;</span>
-                            <p>โซนที่นั่ง</p>
-                            <table class="zone-other">
-                                <tr>
-                                    <th>โซนที่นั่ง</th>
-                                    <th>ที่นั่งว่าง</th>
-                                </tr>
-                                <tr>
-                                    <td>K1</td>
-                                    <td>{{seat_empty}}</td>
-                                </tr>
-                                <tr>
-                                    <td>K2</td>
-                                    <td>{{seat_empty}}</td>
-                                </tr>
-                                <tr>
-                                    <td>ZONE A</td>
-                                    <td>{{seat_empty}}</td>
-                                </tr>
-                                <tr>
-                                    <td>ZONE B</td>
-                                    <td>{{seat_empty}}</td>
-                                </tr>
-                                <tr>
-                                    <td>ZONE C</td>
-                                    <td>{{seat_empty}}</td>
-                                </tr>
-                            </table>
-                            <button class="btn-change" onclick="refreshmodal()">โหลดใหม่</button>
-                        </div>
-                    </div>
-                </div>
-                <div id="price">
-                    <div class="stand"></div>
-                    <div class="price-stand">6,000 THB</div>
-                    <div class="seat-A"></div>
-                    <div class="price-A">4,500 THB</div>
-                    <div class="seat-B"></div>
-                    <div class="price-B">2,500 THB</div>
-                    <div class="seat-C"></div>
-                    <div class="price-C">1,500 THB</div>
-                </div>
-            </div>
-
+    <nav>
+      <div class="whatsthisnavbarhavenaa">
+        <a href="main.html">
+          <div class="circle"></div>
+        </a>
+        <div class="void"></div>
+        <a href="profile.html">
+          <div class="circle">A</div>
+        </a>
+      </div>
+    </nav>
+    <div id="profile">
+      <div class="content_1">
+        <div class="profile_pic">
+          <img class="profile_img" :src="dis" />
         </div>
+        <div class="user_name">
+          <h3>{{ user }}</h3>
+        </div>
+        <div class="user_namesurname">
+          <h3>Surinyo Padpan</h3>
+        </div>
+
+        <div class="user_email">
+          <h3>{{ email }}</h3>
+        </div>
+        <div class="user_phone">
+          <h3>{{ phone }}</h3>
+        </div>
+        <button
+          class="btn_edited"
+          v-show="sta_edit == 'edited'"
+          v-on:click="sta_edit = 'editing'"
+        >
+          แก้ไขโปรไฟล์
+        </button>
+        <button class="btn_editing" v-show="sta_edit == 'editing'">
+          แก้ไขโปรไฟล์
+        </button>
+        <input
+          type="text"
+          placeholder="ชื่อผู้ใช้"
+          v-show="sta_edit == 'editing'"
+          :value="user"
+        />
+        <input
+          type="text"
+          placeholder="ชื่อ"
+          v-show="sta_edit == 'editing'"
+          :value="user"
+        />
+        <input
+          type="text"
+          placeholder="นามาสกุล"
+          v-show="sta_edit == 'editing'"
+          :value="user"
+        />
+        <input
+          type="text"
+          placeholder="เบอร์โทรศัพท์"
+          v-show="sta_edit == 'editing'"
+          :value="phone"
+        />
+        <button
+          class="btn_editfin"
+          v-show="sta_edit == 'editing'"
+          v-on:click="sta_edit = 'edited'"
+        >
+          เสร็จสิ้น
+        </button>
+      </div>
+      <div class="content_2">
+        <h3>YourMeet</h3>
+        <div class="content_2_his">
+          <div class="all_his">
+            <div v-for="history in historys" :key="history.id">
+              <div v-for="events in allevents" :key="events.id">
+                <div v-if="events.id === history.id">
+                  <div class="history">
+                    <img class="once_his_poster" :src="events.poster" />
+                    <div class="history_detail">
+                      <div class="namehall">
+                        <div class="once_his event_name">
+                          <!-- <h3>Event :</h3> -->
+                          <h3>{{ events.name }}</h3>
+                        </div>
+
+                        <div class="once_his once_his_hall">
+                          <!-- <h3>Hall :</h3> -->
+                          <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            {{ events.hall }}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="once_his once_his_date_hall">
+                        <h3>Date/Time :</h3>
+                        <p>{{ events.date }}</p>
+                      </div>
+                      <div class="zoneseat">
+                        <div class="once_his once_his_zone">
+                          <h3>Zone :</h3>
+                          <p>A</p>
+                        </div>
+                        <div class="once_his once_his_seat">
+                          <h3>Seat(s) :</h3>
+                          <p>15</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="once_his event_total">
+                    <h3>Total :</h3>
+                    <p>{{events.price}}</p>
+                  </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <div class="all_addrs">
+          <h3>ที่อยู่</h3>
+          <div class="once_addr" v-show="add_edit == 'edited'">
+            <h5>{{ address }}</h5>
+          </div>
+          <input
+            type="textarea"
+            class="once_addr"
+            :value="user"
+            v-show="add_edit == 'editing'"
+          />
+
+          <button
+            class="btn_addrs"
+            v-show="add_edit == 'edited'"
+            @click="add_edit = 'editing'"
+          >
+            แก้ไขที่อยู่
+          </button>
+          <button class="btn_addrs_editing" v-show="add_edit == 'editing'">
+            แก้ไขที่อยู่
+          </button>
+          <button
+            class="btn_addrs"
+            v-show="add_edit == 'editing'"
+            @click="add_edit = 'edited'"
+            style="background-color: rgb(47, 170, 67); color: white"
+          >
+            เสร็จสิ้น
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -633,7 +683,7 @@ export default {
 </script>
 
 <style scoped src="">
-/* @import "../assets/css/zone-1.css";
+/* @import "../assets/css/style_profile.css";
 @import "../assets/css/nav.css";
-@import "../assets/css/navbar_buy.css"; */
+@import "../assets/css/nav_main.css"; */
 </style>

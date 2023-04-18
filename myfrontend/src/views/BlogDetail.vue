@@ -353,14 +353,6 @@
         </div>
       </div>
     </div>
-
-    <footer>
-      <div class="textfooter">
-        <h2>King Mongkut's Institute of Technology Ladkrabang</h2>
-        <h3>School of Infomation Technology</h3>
-        <h4>DATABASE SYSTEM CONCEPT</h4>
-      </div>
-    </footer>
   </div>
 </template>
 
@@ -889,7 +881,7 @@ export default {
 </script>
 
 <style scoped src="">
-@import "../assets/css/detail.css";
+/* @import "../assets/css/detail.css";
 @import "../assets/css/nav.css";
-@import "../assets/css/style_main.css";
+@import "../assets/css/style_main.css"; */
 </style>

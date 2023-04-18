@@ -2,7 +2,9 @@
   <div id="allEventComponent">
         <nav>
             <div class="whatsthisnavbarhavenaa">
-                <a href="main.html"><div class="circle"></div></a>
+                <a href="main.html">
+                    <div class="circle"></div>
+                </a>
                 <div class="menu">
                     <a href="main.html" class="nav-color"> หน้าแรก</a>
                     <span>&nbsp;&nbsp;&nbsp;&gt;</span>
@@ -11,100 +13,57 @@
                     <a style="color: #eee; cursor: context-menu;"> &nbsp; การสั่งซื้อ </a>
                 </div>
                 <div class="void"></div>
-                <a href="profile.html"><div class="circle" >A</div></a>
+                <a href="profile.html">
+                    <div class="circle">A</div>
+                </a>
             </div>
         </nav>
-        <div id="contrainer">
-            <div id="zone-box">
-                <div class="stage">STAGE</div>
-                <div id="zone-stand">
-                    <a href="seat.html">
-                        <div class="K1">K1 [standing]</div>
-                    </a>
-                    <a href="seat.html">
-                        <div class="K2">K2 [standing]</div>
-                    </a>
-                </div>
-                <div id="zone-seat-all">
-                    <a href="seat.html">
-                        <div id="zone-seat" class="zone-A">
-                            <div class="A"></div>
-                            <div class="A">ZONE A</div>
-                            <div class="A"></div>
-                        </div>
-                    </a>
-                    <a href="seat.html">
-                        <div id="zone-seat" class="zone-B">
-                            <div class="B"></div>
-                            <div class="B">ZONE B</div>
-                            <div class="B"></div>
-                        </div>
-                    </a>
-                    <a href="seat.html">
-                        <div id="zone-seat" class="zone-C">
-                            <div class="C"></div>
-                            <div class="C">ZONE C</div>
-                            <div class="C"></div>
-                        </div>
-                    </a>
-                </div>
+        <div id="container">
+            <div id="choose-box">
+                <h3>กรุณาเลือกวิธีการชำระเงิน</h3>
+                <form class="choose-pay">
+                    <input type="radio" id="pay-credit" name="pay" value="credit/debit card">
+                    <label for="credit/debit card">บัตรเครดิต/เดบิต</label><br>
+                    <input type="radio" id="pay-money" name="pay" value="money">
+                    <label for="money">ชำระเงินสด และเอทีเอ็ม</label><br>
+                    <input type="radio" id="pay-wallet" name="pay" value="truemoney wallet">
+                    <label for="truemoney wallet">ชำระเงินมือถือ [Pay Plus, TrueMoney Wallet]</label><br>
+                    <input type="radio" id="pay-debit" name="pay" value="direct debit">
+                    <label for="direct debit">หักเงินผ่านบัญชี</label>
+                </form>
+                <div class="line-pay"></div>
+                <p>
+                    ทางบริษัทฯ จะคืนเงินให้กับลูกค้าตามจำนวนที่ชำระ ยกเว้น ค่าบริการใบละ 30 บาท ค่าธรรมเนียมที่ชำระผ่าน
+                    Bill payment, ค่าธรรมเนียมในการโอนเงินผ่านธนาคาร, ค่าบริการจัดส่ง และ/หรือ ค่าใช้จ่ายอื่นๆ
+                    ที่นอกเหนือจากค่าบัตร เป็นต้น
+                </p>
+                <p>
+                    หากท่านได้ชำระค่าสินค้า หรือค่าบริการแก่ทางบริษัทฯเรียบร้อยแล้ว โดยบริษัทฯได้ทำการสำรองที่นั่ง
+                    หรือสินค้าให้แก่ท่าน ในกรณีที่ท่านมิได้รับบัตรเข้าชมการแสดง หรือมิได้รับสินค้าภายในเวลาที่กำหนด
+                    บริษัทฯขอสงวนสิทธิ์ในการคืนเงินให้แก่ท่าน ไม่ว่ากรณีใดก็ตาม
+                    กรุณาอ่านข้อตกลงการยอมรับในการใช้บริการผ่าน Thaiticketmajor
+                </p>
             </div>
             <div id="rate">
                 <h3>{{allevents[0].name}}</h3>
                 <div class="line"></div>
-                <div class="date-seat">
-                    <select id="date">
-                        <option value="0">เลือกรอบการแสดง</option>
-                        <option value="1">Sat 27 May 2023 19.00</option>
-                        <option value="2">Sun 28 May 2023 19.00</option>
-                    </select>
-                    <button id="seat-sn" class="seat-sn">ที่นั่งว่าง</button>
-                    <div id="Mypopup" class="popup">
-                        <div class="popup-zone">
-                            <span class="close">&times;</span>
-                            <p>โซนที่นั่ง</p>
-                            <table class="zone-other">
-                                <tr>
-                                    <th>โซนที่นั่ง</th>
-                                    <th>ที่นั่งว่าง</th>
-                                </tr>
-                                <tr>
-                                    <td>K1</td>
-                                    <td>{{seat_empty}}</td>
-                                </tr>
-                                <tr>
-                                    <td>K2</td>
-                                    <td>{{seat_empty}}</td>
-                                </tr>
-                                <tr>
-                                    <td>ZONE A</td>
-                                    <td>{{seat_empty}}</td>
-                                </tr>
-                                <tr>
-                                    <td>ZONE B</td>
-                                    <td>{{seat_empty}}</td>
-                                </tr>
-                                <tr>
-                                    <td>ZONE C</td>
-                                    <td>{{seat_empty}}</td>
-                                </tr>
-                            </table>
-                            <button class="btn-change" onclick="refreshmodal()">โหลดใหม่</button>
-                        </div>
-                    </div>
+                <div class="detail">
+                    <div>รอบการแสดง</div>
+                    <div class="detail-info">{{allevents[0].date}}</div>
+                    <div>โซนที่นั่ง</div>
+                    <div class="detail-info">{{zone}}</div>
+                    <div>สถานะ</div>
+                    <div class="detail-info">{{status}}</div>
+                    <div>ราคาบัตร</div>
+                    <div class="detail-info">{{allevents[0].price}}</div>
+                    <div>จำนวนที่นั่ง</div>
+                    <div class="detail-info">-</div>
                 </div>
-                <div id="price">
-                    <div class="stand"></div>
-                    <div class="price-stand">6,000 THB</div>
-                    <div class="seat-A"></div>
-                    <div class="price-A">4,500 THB</div>
-                    <div class="seat-B"></div>
-                    <div class="price-B">2,500 THB</div>
-                    <div class="seat-C"></div>
-                    <div class="price-C">1,500 THB</div>
+                <div class="btn">
+                    <a href="complete-buy.html "><button class="confirm">ยืนยันการซื้อบัตร</button></a>
+                    <a href="zone-1.html"><button class="other-zone">โซนอื่น ๆ</button></a>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
@@ -633,7 +592,7 @@ export default {
 </script>
 
 <style scoped src="">
-/* @import "../assets/css/zone-1.css";
+/* @import "../assets/css/pay.css";
 @import "../assets/css/nav.css";
 @import "../assets/css/navbar_buy.css"; */
 </style>

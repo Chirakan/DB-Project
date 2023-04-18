@@ -58,6 +58,8 @@
 }
 .pop_login_havewhat{
     position: relative;
+    background-color: brown;
+    border-radius: 20px;
     width: 100%;
     text-align: center;
     padding-top: 50px;
