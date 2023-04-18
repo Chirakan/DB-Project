@@ -8,12 +8,12 @@ font-family: 'Kanit', sans-serif; */
   font-family: "Kanit", sans-serif;
 }
 
-body {
+/* body {
   width: 100%; 
   background-color: hsl(240, 7%, 11%);
-}
+} */
 
-.contrainer {
+.contrainer_detail {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -78,7 +78,7 @@ body {
   color: #eee;
 }
 
-h1, p {
+h1 .title, p .txt {
   margin: 5px 0;
 }
 
@@ -86,7 +86,7 @@ h1, p {
   font-size: 40px;
 }
 
-ul {
+ul{
   display: block;
   list-style: none;
   margin-block-start: 10px;
@@ -94,7 +94,7 @@ ul {
   padding-inline-start: 20px;
 }
 
-li {
+li{
   margin-bottom: 20px;
 }
 
@@ -184,22 +184,19 @@ span .ticket-status{
   align-items: center;
 }
 
-.button{
+.button_detail{
   display: inline-block;
   font-family: "Poppins","Prompt",sans-serif;
 }
 
-.button {
+.button_detail {
   /* background: #b40000; */
   font-size: 16px;
   color: #fff;
   padding: 8px 24px;
   border-radius: 50px;
 }
+
 .text_detail{
   color: #eee;
-}
-
-a {
-  text-decoration: none;
 }

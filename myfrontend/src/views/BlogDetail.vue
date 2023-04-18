@@ -182,21 +182,21 @@
                 <div class="col-12 col-md">
                   <ul class="event-detail-list">
                     <li class="item">
-                      <i class="fa fa-calendar-o"></i>
+                      <i class="fa fa-calendar-o" style="color: #fff;"></i>
                       <small> วันที่แสดง</small>
                       <p class="txt">
                         <span>{{ allevents[0].date }}</span>
                       </p>
                     </li>
                     <li class="item">
-                      <i class="fas fa-map-marker-alt"></i>
+                      <i class="fas fa-map-marker-alt" style="color: #fff;"></i>
                       <small> สถานที่แสดง</small>
                       <p class="txt">
                         <span>{{ allevents[0].hall }}</span>
                       </p>
                     </li>
                     <li class="item">
-                      <i class="fa fa-clock-o"></i> 
+                      <i class="fa fa-clock-o" style="color: #fff;"></i> 
                       <small> ประตูเปิด</small>
                       <p class="txt">
                         <span>-</span>
@@ -207,21 +207,21 @@
                 <div class="col-12 col-md-6 col-overlay">
                   <ul class="event-detail-list">
                     <li class="item">
-                      <i class="fa fa-calendar-o"></i>
+                      <i class="fa fa-calendar-o" style="color: #fff;"></i>
                       <small> วัน Pre Sale</small>
                       <p class="txt">
                         <span>วันอาทิตย์ที่ 2 เมษายน 2566, 10:00 น.</span>
                       </p>
                     </li>
                     <li class="item">
-                      <i class="fa fa-money"></i>
+                      <i class="fa fa-money" style="color: #fff;"></i>
                       <small> ราคาบัตร</small>
                       <p class="txt">
                         <span>{{ allevents[0].price }}</span>
                       </p>
                     </li>
                     <li class="item">
-                      <i class="fa fa-ticket"></i>
+                      <i class="fa fa-ticket" style="color: #fff;"></i>
                       <small> Ticket Status</small>
                       <p class="txt">
                         <span class="">
@@ -265,7 +265,7 @@
                         <div class="col-btn" v-show="allevents[0].status === 'now'" @click="buy()">
                           <span class="btn-item">
                             <a
-                              class="button"
+                              class="button_detail"
                               style="background-color: #b40000; cursor: pointer"
                             >
                               <span class="item-show">19:00</span>
@@ -280,7 +280,7 @@
                         >
                           <span class="btn-item">
                             <a
-                              class="button"
+                              class="button_detail"
                               href=""
                               style="
                                 background-color: #9e9e9e;
@@ -303,7 +303,7 @@
                         >
                           <span class="btn-item">
                             <a
-                              class="button"
+                              class="button_detail"
                               style="background-color: #b40000; cursor: pointer"
                             >
                               <span class="item-show">19:00</span>

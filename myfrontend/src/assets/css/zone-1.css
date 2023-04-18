@@ -10,15 +10,16 @@ body {
   display: grid;
 }
 
-#contrainer {
+#contrainer_zone1 {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: center;
   align-items: center;
   height: 100%;
+  margin-top: 10vw;
 }
 
-#zone-box {
+#zone-box1 {
   background-color: #000000;
   width: 700px;
   height: 400px;
@@ -31,7 +32,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-.A {
+.A_zone1 {
   width: 700px;
   height: 400px;
   display: grid;
@@ -43,14 +44,15 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-#rate {
+#rate_Zone1 {
   background-color: rgb(255, 255, 255);
   width: 300px;
   height: 500px;
   border-radius: 10px;
+  color: #000;
 }
 
-#zone-seat {
+#zone-seat1 {
   display: grid;
   grid-template-columns: auto auto auto;
   justify-content: center;
@@ -58,7 +60,7 @@ body {
   grid-gap: 15px;
 }
 
-#zone-stand {
+#zone-stand1 {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 30px;
@@ -66,8 +68,8 @@ body {
   align-items: center;
 }
 
-#zone-seat div,
-#zone-stand div {
+#zone-seat1 div,
+#zone-stand1 div {
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -78,54 +80,54 @@ body {
  
 }
 
-.zone-B,
-.zone-C {
+.zone-B1,
+.zone-C1 {
   margin-top: 15px;
 }
 
-.K1,
-.K2 {
+.K1_Zone1,
+.K2_Zone1 {
   background-color: #C6B3A8;
   width: 280px;
   height: 40px;
 }
 
-.A {
+.A_zone1 {
   background-color: #9A7263;
   width: 200px;
   height: 50px;
 
 }
 
-.B {
+.B_zone1 {
   background-color: #743835;
   width: 200px;
   height: 80px;
 }
 
-.C {
+.C_zone1 {
   background-color: #6D2121;
   width: 200px;
   height: 100px;
 }
 
-.K1,
-.K2,
-.zone-A,
-.zone-B,
-.zone-C {
+.K1_Zone1,
+.K2_Zone1,
+.zone-A1,
+.zone-B1,
+.zone-C1{
   transition: 0.3s;
 }
 
-.zone-C:hover,
-.zone-B:hover,
-.zone-A:hover,
-.K1:hover,
-.K2:hover {
+.zone-C1:hover,
+.zone-B1:hover,
+.zone-A1:hover,
+.K1_Zone1:hover,
+.K2_Zone1:hover {
   transform: scale(1.1);
 }
 
-.stage {
+.stage_zone1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,10 +135,11 @@ body {
   width: 630px;
   height: 50px;
   border-radius: 10px;
+  color: #000;
 }
 
 
-#price {
+#price_Zone1 {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 20px;
@@ -144,9 +147,10 @@ body {
   align-items: center;
   font-family: 'Inter', sans-serif;
   margin-left: -110px;
+  color: #000;
 }
 
-#rate h3 {
+#rate_Zone1 h3 {
   margin: 30px 0px 10px 30px;
   font-size: 16px;
   font-family: 'Inter', sans-serif;
@@ -183,10 +187,6 @@ body {
   height: 2px;
   margin: 0px 0px 20px 30px;
   background-color: #000;
-}
-
-a {
-  text-decoration: none;
 }
 
 .date-seat {

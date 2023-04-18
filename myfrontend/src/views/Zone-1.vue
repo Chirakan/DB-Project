@@ -14,42 +14,42 @@
                 <a href="profile.html"><div class="circle" >A</div></a>
             </div>
         </nav>
-        <div id="contrainer">
-            <div id="zone-box">
-                <div class="stage">STAGE</div>
-                <div id="zone-stand">
+        <div id="contrainer_zone1">
+            <div id="zone-box1">
+                <div class="stage_zone1">STAGE</div>
+                <div id="zone-stand1">
                     <a href="seat.html">
-                        <div class="K1">K1 [standing]</div>
+                        <div class="K1_Zone1">K1 [standing]</div>
                     </a>
                     <a href="seat.html">
-                        <div class="K2">K2 [standing]</div>
+                        <div class="K2_Zone1">K2 [standing]</div>
                     </a>
                 </div>
-                <div id="zone-seat-all">
+                <div id="zone-seat-all_zone1">
                     <a href="seat.html">
-                        <div id="zone-seat" class="zone-A">
-                            <div class="A"></div>
-                            <div class="A">ZONE A</div>
-                            <div class="A"></div>
+                        <div id="zone-seat1" class="zone-A1">
+                            <div class="A_zone1"></div>
+                            <div class="A_zone1">ZONE A</div>
+                            <div class="A_zone1"></div>
                         </div>
                     </a>
                     <a href="seat.html">
-                        <div id="zone-seat" class="zone-B">
-                            <div class="B"></div>
-                            <div class="B">ZONE B</div>
-                            <div class="B"></div>
+                        <div id="zone-seat1" class="zone-B1">
+                            <div class="B_zone1"></div>
+                            <div class="B_zone1">ZONE B</div>
+                            <div class="B_zone1"></div>
                         </div>
                     </a>
                     <a href="seat.html">
-                        <div id="zone-seat" class="zone-C">
-                            <div class="C"></div>
-                            <div class="C">ZONE C</div>
-                            <div class="C"></div>
+                        <div id="zone-seat1" class="zone-C1">
+                            <div class="C_zone1"></div>
+                            <div class="C_zone1">ZONE C</div>
+                            <div class="C_zone1"></div>
                         </div>
                     </a>
                 </div>
             </div>
-            <div id="rate">
+            <div id="rate_Zone1">
                 <h3>{{allevents[0].name}}</h3>
                 <div class="line"></div>
                 <div class="date-seat">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="price">
+                <div id="price_Zone1">
                     <div class="stand"></div>
                     <div class="price-stand">6,000 THB</div>
                     <div class="seat-A"></div>
