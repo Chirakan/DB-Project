@@ -635,21 +635,31 @@ export default {
     //   });
   },
   methods: {
-    loginnn() {
+    async loginnn() {
       //เช็คว่า user กับ pass ที่กรอกมาตรงกับข้อมูลที่ตรงไหม
-      if (
-        this.username == this.info[0].user &&
-        this.password == this.info[0].pass
-      ) {
-        console.log(this.username);
-        //บอกว่าให้เปลี่ยนไปหน้า main
-        return (this.pop_login = "hide"), (this.user_status = "logingin");
-        //ถ้าไม่กรอก
-      } else if (this.username == "" && this.password == "") {
+      if (this.username == "" && this.password == "") {
         alert("กรุณาใส่ข้อมูล");
       } else {
         //ถ้า user ผิด
-        alert("username หรือ password ผิด");
+        const bodyForm = {
+          username: this.username,
+          password: this.password,
+        };
+
+        const response = await fetch("http://localhost:3000/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bodyForm),
+        });
+
+        const storeResponseJson = await response.json();
+        this.login = "used";
+
+        localStorage.setItem("ticket-user", JSON.stringify(storeResponseJson));
+        //บอกว่าให้เปลี่ยนไปหน้า main
+        return (this.pop_login = "hide"), (this.user_status = "logingin");
       }
     },
     async regis() {
@@ -680,7 +690,7 @@ export default {
           postcode: this.account_postal,
         };
 
-        const response = await fetch("http://localhost:3000/auth/register", {
+        await fetch("http://localhost:3000/auth/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -688,10 +698,7 @@ export default {
           body: JSON.stringify(bodyForm),
         });
 
-        const storeResponseJson = await response.json();
         this.login = "used";
-
-        localStorage.setItem("ticket-user", JSON.stringify(storeResponseJson));
       } else {
         alert("กรุณาใส่ข้อมูล");
       }

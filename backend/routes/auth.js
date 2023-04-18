@@ -17,7 +17,7 @@ router.get("/user/:id", function (req, res) {
   const { id } = req.params;
 
   db.query(
-    `SELECT * FROM Users
+    `SELECT * FROM users
     WHERE
       user_id = ?`,
     [id],
@@ -78,6 +78,23 @@ router.post("/register", function (req, res) {
           res.json(results[0]);
         }
       );
+    }
+  );
+});
+
+router.post("/login", function (req, res) {
+  const { username, password } = req.body;
+
+  db.query(
+    `SELECT * FROM users
+    WHERE
+      username = ? AND password = ?`,
+    [username, password],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      res.json(results[0]);
     }
   );
 });
