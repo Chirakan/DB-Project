@@ -313,7 +313,7 @@ select {
 }
 
 .popup {
-  display: none;
+
   position: fixed;
   padding-top: 100px;
   left: 0;
