@@ -719,7 +719,8 @@ export default {
 
     buy() {
       if (this.user_status === "anonymous") {
-        this.pop_login = "show";
+        // this.pop_login = "show";
+        this.$router.push('/blog/zone-1')
       } else {
         this.$router.push('/blog/zone-1')
       }

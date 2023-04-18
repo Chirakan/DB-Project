@@ -8,6 +8,8 @@ var allEventComponent = new Vue({
     dis: "../img/profile.png",
     openmenu: false,
 
+    pop_seat: 'hide',
+
     seat_empty: 20,
     zone: "A",
     status: "AVAILABLE",
@@ -337,6 +339,9 @@ var allEventComponent = new Vue({
     },
     genqr(pathqr){
       return qrcode = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+pathqr
+    },
+    refreshmodal() {
+      location.reload();
     }
   },
   watch: {

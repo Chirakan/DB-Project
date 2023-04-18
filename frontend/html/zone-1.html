@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/zone-1.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/navbar_buy.css">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -23,7 +23,9 @@
     <div id="allEventComponent">
         <nav>
             <div class="whatsthisnavbarhavenaa">
-                <a href="main.html"><div class="circle"></div></a>
+                <a href="main.html">
+                    <div class="circle"></div>
+                </a>
                 <div class="menu">
                     <a href="main.html" class="nav-color"> หน้าแรก</a>
                     <span>&nbsp;&nbsp;&nbsp;&gt;</span>
@@ -32,7 +34,9 @@
                     <a style="color: #eee; cursor: context-menu;"> &nbsp; การสั่งซื้อ </a>
                 </div>
                 <div class="void"></div>
-                <a href="profile.html"><div class="circle" >A</div></a>
+                <a href="profile.html">
+                    <div class="circle">A</div>
+                </a>
             </div>
         </nav>
         <div id="contrainer">
@@ -79,10 +83,10 @@
                         <option value="1">Sat 27 May 2023 19.00</option>
                         <option value="2">Sun 28 May 2023 19.00</option>
                     </select>
-                    <button id="seat-sn" class="seat-sn">ที่นั่งว่าง</button>
-                    <div id="Mypopup" class="popup">
+                    <button id="seat-sn" class="seat-sn" @click="pop_seat = 'show'">ที่นั่งว่าง</button>
+                    <div id="Mypopup" class="popup" v-show="pop_seat == 'show'">
                         <div class="popup-zone">
-                            <span class="close">&times;</span>
+                            <span class="close" @click="pop_seat = 'hide'">&times;</span>
                             <p>โซนที่นั่ง</p>
                             <table class="zone-other">
                                 <tr>
@@ -110,7 +114,7 @@
                                     <td>{{seat_empty}}</td>
                                 </tr>
                             </table>
-                            <button class="btn-change" onclick="refreshmodal()">โหลดใหม่</button>
+                            <button class="btn-change" @click="refreshmodal()">โหลดใหม่</button>
                         </div>
                     </div>
                 </div>
@@ -139,40 +143,40 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="./main.js"></script>
 <script>
-    // Get the modal
-    var modal = document.getElementById("Mypopup");
+     // Get the modal
+    //  var modal = document.getElementById("Mypopup");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("seat-sn");
+// Get the button that opens the modal
+// var btn = document.getElementById("seat-sn");
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+// Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-        Mypopup.style.display = "block";
-        document.body.style.overflow = 'hidden';
+// When the user clicks the button, open the modal 
+// btn.onclick = function () {
+//     Mypopup.style.display = "block";
+//     document.body.style.overflow = 'hidden';
 
-    }
+// }
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        Mypopup.style.display = "none";
-        document.body.style.overflow = 'auto';
-    }
+// When the user clicks on <span> (x), close the modal
+// span.onclick = function () {
+//     Mypopup.style.display = "none";
+//     document.body.style.overflow = 'auto';
+// }
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            Mypopup.style.display = "none";
+// When the user clicks anywhere outside of the modal, close it
+// window.onclick = function (event) {
+//     if (event.target == modal) {
+//         Mypopup.style.display = "none";
 
-        }
-    }
+//     }
+// }
 
-    //refresh page (not only popup)
-    function refreshmodal() {
-        location.reload();
-    }
+//refresh page (not only popup)
+// function refreshmodal() {
+//     location.reload();
+// }
 
 </script>
 
