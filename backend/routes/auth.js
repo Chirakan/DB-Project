@@ -25,7 +25,6 @@ router.get("/user/:id", function (req, res) {
       if (error) {
         throw error;
       }
-      console.log(results);
       res.json(results[0]);
     }
   );
@@ -33,59 +32,42 @@ router.get("/user/:id", function (req, res) {
 
 router.post("/register", function (req, res) {
   const {
-    username, 
-      firstName, 
-      lastName, 
-      gender, 
-      birthday, 
-      phonenumber, 
-      email, 
-      password, 
-      address, 
-      postcode,
+    username,
+    firstName,
+    lastName,
+    gender,
+    birthday,
+    phoneNumber,
+    email,
+    password,
+    address,
+    postcode,
   } = req.body;
 
   const hashedPassword = bcrypt.hashSync(password, 10);
 
-  // const { address, country, province } = req.body.address;
-
-  const createUser = `INSERT INTO Users (username, firstName, lastName, gender, birthday, phonenumber, email, password, address, postcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  const createUser = `INSERT INTO users (username, first_name, last_name, gender, birthday, phonenumber, email, password, address, postcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
   db.query(
     createUser,
     [
-      username, 
-      firstName, 
-      lastName, 
-      gender, 
-      birthday, 
-      phonenumber, 
-      email, 
-      password, 
-      address, 
-      postcode
+      username,
+      firstName,
+      lastName,
+      gender,
+      birthday,
+      phoneNumber,
+      email,
+      password,
+      address,
+      postcode,
     ],
-    // (error, results) => {
-    //   if (error) {
-    //     console.log(error);
-    //   }
-    //   // const createAddress = `INSERT INTO Address (address, country, province, user_id) VALUES (?, ?, ?, ?)`;
-
-    //   const userId = results.insertId;
-
-    //   db.query(
-    //     createAddress,
-    //     [address, country, province, results.insertId],
-    //     (error, results) => {
-    //       if (error) {
-    //         console.log(error);
-    //       } else {
-    //         console.log("insert ", results);
-    //         res.send(`Created user ${firstName} with id ${userId}`);
-    //       }
-    //     }
-    //   );
-    // }
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      res.json(results[0]);
+    }
   );
 });
 
