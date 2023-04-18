@@ -66,7 +66,18 @@ router.post("/register", function (req, res) {
       if (error) {
         throw error;
       }
-      res.json(results[0]);
+      db.query(
+        `SELECT * FROM users
+    WHERE
+      user_id = ?`,
+        [results.insertId],
+        (error, results) => {
+          if (error) {
+            throw error;
+          }
+          res.json(results[0]);
+        }
+      );
     }
   );
 });

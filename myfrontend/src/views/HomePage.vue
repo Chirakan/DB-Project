@@ -652,7 +652,7 @@ export default {
         alert("username หรือ password ผิด");
       }
     },
-    regis() {
+    async regis() {
       if (
         this.create_account_user == true &&
         this.create_account_user_info == true &&
@@ -680,18 +680,18 @@ export default {
           postcode: this.account_postal,
         };
 
-        fetch("http://localhost:3000/auth/register", {
+        const response = await fetch("http://localhost:3000/auth/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(bodyForm),
-        }).then((response) => {
-          this.login = "used";
-
-          localStorage.setItem("ticket-user", response);
-          return response.json();
         });
+
+        const storeResponseJson = await response.json();
+        this.login = "used";
+
+        localStorage.setItem("ticket-user", JSON.stringify(storeResponseJson));
       } else {
         alert("กรุณาใส่ข้อมูล");
       }
