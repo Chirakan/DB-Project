@@ -2,13 +2,13 @@
   <div class="contrainer">
     <nav>
       <div class="whatsthisnavbarhavenaa">
-        <a href="main.html">
+        <router-link to="/">
           <div class="circle"></div>
-        </a>
+        </router-link>
         <div class="void"></div>
-        <a href="profile.html">
+        <router-link to="/blog/myprofile">
           <div class="circle" v-show="user_status == 'logingin'">A</div>
-        </a>
+        </router-link>
         <button
           class="btn_login"
           @click="pop_login = 'show'"
@@ -23,8 +23,8 @@
         v-show="pop_login == 'show'"
         v-bind:class="[login == 'yet' ? 'register' : '']"
       >
-        <div class="btn" @click="pop_login = 'hide'">
-          <i class="fas fa-times"></i>
+        <div @click="pop_login = 'hide'">
+          <i class="fas fa-times" style="cursor: pointer; color: white"></i>
         </div>
 
         <div class="pop_login_havewhat">
@@ -48,7 +48,7 @@
               />
               <br />
             </form>
-            <button class="btn btn_login" v-on:click="loginnn()">
+            <button class="btn_login" v-on:click="loginnn()">
               เข้าสู่ระบบ
             </button>
             <h4 @click="login = 'yet'">สมัครสมาชิก</h4>
@@ -102,7 +102,7 @@
               </p>
               <br />
               <select name="gender" id="gender" v-model="account_gender">
-                <option value="">โปรดเลือกเพศ</option>
+                <option value>โปรดเลือกเพศ</option>
                 <option value="female">หญิง</option>
                 <option value="male">ชาย</option>
                 <option value="none">ไม่ระบุ</option>
@@ -153,7 +153,7 @@
               </p>
               <br />
             </form>
-            <button class="btn btn_login" @click="regis()">สมัครสมาชิก</button>
+            <button class="btn_login" @click="regis()">สมัครสมาชิก</button>
             <h4 @click="login = 'used'">มีบัญชีผู้ใช้อยู่แล้ว</h4>
           </div>
         </div>
@@ -742,8 +742,8 @@ export default {
 
     buy() {
       if (this.user_status === "anonymous") {
-        // this.pop_login = "show";
-        this.$router.push('/blog/zone-1')
+        this.pop_login = "show";
+        // this.$router.push('/blog/zone-1')
       } else {
         this.$router.push('/blog/zone-1')
       }
