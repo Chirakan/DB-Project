@@ -70,7 +70,6 @@ export default {
       phone: "012345678",
       dis: profile,
       openmenu: false,
-
       seat_empty: 20,
       zone: "A",
       status: "AVAILABLE",
