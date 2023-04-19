@@ -60,6 +60,11 @@ label{
     border-radius: 10px;
 }
 
+.detail-item{
+    display: flex;
+    justify-content: space-between;
+}
+
 #rate h3{
     margin: 30px 0px 10px 30px;
     font-size: 16px;
@@ -86,6 +91,7 @@ label{
     display: grid;
     height: 200px;
     grid-template-columns: auto auto;
+    color: #000;
 }
 .detail-info{
     text-align: right;
@@ -93,7 +99,7 @@ label{
 }
 .btn{
     display: grid;
-    margin-top: 50px;
+    margin-top: 150px;
     height: 50px;
     justify-content: center;
     row-gap: 15px;
@@ -117,4 +123,15 @@ label{
     background: none;
     border: none;
     color: #B1B1B1;
+    text-align: center;
+}
+
+/* form input{
+    width: 10%;
+    height: 15px;
+} */
+
+#choose-box p {
+    color: #000;
+    font-size: 10px;
 }
