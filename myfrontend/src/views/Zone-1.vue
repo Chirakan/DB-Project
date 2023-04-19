@@ -18,35 +18,44 @@
             <div id="zone-box1">
                 <div class="stage_zone1">STAGE</div>
                 <div id="zone-stand1">
-                    <a href="seat.html">
+                    <!-- <a href="seat.html"> -->
+                    <router-link to="/blog/seat">
                         <div class="K1_Zone1">K1 [standing]</div>
-                    </a>
-                    <a href="seat.html">
+                    </router-link>
+                    <!-- </a> -->
+                    <router-link to="/blog/seat">
                         <div class="K2_Zone1">K2 [standing]</div>
-                    </a>
+                    <!-- </a> -->
+                    </router-link>
                 </div>
                 <div id="zone-seat-all_zone1">
-                    <a href="seat.html">
+                    <!-- <a href="seat.html"> -->
+                      <router-link to="/blog/seat">
                         <div id="zone-seat1" class="zone-A1">
                             <div class="A_zone1"></div>
                             <div class="A_zone1">ZONE A</div>
                             <div class="A_zone1"></div>
                         </div>
-                    </a>
-                    <a href="seat.html">
+                      </router-link>
+                    <!-- </a> -->
+                    <router-link to="/blog/seat">
+                    <!-- <a href="seat.html"> -->
                         <div id="zone-seat1" class="zone-B1">
                             <div class="B_zone1"></div>
                             <div class="B_zone1">ZONE B</div>
                             <div class="B_zone1"></div>
                         </div>
-                    </a>
-                    <a href="seat.html">
+                      </router-link>
+                    <!-- </a> -->
+                    <router-link to="/blog/seat">
+                    <!-- <a href="seat.html"> -->
                         <div id="zone-seat1" class="zone-C1">
                             <div class="C_zone1"></div>
                             <div class="C_zone1">ZONE C</div>
                             <div class="C_zone1"></div>
                         </div>
-                    </a>
+                    </router-link>
+                    <!-- </a> -->
                 </div>
             </div>
             <div id="rate_Zone1">
