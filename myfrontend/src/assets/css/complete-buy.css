@@ -24,9 +24,9 @@ body {
     height: 100%;
 }
 
-#complete {
-    width: 200;
-    height: 200;
+#complete_buy {
+    width: 200px;
+    height: 200px;
     margin: 0 auto;
     margin-top: 90px;
     border-radius: 50%;
@@ -50,10 +50,12 @@ div #card {
 .text1 {
     font-size: 30px;
     margin-top: 25px;
+    color: black;
 }
 
 .text2 {
     font-size: 16px;
+    color: black;
 }
 
 .text3 {

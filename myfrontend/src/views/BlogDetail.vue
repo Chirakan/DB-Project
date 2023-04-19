@@ -260,7 +260,7 @@
                     <div class="body">
                       <div class="row_2">
                         <div class="col-label">
-                          <div class="date">วันอาทิตย์ที่ 4 มิถุนายน 2566</div>
+                          <div class="date" style="color: #fff">วันอาทิตย์ที่ 4 มิถุนายน 2566</div>
                         </div>
                         <div class="col-btn" v-show="allevents[0].status === 'now'" @click="buy()">
                           <span class="btn-item">
@@ -294,7 +294,7 @@
                       </div>
                       <div class="row_2">
                         <div class="col-label">
-                          <div class="date">วันอาทิตย์ที่ 4 มิถุนายน 2566</div>
+                          <div class="date" style="color: #fff">วันอาทิตย์ที่ 4 มิถุนายน 2566</div>
                         </div>
                         <div
                           class="col-btn"

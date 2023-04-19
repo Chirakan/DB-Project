@@ -23,7 +23,7 @@
     </nav>
     <div id="container">
       <div id="card">
-        <div id="complete">
+        <div id="complete_buy">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="120px"
