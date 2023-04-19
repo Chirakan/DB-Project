@@ -474,7 +474,7 @@ export default {
     //   });
   },
   methods: {
-    loginnn() {
+    async loginnn() {
       //เช็คว่า user กับ pass ที่กรอกมาตรงกับข้อมูลที่ตรงไหม
       if (this.username == "" && this.password == "") {
         alert("กรุณาใส่ข้อมูล");
