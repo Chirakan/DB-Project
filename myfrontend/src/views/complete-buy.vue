@@ -13,9 +13,12 @@
           <a style="color: #eee; cursor: context-menu"> &nbsp; การสั่งซื้อ </a>
         </div>
         <div class="void"></div>
-        <a href="profile.html">
+        <router-link to="/blog/myprofile">
           <div class="circle">A</div>
-        </a>
+        </router-link>
+        <!-- <a href="profile.html">
+          <div class="circle">A</div>
+        </a> -->
       </div>
     </nav>
     <div id="container">
@@ -34,7 +37,8 @@
         </div>
         <div class="text1">การสั่งซื้อสำเร็จ</div>
         <div class="text2">รหัสสั่งซื้อ : {{ code_seat }}</div>
-        <a href="main.html"><button class="text3">กลับหน้าหลัก</button></a>
+        <!-- <a href="main.html"><button class="text3">กลับหน้าหลัก</button></a> -->
+      <router-link to="/"><button class="text3">กลับหน้าหลัก</button></router-link>
       </div>
     </div>
   </div>
