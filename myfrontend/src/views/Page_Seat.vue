@@ -21,7 +21,7 @@
         <div id="container">
              <div id="seat-box" >
               <div v-for='n in 10' :key='n' >
-                <div class='checkbox__inner' @click='seat = n'/>
+                <div class='checkbox__inner' @click='seat = seat+1'/>
               </div>
             </div>
             <div id="rate">
