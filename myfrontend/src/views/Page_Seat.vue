@@ -20,8 +20,8 @@
         </nav>
         <div id="container">
              <div id="seat-box" >
-              <div v-for='n in 10' :key='n' >
-                <div class='checkbox__inner' @click='seat = seat+1'/>
+              <div v-for='n in 64' :key='n' >
+                <div class='checkbox__inner' @click='seat = n'/>
               </div>
             </div>
             <div id="rate">
@@ -36,7 +36,7 @@
                     <div class="detail-info">{{status}}</div>
                     <div>ราคาบัตร</div>   
                     <div class="detail-info">{{allevents[0].price}}</div>
-                    <div>จำนวนที่นั่ง</div>   
+                    <div>เลขที่นั่ง</div>   
                     <!-- <div class="detail-info">{{seat}}</div>
                     <div>เลขที่นั่ง</div>     -->
                     <div class="detail-info">{{seat}}</div>
