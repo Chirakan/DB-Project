@@ -19,8 +19,7 @@
             </div>
         </nav>
         <div id="container">
-            <div id="seat-box">
-            </div>
+            <div id="seat-box"></div>
             <div id="rate">
                 <h3>{{allevents[0].name}}</h3>
                 <div class="line"></div>
@@ -39,10 +38,8 @@
                     <div class="detail-info">{{num_seat}}</div>
                 </div>
                 <div class="btn">
-                    <!-- <a href="complete-buy.html "><button class="confirm">ยืนยันการซื้อบัตร</button></a> -->
-                    <router-link to="/blog/complete_buy"><button class="confirm">ยืนยันการซื้อบัตร</button></router-link>
-                    <!-- <a href="zone-1.html"><button class="other-zone">โซนอื่น ๆ</button></a> -->
-                    <router-link to="/blog/zone-1"><button class="other-zone">โซนอื่น ๆ</button></router-link>
+                    <a href="complete-buy.html "><button class="confirm">ยืนยันการซื้อบัตร</button></a>
+                    <a href="zone-1.html"><button class="other-zone">โซนอื่น ๆ</button></a>
                 </div>
             </div>
         </div>
