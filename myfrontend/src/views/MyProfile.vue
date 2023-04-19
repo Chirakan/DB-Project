@@ -78,6 +78,7 @@
             <div v-for="history in historys" :key="history.id">
               <div v-for="events in allevents" :key="events.id">
                 <div v-if="events.id === history.id">
+                <router-link to="/blog/ticket">
                   <div class="history">
                     <img class="once_his_poster" :src="events.poster" />
                     <div class="history_detail">
@@ -116,6 +117,7 @@
                     <p>{{events.price}}</p>
                   </div> -->
                   </div>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -438,26 +440,10 @@ export default {
       ],
       historys: [
         {
-          id: "02",
-        },
-        {
-          id: "05",
-        },
-
-        {
           id: "03",
         },
         {
           id: "01",
-        },
-        {
-          id: "03",
-        },
-        {
-          id: "04",
-        },
-        {
-          id: "05",
         },
       ],
     };

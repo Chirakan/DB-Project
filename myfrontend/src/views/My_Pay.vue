@@ -2,23 +2,23 @@
   <div id="allEventComponent">
         <nav>
             <div class="whatsthisnavbarhavenaa">
-                <a href="main.html">
-                    <div class="circle"></div>
-                </a>
+                <!-- <a href="main.html"><div class="circle"></div></a> -->
+                <router-link to="/"><div class="circle"></div></router-link>
                 <div class="menu">
-                    <a href="main.html" class="nav-color"> หน้าแรก</a>
+                    <!-- <a href="main.html" class="nav-color"> หน้าแรก</a> -->
+                    <router-link to="/"> หน้าแรก</router-link>
                     <span>&nbsp;&nbsp;&nbsp;&gt;</span>
-                    <a href="zone-1.html" class="nav-color"> &nbsp; เลือกรอบการแสดง</a>
+                    <!-- <a href="zone-1.html" class="nav-color"> &nbsp; เลือกรอบการแสดง</a> -->
+                    <router-link to="/blog/zone-1"> เลือกรอบการแสดง</router-link>
                     <span>&nbsp;&nbsp;&nbsp;&gt;</span>
                     <a style="color: #eee; cursor: context-menu;"> &nbsp; การสั่งซื้อ </a>
                 </div>
                 <div class="void"></div>
-                <a href="profile.html">
-                    <div class="circle">A</div>
-                </a>
+                <!-- <a href="profile.html"><div class="circle" >A</div></a> -->
+                <router-link to="/blog/myprofile"> <div class="circle" >A</div></router-link>
             </div>
         </nav>
-        <div id="container">
+        <div id="container_pay">
             <div id="choose-box">
                 <h3>กรุณาเลือกวิธีการชำระเงิน</h3>
                 <form class="choose-pay">

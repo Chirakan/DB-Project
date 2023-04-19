@@ -22,7 +22,8 @@ body{
 }
 
 .qr{
-    width: 80%;
+    max-width: 65%;
+    max-height: 65%;
     margin-top: 50px;
 
 }
