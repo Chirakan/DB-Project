@@ -19,11 +19,19 @@
             </div>
         </nav>
         <div id="container">
+<<<<<<< HEAD
             <div id="seat-box"></div>
+=======
+             <div id="seat-box" >
+              <div v-for='n in 10' :key='n' >
+                <div class='checkbox__inner' @click='seat = n'/>
+              </div>
+            </div>
+>>>>>>> a14c10ec801de64849d11dc5e8ed1a0dca65b9c3
             <div id="rate">
                 <h3>{{allevents[0].name}}</h3>
                 <div class="line"></div>
-                <div class="detail">
+                <div class="detail_seat">
                     <div>รอบการแสดง</div>
                     <div class="detail-info">{{allevents[0].date}}</div>
                     <div>โซนที่นั่ง</div>     
@@ -33,9 +41,9 @@
                     <div>ราคาบัตร</div>   
                     <div class="detail-info">{{allevents[0].price}}</div>
                     <div>จำนวนที่นั่ง</div>   
+                    <!-- <div class="detail-info">{{seat}}</div>
+                    <div>เลขที่นั่ง</div>     -->
                     <div class="detail-info">{{seat}}</div>
-                    <div>เลขที่นั่ง</div>    
-                    <div class="detail-info">{{num_seat}}</div>
                 </div>
                 <div class="btn">
                     <a href="complete-buy.html "><button class="confirm">ยืนยันการซื้อบัตร</button></a>
