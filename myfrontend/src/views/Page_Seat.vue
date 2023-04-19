@@ -19,15 +19,11 @@
             </div>
         </nav>
         <div id="container">
-<<<<<<< HEAD
-            <div id="seat-box"></div>
-=======
              <div id="seat-box" >
               <div v-for='n in 10' :key='n' >
                 <div class='checkbox__inner' @click='seat = n'/>
               </div>
             </div>
->>>>>>> a14c10ec801de64849d11dc5e8ed1a0dca65b9c3
             <div id="rate">
                 <h3>{{allevents[0].name}}</h3>
                 <div class="line"></div>
